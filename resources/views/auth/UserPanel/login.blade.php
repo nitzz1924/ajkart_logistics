@@ -1,7 +1,7 @@
 {{-----------------------------------------------------🙏अंतः अस्ति प्रारंभः🙏-----------------------------}}
 @extends('auth.UserPanel.Layouts.main')
 @push('title')
-    <title>Login | DBA Consultancy</title>
+    <title>Sign In | {{ config('app.name') }}</title>
 @endpush
 @section('main-section')
 <div class="auth-page-content overflow-hidden pt-lg-5">
@@ -43,7 +43,7 @@
                                 <div class="mt-4">
                                     <form action="#" method="POST" id="loginformid">
                                         <div>
-                                            <h2 class="text-center fw-bold" style="color: #fa7823">Welcome Back !</h2>
+                                            <h2 class="text-center fw-bold fs-2" style="color: #000000">Welcome Back to Seamless Logistics!</h2>
                                             <p class="text-muted text-center">Sign in to continue</p>
                                         </div>
                                         @csrf
@@ -53,7 +53,7 @@
                                                 id="username" placeholder="Enter Phone Number" required>
                                         </div>
                                         <div class="mt-4">
-                                            <button style="background-color: #fa7823"
+                                            <button style="background-color: #000000"
                                                 class="btn p-3 w-100 fs-5 rounded-5 text-white" type="submit">Sign
                                                 In</button>
                                         </div>
@@ -61,7 +61,7 @@
                                             <p class="mb-0">Don't have an account ?
                                                 <a href={{ route('registration') }}
                                                     class="fw-semibold text-decoration-underline"
-                                                    style="color: #fa7823">Signup</a>
+                                                    style="color: #000000">Signup</a>
                                             </p>
                                         </div>
                                     </form>
@@ -70,7 +70,7 @@
                                     method="POST" style="display: none;">
                                     @csrf
                                     <div class="text-muted text-center mb-4 mx-lg-3">
-                                        <h2 class="text-center fw-bold" style="color: #fa7823">Verify Yourself</h2>
+                                        <h2 class="text-center fw-bold" style="color: #000000">Verify Yourself</h2>
                                         <p>Please enter the 6 digit code sent to <span
                                                 class="fw-semibold">example@abc.com</span></p>
                                     </div>
@@ -85,7 +85,7 @@
                                     <input type="hidden" name="registerid" value="" id="registerid">
                             </div>
                             <div class="mt-3">
-                                <button style="background-color: #fa7823"
+                                <button style="background-color: #000000"
                                     class="btn p-3 w-100 fs-5 rounded-5 text-white" type="submit">Confirm</button>
                             </div>
                             </form>

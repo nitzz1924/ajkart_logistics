@@ -5,17 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PricingDetail extends Model
+class PreetiZinta extends Model
 {
     protected $fillable = [
-        'servicetype',
-        'serviceid',
+        'category',
+        'subcategory',
         'price',
-        'disprice',
-        'duration',
+        'productname',
+        'saleprice',
         'coverimage',
-        'documents',
-        'details',
-        'notereq',
     ];
 }

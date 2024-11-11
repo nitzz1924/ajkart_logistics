@@ -1,6 +1,7 @@
 @extends('layouts.UserPanelLayouts.usermain')
 @push('title')
-<title>Home | DBA Consultancy</title>
+<title>Home | {{ config('app.name') }}</title>
+
 @endpush
 @section('content')
 <div class="container-fluid p-4 desktop-view">

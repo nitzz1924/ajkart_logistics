@@ -10,6 +10,7 @@ use App\Models\RegisterUser;
 use App\Models\Template;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Models\PreetiZinta;
 use Auth;
 use Exception;
 use Carbon\Carbon;
@@ -107,6 +108,81 @@ class UserStores extends Controller
             }
         } catch (Exception $e) {
             return redirect()->route('userloginpage')->with('error', $e->getMessage());
+        }
+    }
+
+    public function insertinventory(Request $rq){
+        // dd($rq->all());
+        try {
+            $data = $rq->validate([
+                'category' => 'required',
+                'subcategory' => 'required',
+                'productname' => 'required',
+                'price' => 'required',
+                'saleprice' => 'required',
+            ]);
+            if ($rq->hasFile('coverimage')) {
+                $rq->validate([
+                    'coverimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+                $file = $rq->file('coverimage');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('assets/images/Services'), $filename);
+            }
+            $data = PreetiZinta::create([
+                'category' => $rq->category,
+                'productname' => $rq->productname,
+                'subcategory' =>  $rq->subcategory,
+                'price' =>  $rq->price,
+                'saleprice' =>  $rq->saleprice,
+                'coverimage' => $filename,
+            ]);
+            //dd($data);
+            return back()->with('success', 'Inventory Added..!!!!');
+
+        } catch (Exception $e) {
+            return redirect()->route('inventoryadd')->with('error', $e->getMessage());
+            //return redirect()->route('inventoryadd')->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
+
+    public function deleteinventory($id)
+    {
+        // dd($id);
+        $data = PreetiZinta::find($id);
+        if (!$data) {
+            return redirect()->back()->with('error', "Data not found.");
+        }
+        $data->delete();
+        return redirect()->back()->with('success', "Deleted.!!!");
+    }
+
+    public function udpateinventory(Request $rq)
+    {
+        // dd($request->all());
+        try {
+            $pricingdata = PreetiZinta::find($rq->pricingid);
+            $filename = $pricingdata->coverimage;
+            if ($rq->hasFile('coverimage')) {
+                $rq->validate([
+                    'coverimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+                $file = $rq->file('coverimage');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('assets/images/Services'), $filename);
+            }
+            $attributes = PreetiZinta::where('id', $rq->pricingid)->update([
+                'category' => $rq->category,
+                'productname' => $rq->productname,
+                'subcategory' =>  $rq->subcategory,
+                'price' =>  $rq->price,
+                'saleprice' =>  $rq->saleprice,
+                'coverimage' => $filename,
+            ]);
+            return back()->with('success', "Updated..!!!");
+        } catch (Exception $e) {
+            return back()->with('error', $e->getMessage());
+            //return back()->with('error', 'Not Updated..Try Again.....');
         }
     }
 

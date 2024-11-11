@@ -34,9 +34,6 @@ Route::middleware([
 Route::controller(AdminViews::class)->group(function () {
     Route::get('master', 'master')->name('master');
     Route::get('submaster', 'submaster')->name('submaster');
-    Route::get('createform', 'createform')->name('createform');
-    Route::get('pricingdetails', 'pricingdetails')->name('pricingdetails');
-    Route::get('allcustomers', 'allcustomers')->name('allcustomers');
 
 });
 
@@ -54,8 +51,6 @@ Route::controller(AdminStores::class)->group(function () {
     Route::get('/deleteattribute/{id}', 'deleteattribute')->name('deleteattribute');
     Route::post('updateattributes', 'updateattributes')->name('updateattributes');
     Route::post('insertpricingform', 'insertpricingform')->name('insertpricingform');
-    Route::get('/deletepricing/{id}', 'deletepricing')->name('deletepricing');
-    Route::post('updatepricingdetails', 'updatepricingdetails')->name('updatepricingdetails');
     Route::get('filtertype/{selectedtype}', 'filtertype')->name('filtertype');
     Route::get('/deleteuser/{id}', 'deleteuser')->name('deleteuser');
 
@@ -80,6 +75,8 @@ Route::controller(UserViews::class)->group(function () {
     Route::get('editprofile', 'editprofile')->name('editprofile');
     Route::get('allservices', 'allservices')->name('allservices');
     Route::get('consultingdetails/{id}', 'consultingdetails')->name('consultingdetails');
+    Route::get('inventoryadd', 'inventoryadd')->name('inventoryadd');
+
 
 
 });
@@ -91,6 +88,11 @@ Route::controller(UserStores::class)->group(function () {
     Route::post('proceedtootp', 'proceedtootp')->name('proceedtootp');
     Route::post('verifyotp', 'verifyotp')->name('verifyotp');
     Route::post('LoginOtpVerify', 'LoginOtpVerify')->name('LoginOtpVerify');
+    Route::post('insertinventory', 'insertinventory')->name('insertinventory');
+    Route::get('/deleteinventory/{id}', 'deleteinventory')->name('deleteinventory');
+    Route::post('udpateinventory', 'udpateinventory')->name('udpateinventory');
+
+
 
 
 });

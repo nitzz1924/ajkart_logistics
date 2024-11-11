@@ -1,7 +1,8 @@
+
 {{-----------------------------------------------------🙏अंतः अस्ति प्रारंभः🙏--------------------------- --}}
 @extends('auth.UserPanel.Layouts.main')
 @push('title')
-<title>Registration | DBA Consultancy</title>
+<title>Registration | {{ config('app.name') }}</title>
 @endpush
 @section('main-section')
 <div class="auth-page-content overflow-hidden pt-lg-5">
@@ -33,7 +34,7 @@
                                 <div class="mt-4">
                                     <form action="{{ route('registeruser') }}" method="POST" id="registerform">
                                         <div>
-                                            <h2 class="text-center fw-bold" style="color: #fa7823">Register here !</h2>
+                                            <h1 class="text-center fw-bold fs-2" style="color: #000000">Register Today, Move Faster Tomorrow!</h1>
                                             @if ($mymess = Session::get('success'))
                                             <div class="alert border-0 alert-success text-center" role="alert"
                                                 id="successAlert">
@@ -57,7 +58,7 @@
                                         <div class="mb-3">
                                             <label for="emailid" class="form-label fs-5">Email</label>
                                             <input type="email" name="email" class="form-control rounded-5 p-3"
-                                                id="emailid" placeholder="Enter Your Password" required>
+                                                id="emailid" placeholder="Enter Your Email" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="phn" class="form-label fs-5">Phone Number</label>
@@ -71,7 +72,7 @@
                                                 me</label>
                                         </div> --}}
                                         <div class="mt-4">
-                                            <button style="background-color: #fa7823"
+                                            <button style="background-color: #000000"
                                                 class="btn p-3 w-100 fs-5 rounded-5 text-white"
                                                 type="submit">Register</button>
                                         </div>
@@ -79,7 +80,7 @@
                                             <p class="mb-0">Already have an account ?
                                                 <a href="{{ route('userloginpage')}}"
                                                     class="fw-semibold text-decoration-underline"
-                                                    style="color: #fa7823">Sign
+                                                    style="color: #000000">Sign
                                                     In</a>
                                             </p>
                                         </div>
@@ -90,7 +91,7 @@
                                         method="POST" style="display: none;">
                                         @csrf
                                         <div class="text-muted text-center mb-4 mx-lg-3">
-                                            <h2 class="text-center fw-bold" style="color: #fa7823">Verify Yourself</h2>
+                                            <h2 class="text-center fw-bold" style="color: #000000">Verify Yourself</h2>
                                             <p>Please enter the 6 digit code sent to <span
                                                     class="fw-semibold">example@abc.com</span></p>
                                         </div>
@@ -105,7 +106,7 @@
                                         <input type="hidden" name="registerid" value="" id="registerid">
                                 </div>
                                 <div class="mt-3">
-                                    <button style="background-color: #fa7823"
+                                    <button style="background-color: #000000"
                                         class="btn p-3 w-100 fs-5 rounded-5 text-white" type="submit">Confirm</button>
                                 </div>
                                 </form>

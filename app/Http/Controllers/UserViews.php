@@ -7,6 +7,7 @@ use App\Models\Contact;
 use App\Models\GroupType;
 use App\Models\Message;
 use App\Models\Master;
+use App\Models\PreetiZinta;
 use App\Models\PricingDetail;
 use App\Models\RegisterUser;
 use App\Models\Template;
@@ -111,5 +112,11 @@ class UserViews extends Controller
         } else {
             return view('auth.UserPanel.login');
         }
+    }
+    public function inventoryadd(){
+        $data = Master::where('type','=','Master')->get();
+        $subcategory = Master::where('type','=','Shoes')->get();
+        $inventory = PreetiZinta::orderBy('created_at','Desc')->get();
+        return view('auth.UserPanel.warehouseinventory',compact('data','inventory','subcategory'));
     }
 }

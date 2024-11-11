@@ -3,12 +3,14 @@
 
 <head>
     <meta charset="utf-8" />
+    <!-- In layouts/app.blade.php -->
+    <title>@yield('title', config('app.name'))</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="DBA Consultancy" name="description" />
     <meta content="Themesbrand" name="author" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/dfavicon.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('assets/images/ajfavicon.jpg') }}" />
 
     <!-- jsvectormap css -->
     <link href="{{ asset('assets/libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet" type="text/css" />
@@ -163,7 +165,6 @@
         </div>
         <div class="vertical-overlay"></div>
         @include('layouts.UserPanelLayouts.user-navigation')
-        @stack('title')
 
         <div class="main-content">
             <div class="page-content">
@@ -176,7 +177,7 @@
                             <script>
                                 document.write(new Date().getFullYear());
                             </script>
-                            © DBA CONSULTANCY.
+                            © AJ-KART-LOGISTICS.
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">

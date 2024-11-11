@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2024 at 06:54 AM
+-- Generation Time: Nov 11, 2024 at 01:47 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,8 +38,8 @@ CREATE TABLE `cache` (
 --
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('845d7fe29f4eb7caf751b2dac1a742ed', 'i:2;', 1731304242),
-('845d7fe29f4eb7caf751b2dac1a742ed:timer', 'i:1731304242;', 1731304242),
+('845d7fe29f4eb7caf751b2dac1a742ed', 'i:1;', 1731321544),
+('845d7fe29f4eb7caf751b2dac1a742ed:timer', 'i:1731321544;', 1731321544),
 ('fcead0a5906cc844bfc585a17c65c519', 'i:1;', 1731303010),
 ('fcead0a5906cc844bfc585a17c65c519:timer', 'i:1731303010;', 1731303010);
 
@@ -151,8 +151,10 @@ CREATE TABLE `masters` (
 --
 
 INSERT INTO `masters` (`id`, `label`, `value`, `type`, `iconimage`, `created_at`, `updated_at`) VALUES
-(1, 'Products', 'Products', 'Master', NULL, '2024-11-11 05:47:27', '2024-11-11 05:52:12'),
-(3, 'E-Commerce', 'E-Commerce', 'Products', '1731304132_music (1).png', '2024-11-11 05:48:28', '2024-11-11 05:52:34');
+(5, 'Shoes', 'Shoes', 'Master', NULL, '2024-11-11 11:01:34', '2024-11-11 11:01:34'),
+(6, 'Casual', 'Casual', 'Shoes', NULL, '2024-11-11 11:01:51', '2024-11-11 11:01:51'),
+(7, 'Sneakers', 'Sneakers', 'Shoes', NULL, '2024-11-11 11:02:00', '2024-11-11 11:02:00'),
+(8, 'Sports', 'Sports', 'Shoes', NULL, '2024-11-11 11:02:08', '2024-11-11 11:02:08');
 
 -- --------------------------------------------------------
 
@@ -218,34 +220,27 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pricing_details`
+-- Table structure for table `preeti_zintas`
 --
 
-CREATE TABLE `pricing_details` (
+CREATE TABLE `preeti_zintas` (
   `id` int(11) NOT NULL,
-  `servicetype` varchar(255) DEFAULT NULL,
-  `serviceid` varchar(255) DEFAULT NULL,
+  `category` varchar(255) DEFAULT NULL,
+  `subcategory` varchar(255) DEFAULT NULL,
   `price` varchar(255) DEFAULT NULL,
-  `disprice` varchar(255) DEFAULT NULL,
-  `duration` varchar(255) DEFAULT NULL,
+  `productname` varchar(255) DEFAULT NULL,
+  `saleprice` varchar(255) DEFAULT NULL,
   `coverimage` varchar(255) DEFAULT NULL,
-  `documents` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`documents`)),
-  `details` longtext DEFAULT NULL,
-  `notereq` longtext DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `pricing_details`
+-- Dumping data for table `preeti_zintas`
 --
 
-INSERT INTO `pricing_details` (`id`, `servicetype`, `serviceid`, `price`, `disprice`, `duration`, `coverimage`, `documents`, `details`, `notereq`, `created_at`, `updated_at`) VALUES
-(6, 'Services', '214', '7955', '8', '9', 'service-bg.png', '[\"GST\",\"Aadhar Card\"]', 'The logic here is mostly correct, but you should specify the guard when retrieving the user\'s information to ensure you get the authenticated user from the customer guard rather than the default guard. Here’s the updated code', 'The logic here is mostly correct, but you should specify the guard when retrieving the user\'s information to ensure you get the authenticated user from the customer guard rather than the default guard. Here’s the updated code', '2024-11-09 04:46:18', '2024-11-09 06:37:15'),
-(9, 'Services', '222', '60,000', '7500', '45', 'service-bg.png', '[\"PAN Card\"]', 'The logic here is mostly correct, but you should specify the guard when retrieving the user\'s information to ensure you get the authenticated user from the customer guard rather than the default guard. Here’s the updated code', 'The logic here is mostly correct, but you should specify the guard when retrieving the user\'s information to ensure you get the authenticated user from the customer guard rather than the default guard. Here’s the updated code', '2024-11-09 05:19:04', '2024-11-09 06:37:17'),
-(10, 'Services', '215', '60,0000', '7500', '45', 'service-bg.png', '[\"Aadhar Card\",\"PAN Card\"]', 'The logic here is mostly correct, but you should specify the guard when retrieving the user\'s information to ensure you get the authenticated user from the customer guard rather than the default guard. Here’s the updated code', 'The logic here is mostly correct, but you should specify the guard when retrieving the user\'s information to ensure you get the authenticated user from the customer guard rather than the default guard. Here’s the updated code', '2024-11-09 05:28:04', '2024-11-09 06:37:19'),
-(11, 'Services', '223', '50000', '988', '55', 'service-bg.png', '[\"Aadhar Card\",\"Bank Passbook\"]', 'The logic here is mostly correct, but you should specify the guard when retrieving the user\'s information to ensure you get the authenticated user from the customer guard rather than the default guard. Here’s the updated code', 'The logic here is mostly correct, but you should specify the guard when retrieving the user\'s information to ensure you get the authenticated user from the customer guard rather than the default guard. Here’s the updated code', '2024-11-09 05:28:53', '2024-11-09 06:37:20'),
-(13, 'Consulting', '225', '75000', '7500', '45', '1731134472_service-bg.png', '[\"Aadhar Card\"]', 'Consulting Services', 'Consulting Services', '2024-11-09 06:41:12', '2024-11-09 07:16:30');
+INSERT INTO `preeti_zintas` (`id`, `category`, `subcategory`, `price`, `productname`, `saleprice`, `coverimage`, `created_at`, `updated_at`) VALUES
+(17, 'Shoes', 'Casual', '700', NULL, '651', '1731327045_843664.png', '2024-11-11 11:51:40', '2024-11-11 12:31:23');
 
 -- --------------------------------------------------------
 
@@ -270,7 +265,8 @@ CREATE TABLE `register_users` (
 
 INSERT INTO `register_users` (`id`, `mobilenumber`, `email`, `verifystatus`, `created_at`, `updated_at`, `otp`, `username`) VALUES
 (44, '1234567894', 'anshul@gmail.com', '1', '2024-11-08 04:34:44', '2024-11-09 04:21:40', '704551', 'Anshul'),
-(45, '1234567890', 'nb@gmail.com', '1', '2024-11-08 12:32:41', '2024-11-08 12:34:00', '748279', 'Nitzz');
+(45, '1234567890', 'nb@gmail.com', '1', '2024-11-08 12:32:41', '2024-11-08 12:34:00', '748279', 'Nitzz'),
+(46, '1111111111', 'ans@gmail.com', '1', '2024-11-11 06:41:25', '2024-11-11 09:30:46', '342877', 'testing');
 
 -- --------------------------------------------------------
 
@@ -292,8 +288,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('D8EStIM5pzFUzkfrdnN61PgDxRg7SKDw7kEhisSc', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiZm5kVklKMjlocGZHODJ1OWFBWVZockxESGxsdncwNk1aNDhvM1BhayI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kYXNoYm9hcmQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMiRsNi4wM1ViN3pNL2R3TEpYWGhEbjIuU2dzSk04MDR3NlFjajE4L3QxVWlWeG9BZU1zS0ZIaSI7czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1731304450),
-('RDjfxC6MwvHb87mULMMrb4fiWSMGSYbAwKM6gaGw', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoibHlsNXdkTGI1eUp4TXV0eEtEdXB2RXNjM3hOS2E4RDRHZEdDN3RuTyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1731300268);
+('wX6pDKaGEHI0zl3KpSlKG0fSY4yIZtUx5HHUwTLs', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'YTo2OntzOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czoyODoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL21hc3RlciI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NjoiX3Rva2VuIjtzOjQwOiIwUWx4c09KOGdCeTBPbFlvdmxKenR5VkY0OUVqU2Q4ZzR5a0Mza1ZGIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMiRsNi4wM1ViN3pNL2R3TEpYWGhEbjIuU2dzSk04MDR3NlFjajE4L3QxVWlWeG9BZU1zS0ZIaSI7czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjU1OiJsb2dpbl9jdXN0b21lcl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjQ2O30=', 1731328698);
 
 -- --------------------------------------------------------
 
@@ -322,7 +317,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'Amit', 'ajkart@gmail.com', NULL, '$2y$12$l6.03Ub7zM/dwLJXXhDn2.SgsJM804w6Qcj18/t1UiVxoAeMsKFHi', NULL, NULL, NULL, 'uggVeXkk8JTDk56bfxYHqzpsYE4VG9lHAQPNBv2i475JfgkKlvzDUOGQI0JY', NULL, NULL, '2024-09-04 04:20:07', '2024-09-04 04:20:07');
+(1, 'Amit', 'ajkart@gmail.com', NULL, '$2y$12$l6.03Ub7zM/dwLJXXhDn2.SgsJM804w6Qcj18/t1UiVxoAeMsKFHi', NULL, NULL, NULL, 'dIZRQP0acwGJ9m0hjxE3rvpIfTVm0UdIERYRpnft6jeWtAkzyT8jEf7jyt6Y', NULL, NULL, '2024-09-04 04:20:07', '2024-09-04 04:20:07');
 
 --
 -- Indexes for dumped tables
@@ -393,9 +388,9 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indexes for table `pricing_details`
+-- Indexes for table `preeti_zintas`
 --
-ALTER TABLE `pricing_details`
+ALTER TABLE `preeti_zintas`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -445,7 +440,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `masters`
 --
 ALTER TABLE `masters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -460,16 +455,16 @@ ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pricing_details`
+-- AUTO_INCREMENT for table `preeti_zintas`
 --
-ALTER TABLE `pricing_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+ALTER TABLE `preeti_zintas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `register_users`
 --
 ALTER TABLE `register_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `users`
