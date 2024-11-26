@@ -176,13 +176,6 @@ class AdminStores extends Controller
         }
     }
 
-    public function filtertype($selectedtype)
-    {
-        $masterdata = Master::where('type', $selectedtype)->get();
-        // dd($statedata);
-        return response()->json($masterdata);
-    }
-
     public function deleteuser($id)
     {
         $data = RegisterUser::find($id);

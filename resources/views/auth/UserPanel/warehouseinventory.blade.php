@@ -189,7 +189,7 @@
             var selectedtype = $(this).val();
             console.log(selectedtype);
             $.ajax({
-                url: "/filtertype/" + selectedtype,
+                url: "/filtercategory/" + selectedtype,
                 type: "GET",
                 success: function(data) {
                     console.log(data);
@@ -209,7 +209,7 @@
             var selectedtype = $(this).val();
             console.log(selectedtype);
             $.ajax({
-                url: "/filtertype/" + selectedtype,
+                url: "/filtercategory/" + selectedtype,
                 type: "GET",
                 success: function(data) {
                     console.log(data);
@@ -253,7 +253,6 @@
 <script>
     //Edit Functionality
     var data = @json($data);
-    var subcategory = @json($subcategory);
     $('#table-body').on('click', '.editbtnmodal', function() {
         const pricingdata = $(this).data('pricing');
         console.log(pricingdata);

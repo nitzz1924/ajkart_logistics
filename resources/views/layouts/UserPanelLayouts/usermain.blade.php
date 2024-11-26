@@ -87,14 +87,14 @@
                         </button>
                     </div>
 
-                    <div>
+                    {{-- <div>
                         <a href="/home" class="logo logo-light">
                             <span class="logo-sm">
                                 <img src="{{ asset('assets/images/dbalogo.png') }}" alt="" height="70" />
                             </span>
 
                         </a>
-                    </div>
+                    </div> --}}
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="dropdown ms-sm-3 header-item topbar-user">
                             <button type="button" class="btn" id="page-header-user-dropdown"

@@ -5,12 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class FormAttribute extends Model
+class UserMaster extends Model
 {
     protected $fillable = [
         'type',
-        'servicename',
-        'value',
-        'inputtype',
+        'label',
+        'userid',
     ];
 }

@@ -44,6 +44,7 @@
                                     <form action="#" method="POST" id="loginformid">
                                         <div>
                                             <h2 class="text-center fw-bold fs-2" style="color: #000000">Welcome Back to Seamless Logistics!</h2>
+                                            <p class="text-muted text-center fs-5 fw-bold">Demo Phone : 1234567894</p>
                                             <p class="text-muted text-center">Sign in to continue</p>
                                         </div>
                                         @csrf
@@ -71,8 +72,9 @@
                                     @csrf
                                     <div class="text-muted text-center mb-4 mx-lg-3">
                                         <h2 class="text-center fw-bold" style="color: #000000">Verify Yourself</h2>
-                                        <p>Please enter the 6 digit code sent to <span
-                                                class="fw-semibold">example@abc.com</span></p>
+                                        <p>Please enter the 6 digit code sent to <span class="fw-semibold">example@abc.com</span></p>
+                                        <div class="text-center fw-bold" id="otphead"></div>
+
                                     </div>
                                     <div class="row">
                                         @for ($i = 1; $i <= 6; $i++) <div class="col-2">
@@ -116,6 +118,7 @@
                         jQuery('#loginformid').hide();
                         jQuery('#signinotp').show();
                         jQuery('#registerid').val(data.data.id);
+                        $('#otphead').text("OTP is : " + data.data.otp);
                     }
                 }
             });

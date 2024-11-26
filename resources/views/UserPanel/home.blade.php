@@ -89,7 +89,7 @@
     </div>
 
     {{-- Consulting --}}
-    <div class="row my-3">
+    {{-- <div class="row my-3">
         <div class="d-flex justify-content-between align-content-center">
             <div class="sectionHeading">
                 Consulting
@@ -113,7 +113,7 @@
             </div>
         </div>
         @endforeach
-    </div>
+    </div> --}}
 
     {{-- Refer --}}
     <div class="row my-4">

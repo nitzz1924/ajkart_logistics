@@ -8,6 +8,7 @@ use App\Models\GroupType;
 use App\Models\Message;
 use App\Models\RegisterUser;
 use App\Models\Template;
+use App\Models\UserMaster;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\PreetiZinta;
@@ -85,7 +86,7 @@ class UserStores extends Controller
             $data->update([
                 'otp' => $otp,
             ]);
-            return response()->json(['msg' => 'success', 'data' => ['id' => $data->id]]);
+            return response()->json(['msg' => 'success', 'data' => ['id' => $data->id, 'otp' => $otp]]);
         } else {
             return redirect()->route('userloginpage')->with('error', 'Invalid credentials');
         }
@@ -186,5 +187,54 @@ class UserStores extends Controller
         }
     }
 
+    public function createusermaster(Request $rq){
+
+        $loggedinuser = Auth::guard('customer')->user();
+        // dd($loggedinuser);
+        try {
+            $attributes = UserMaster::create([
+                'type' => $rq->type == 'Master' ? 'Master': $rq->type,
+                'label' => $rq->label,
+                'userid' => $loggedinuser->id,
+            ]);
+
+            return back()->with('success', "Category Added..!!!");
+        } catch (Exception $e) {
+            return back()->with('error', $e->getMessage());
+            //return back()->with('error', 'Not Updated..Try Again.....');
+        }
+    }
+
+    public function filtercategory($selectedtype)
+    {
+        $masterdata = UserMaster::where('type', $selectedtype)->get();
+        // dd($statedata);
+        return response()->json($masterdata);
+    }
+
+    public function updateusermaster(Request $request)
+    {
+        try {
+            $carlist = UserMaster::where('id', $request->masterid)->update([
+                'label' => $request->label,
+                'type' => $request->type,
+            ]);
+            return back()->with('success', "Updated..!!!");
+        } catch (Exception $e) {
+            return back()->with('error', $e->getMessage());
+            //return back()->with('error', 'Not Updated..Try Again.....');
+        }
+    }
+
+    public function deleteusermaster($id)
+    {
+        // dd($id);
+        $data = UserMaster::find($id);
+        if (!$data) {
+            return redirect()->back()->with('error', "Data not found.");
+        }
+        $data->delete();
+        return redirect()->back()->with('success', "Deleted.!!!");
+    }
 }
 

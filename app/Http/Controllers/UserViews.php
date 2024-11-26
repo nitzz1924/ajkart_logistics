@@ -11,6 +11,7 @@ use App\Models\PreetiZinta;
 use App\Models\PricingDetail;
 use App\Models\RegisterUser;
 use App\Models\Template;
+use App\Models\UserMaster;
 use Illuminate\Http\Request;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Http;
@@ -41,82 +42,39 @@ class UserViews extends Controller
     {
         if (Auth::guard('customer')->check()) {
             $services = Master::where('type', '=', 'Services')->get();
-            $consulting = Master::join('pricing_details', 'pricing_details.serviceid', '=', 'masters.id')
-                ->select('pricing_details.price as price', 'masters.*')->where('type', '=', 'Consulting')->get();
-            return view('UserPanel.home', compact('services', 'consulting'));
+            // $consulting = Master::join('pricing_details', 'pricing_details.serviceid', '=', 'masters.id')
+            //     ->select('pricing_details.price as price', 'masters.*')->where('type', '=', 'Consulting')->get();
+            return view('UserPanel.home', compact('services'));
         } else {
             return view('auth.UserPanel.login');
         }
     }
-    public function wallet()
-    {
-        if (Auth::guard('customer')->check()) {
-            return view('UserPanel.wallet');
-        } else {
-            return view('auth.UserPanel.login');
-        }
-    }
-    public function servicedetail($id)
-    {
-        if (Auth::guard('customer')->check()) {
-            $data = PricingDetail::join('masters', 'pricing_details.serviceid', '=', 'masters.id')
-                ->select('masters.label as servicename', 'pricing_details.*')
-                ->where('serviceid', $id)->first();
-            // dd($data);
-            return view('UserPanel.servicedetail', compact('data'));
-        } else {
-            return view('auth.UserPanel.login');
-        }
-    }
-    public function userprofile()
-    {
-        if (Auth::guard('customer')->check()) {
-            return view('UserPanel.userprofile');
-        } else {
-            return view('auth.UserPanel.login');
-        }
-    }
-    public function editprofile()
-    {
-        if (Auth::guard('customer')->check()) {
-            return view('UserPanel.editprofile');
-        } else {
-            return view('auth.UserPanel.login');
-        }
-    }
-    public function allservices()
-    {
-        if (Auth::guard('customer')->check()) {
-            $services = Master::where('type', '=', 'Services')->get();
-            return view('UserPanel.allservices', compact('services'));
-        } else {
-            return view('auth.UserPanel.login');
-        }
-    }
-    public function refer()
-    {
-        if (Auth::guard('customer')->check()) {
-            return view('UserPanel.refer');
-        } else {
-            return view('auth.UserPanel.login');
-        }
-    }
-    public function consultingdetails($id)
-    {
-        if (Auth::guard('customer')->check()) {
-            $data = PricingDetail::join('masters', 'pricing_details.serviceid', '=', 'masters.id')
-                ->select('masters.label as servicename', 'pricing_details.*')
-                ->where('serviceid', $id)->first();
-            // dd($data);
-            return view('UserPanel.consultingdetail', compact('data'));
-        } else {
-            return view('auth.UserPanel.login');
-        }
-    }
+
     public function inventoryadd(){
-        $data = Master::where('type','=','Master')->get();
-        $subcategory = Master::where('type','=','Shoes')->get();
+        $loggedinuser = Auth::guard('customer')->user();
+        $data = UserMaster::where('userid',$loggedinuser->id)->get();
         $inventory = PreetiZinta::orderBy('created_at','Desc')->get();
-        return view('auth.UserPanel.warehouseinventory',compact('data','inventory','subcategory'));
+        return view('auth.UserPanel.warehouseinventory',compact('data','inventory'));
+    }
+
+    public function usermaster()
+    {
+        $loggedinuser = Auth::guard('customer')->user();
+        if (Auth::guard('customer')->check()) {
+            $data = UserMaster::where('userid',$loggedinuser->id)->get();
+            return view('UserPanel.usermaster',compact('data'));
+        } else {
+            return view('auth.UserPanel.login');
+        }
+    }
+
+    public function bookdeliverypro()
+    {
+        $loggedinuser = Auth::guard('customer')->user();
+        if (Auth::guard('customer')->check()) {
+            return view('UserPanel.usermaster');
+        } else {
+            return view('auth.UserPanel.login');
+        }
     }
 }

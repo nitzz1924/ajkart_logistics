@@ -51,7 +51,6 @@ Route::controller(AdminStores::class)->group(function () {
     Route::get('/deleteattribute/{id}', 'deleteattribute')->name('deleteattribute');
     Route::post('updateattributes', 'updateattributes')->name('updateattributes');
     Route::post('insertpricingform', 'insertpricingform')->name('insertpricingform');
-    Route::get('filtertype/{selectedtype}', 'filtertype')->name('filtertype');
     Route::get('/deleteuser/{id}', 'deleteuser')->name('deleteuser');
 
 
@@ -69,15 +68,9 @@ Route::controller(UserViews::class)->group(function () {
     Route::get('userdashboard', 'userdashboard')->name('userdashboard');
     Route::get('logoutuserpanel', 'logoutuserpanel')->name('logoutuserpanel');
     Route::get('home', 'home')->name('home');
-    Route::get('wallet', 'wallet')->name('wallet');
-    Route::get('servicedetail/{id}', 'servicedetail')->name('servicedetail');
-    Route::get('userprofile', 'userprofile')->name('userprofile');
-    Route::get('editprofile', 'editprofile')->name('editprofile');
-    Route::get('allservices', 'allservices')->name('allservices');
-    Route::get('consultingdetails/{id}', 'consultingdetails')->name('consultingdetails');
     Route::get('inventoryadd', 'inventoryadd')->name('inventoryadd');
-
-
+    Route::get('usermaster', 'usermaster')->name('usermaster');
+    Route::get('bookdeliverypro', 'bookdeliverypro')->name('bookdeliverypro');
 
 });
 
@@ -91,6 +84,12 @@ Route::controller(UserStores::class)->group(function () {
     Route::post('insertinventory', 'insertinventory')->name('insertinventory');
     Route::get('/deleteinventory/{id}', 'deleteinventory')->name('deleteinventory');
     Route::post('udpateinventory', 'udpateinventory')->name('udpateinventory');
+    Route::post('createusermaster', 'createusermaster')->name('createusermaster');
+    Route::get('filtercategory/{selectedtype}', 'filtercategory')->name('filtercategory');
+    Route::post('updateusermaster', 'updateusermaster')->name('updateusermaster');
+    Route::get('deleteusermaster/{id}', 'deleteusermaster')->name('deleteusermaster');
+
+
 
 
 

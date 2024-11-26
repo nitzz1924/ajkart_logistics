@@ -34,32 +34,27 @@
                 <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
                     <a class="nav-link menu-link" href="{{ route('home') }}" role="button" aria-expanded="false"
                         aria-controls="sidebarDashboards">
-                        <img class="" src="{{ asset('assets/images/mail.png') }}" alt=""
-                            height="25" />&nbsp;<span class="fs-5">Home</span>
+                       <i class="bx bx-home-alt"></i>Home
+                    </a>
+                </li>
+                <li class="nav-item {{ request()->routeIs('usermaster') ? 'active' : '' }}">
+                    <a class="nav-link menu-link" href="{{ route('usermaster') }}" role="button" aria-expanded="false"
+                        aria-controls="sidebarDashboards">
+                        <i class="bx bx-category-alt"></i>Add Master Categories
                     </a>
                 </li>
                 <li class="nav-item {{ request()->routeIs('inventoryadd') ? 'active' : '' }}">
                     <a class="nav-link menu-link" href="{{ route('inventoryadd') }}" role="button" aria-expanded="false"
                         aria-controls="sidebarDashboards">
-                        <img class="" src="{{ asset('assets/images/campaign (1).png') }}" alt=""
-                            height="25" />&nbsp;<span class="fs-5">All Products</span>
+                        <i class="bx bxs-package"></i>All Products
                     </a>
                 </li>
-                {{-- <li class="nav-item {{ request()->routeIs('allservices') ? 'active' : '' }}">
-                    <a class="nav-link menu-link" href="{{ route('allservices') }}" role="button"
-                        aria-expanded="false" aria-controls="sidebarDashboards">
-                        <img class="" src="{{ asset('assets/images/campaign (1).png') }}" alt="allservices"
-                            height="25" />&nbsp;<span class="fs-5">All Services</span>
+                <li class="nav-item {{ request()->routeIs('bookdeliverypro') ? 'active' : '' }}">
+                    <a class="nav-link menu-link" href="{{ route('bookdeliverypro') }}" role="button" aria-expanded="false"
+                        aria-controls="sidebarDashboards">
+                        <i class="bx bxs-package"></i>Book Delivery Product
                     </a>
-                </li> --}}
-                {{-- <li class="nav-item {{ request()->routeIs('servicedetail') ? 'active' : '' }}">
-                    <a class="nav-link menu-link" href="{{ route('servicedetail') }}" role="button"
-                        aria-expanded="false" aria-controls="sidebarDashboards">
-                        <img class="" src="{{ asset('assets/images/campaign (1).png') }}" alt=""
-                            height="25" />&nbsp;<span class="fs-5">Service Detail</span>
-                    </a>
-                </li> --}}
-
+                </li>
             </ul>
         </div>
     </div>
