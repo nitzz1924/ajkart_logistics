@@ -52,7 +52,7 @@
                 <li class="nav-item {{ request()->routeIs('bookdeliverypro') ? 'active' : '' }}">
                     <a class="nav-link menu-link" href="{{ route('bookdeliverypro') }}" role="button" aria-expanded="false"
                         aria-controls="sidebarDashboards">
-                        <i class="bx bxs-package"></i>Book Delivery Product
+                        <i class="bx bxs-cart"></i>Orders
                     </a>
                 </li>
             </ul>

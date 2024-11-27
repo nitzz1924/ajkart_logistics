@@ -9,6 +9,7 @@ class PreetiZinta extends Model
 {
     protected $fillable = [
         'category',
+        'userid',
         'subcategory',
         'price',
         'productname',

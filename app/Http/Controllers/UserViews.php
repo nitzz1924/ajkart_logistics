@@ -2,6 +2,7 @@
 #{{-----------------------------------------------------🙏अंतः अस्ति प्रारंभः🙏-----------------------------}}
 namespace App\Http\Controllers;
 
+use App\Models\BookDelivery;
 use App\Models\Campaign;
 use App\Models\Contact;
 use App\Models\GroupType;
@@ -50,19 +51,24 @@ class UserViews extends Controller
         }
     }
 
-    public function inventoryadd(){
+    public function inventoryadd()
+    {
         $loggedinuser = Auth::guard('customer')->user();
-        $data = UserMaster::where('userid',$loggedinuser->id)->get();
-        $inventory = PreetiZinta::orderBy('created_at','Desc')->get();
-        return view('auth.UserPanel.warehouseinventory',compact('data','inventory'));
+        if (Auth::guard('customer')->check()) {
+            $data = UserMaster::where('userid', $loggedinuser->id)->get();
+            $inventory = PreetiZinta::orderBy('created_at', 'Desc')->get();
+            return view('UserPanel.warehouseinventory', compact('data', 'inventory'));
+        } else {
+            return view('auth.UserPanel.login');
+        }
     }
 
     public function usermaster()
     {
         $loggedinuser = Auth::guard('customer')->user();
         if (Auth::guard('customer')->check()) {
-            $data = UserMaster::where('userid',$loggedinuser->id)->get();
-            return view('UserPanel.usermaster',compact('data'));
+            $data = UserMaster::where('userid', $loggedinuser->id)->get();
+            return view('UserPanel.usermaster', compact('data'));
         } else {
             return view('auth.UserPanel.login');
         }
@@ -72,7 +78,29 @@ class UserViews extends Controller
     {
         $loggedinuser = Auth::guard('customer')->user();
         if (Auth::guard('customer')->check()) {
-            return view('UserPanel.usermaster');
+            $bookeddata = BookDelivery::orderby('created_at','DESC')->where('userid',$loggedinuser->id)->get();
+            // dd( $bookeddata);
+            return view('UserPanel.bookdeliverypro',compact('bookeddata'));
+        } else {
+            return view('auth.UserPanel.login');
+        }
+    }
+    public function bookdeliveryform()
+    {
+        $loggedinuser = Auth::guard('customer')->user();
+        if (Auth::guard('customer')->check()) {
+            $productdata = PreetiZinta::where('userid',$loggedinuser->id)->get();
+            return view('UserPanel.bookdelivery',compact('productdata'));
+        } else {
+            return view('auth.UserPanel.login');
+        }
+    }
+    public function getproducts($id)
+    {
+        $loggedinuser = Auth::guard('customer')->user();
+        if (Auth::guard('customer')->check()) {
+            $productdata = PreetiZinta::where('id',$id)->where('userid',$loggedinuser->id)->get();
+            return response()->json($productdata);
         } else {
             return view('auth.UserPanel.login');
         }

@@ -2,6 +2,7 @@
 #{{-----------------------------------------------------🙏अंतः अस्ति प्रारंभः🙏-----------------------------}}
 namespace App\Http\Controllers;
 
+use App\Models\BookDelivery;
 use App\Models\Campaign;
 use App\Models\Contact;
 use App\Models\GroupType;
@@ -114,6 +115,7 @@ class UserStores extends Controller
 
     public function insertinventory(Request $rq){
         // dd($rq->all());
+        $loggedinuser = Auth::guard('customer')->user();
         try {
             $data = $rq->validate([
                 'category' => 'required',
@@ -124,13 +126,14 @@ class UserStores extends Controller
             ]);
             if ($rq->hasFile('coverimage')) {
                 $rq->validate([
-                    'coverimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    'coverimage' => 'required|image|mimes:jpeg,png,jpg,svg,webp|max:2048',
                 ]);
                 $file = $rq->file('coverimage');
                 $filename = time() . '_' . $file->getClientOriginalName();
                 $file->move(public_path('assets/images/Services'), $filename);
             }
             $data = PreetiZinta::create([
+                'userid' => $loggedinuser->id,
                 'category' => $rq->category,
                 'productname' => $rq->productname,
                 'subcategory' =>  $rq->subcategory,
@@ -235,6 +238,37 @@ class UserStores extends Controller
         }
         $data->delete();
         return redirect()->back()->with('success', "Deleted.!!!");
+    }
+
+    public function bookingdelivery(Request $request){
+        $loggedinuser = Auth::guard('customer')->user();
+        try {
+            if ($request->hasFile('invoiceimage')) {
+                $request->validate([
+                    'invoiceimage' => 'required|image|mimes:jpeg,png,jpg,svg,webp|max:2048',
+                ]);
+                $file = $request->file('invoiceimage');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('assets/images/Booking'), $filename);
+            }
+            $data = BookDelivery::create([
+                'userid' => $loggedinuser->id,
+                'customername' => $request->customername,
+                'email' => $request->email,
+                'mobilebumber' => $request->mobilebumber,
+                'product_ids' => json_encode($request->products),
+                'address' => $request->address,
+                'deliverydetails' => $request->deliverydetails,
+                'invoiceimage' => $filename,
+                'status' => 'Processing',
+            ]);
+            //dd($data);
+
+            return back()->with('success', "Product Booked..!!!");
+        } catch (Exception $e) {
+            return back()->with('error', $e->getMessage());
+            //return back()->with('error', 'Not Updated..Try Again.....');
+        }
     }
 }
 

@@ -71,6 +71,8 @@ Route::controller(UserViews::class)->group(function () {
     Route::get('inventoryadd', 'inventoryadd')->name('inventoryadd');
     Route::get('usermaster', 'usermaster')->name('usermaster');
     Route::get('bookdeliverypro', 'bookdeliverypro')->name('bookdeliverypro');
+    Route::get('bookdeliveryform', 'bookdeliveryform')->name('bookdeliveryform');
+    Route::get('getproducts/{id}', 'getproducts')->name('getproducts');
 
 });
 
@@ -88,6 +90,7 @@ Route::controller(UserStores::class)->group(function () {
     Route::get('filtercategory/{selectedtype}', 'filtercategory')->name('filtercategory');
     Route::post('updateusermaster', 'updateusermaster')->name('updateusermaster');
     Route::get('deleteusermaster/{id}', 'deleteusermaster')->name('deleteusermaster');
+    Route::post('bookingdelivery', 'bookingdelivery')->name('bookingdelivery');
 
 
 
