@@ -55,6 +55,22 @@
                         <i class="bx bxs-cart"></i>Orders
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarLanding" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarLanding">
+                        <i class="ri-settings-3-line"></i>
+                        <span data-key="t-landing">Settings</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarLanding">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('companyregister') }}" class="nav-link" data-key="t-one-page">
+                                    Company Setup
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>

@@ -73,6 +73,7 @@ Route::controller(UserViews::class)->group(function () {
     Route::get('bookdeliverypro', 'bookdeliverypro')->name('bookdeliverypro');
     Route::get('bookdeliveryform', 'bookdeliveryform')->name('bookdeliveryform');
     Route::get('getproducts/{id}', 'getproducts')->name('getproducts');
+    Route::get('companyregister', 'companyregister')->name('companyregister');
 
 });
 
@@ -91,6 +92,8 @@ Route::controller(UserStores::class)->group(function () {
     Route::post('updateusermaster', 'updateusermaster')->name('updateusermaster');
     Route::get('deleteusermaster/{id}', 'deleteusermaster')->name('deleteusermaster');
     Route::post('bookingdelivery', 'bookingdelivery')->name('bookingdelivery');
+    Route::post('registercompany', 'registercompany')->name('registercompany');
+    Route::post('updateregistercompany', 'updateregistercompany')->name('updateregistercompany');
 
 
 

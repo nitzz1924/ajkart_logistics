@@ -180,6 +180,7 @@
                                     </div>
                                 </td>
                                 <td>
+                                    <input type="hidden" id="rowdata-${element.id}" class="rowdataclasss" name="rowdata" value='${JSON.stringify(element)}'>
                                     <input id="discount-${element.id}" class="form-control discount-input" placeholder="Discount" type="text">
                                 </td>
                                 <td>
@@ -273,12 +274,14 @@
                                 var quantity = $(this).find('.product-quantity').val();
                                 var discount = $(this).find('.discount-input').val();
                                 var amount = $(this).find('.total-amount').val();
+                                var rowdata = $(this).find('.rowdataclasss').val();
 
                                 var productData = {
                                     product_id: productId,
                                     product_qty: quantity,
                                     product_disc: discount,
-                                    product_amt: amount
+                                    product_amt: amount,
+                                    rowdata: rowdata,
                                 };
 
                                 products.push(productData);

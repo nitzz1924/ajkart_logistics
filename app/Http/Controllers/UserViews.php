@@ -10,6 +10,7 @@ use App\Models\Message;
 use App\Models\Master;
 use App\Models\PreetiZinta;
 use App\Models\PricingDetail;
+use App\Models\RegisterCompany;
 use App\Models\RegisterUser;
 use App\Models\Template;
 use App\Models\UserMaster;
@@ -79,7 +80,7 @@ class UserViews extends Controller
         $loggedinuser = Auth::guard('customer')->user();
         if (Auth::guard('customer')->check()) {
             $bookeddata = BookDelivery::orderby('created_at','DESC')->where('userid',$loggedinuser->id)->get();
-            // dd( $bookeddata);
+            //dd(  $productdata);
             return view('UserPanel.bookdeliverypro',compact('bookeddata'));
         } else {
             return view('auth.UserPanel.login');
@@ -101,6 +102,17 @@ class UserViews extends Controller
         if (Auth::guard('customer')->check()) {
             $productdata = PreetiZinta::where('id',$id)->where('userid',$loggedinuser->id)->get();
             return response()->json($productdata);
+        } else {
+            return view('auth.UserPanel.login');
+        }
+    }
+
+    public function companyregister(){
+        $loggedinuser = Auth::guard('customer')->user();
+        if (Auth::guard('customer')->check()) {
+            $companydata = RegisterCompany::where('userid',$loggedinuser->id)->get();
+            // dd(  $companydata);
+            return view('UserPanel.companyregister',compact('companydata'));
         } else {
             return view('auth.UserPanel.login');
         }

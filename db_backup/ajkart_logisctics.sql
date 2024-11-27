@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2024 at 09:58 AM
+-- Generation Time: Nov 27, 2024 at 01:10 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -49,7 +49,7 @@ CREATE TABLE `book_deliveries` (
 --
 
 INSERT INTO `book_deliveries` (`id`, `userid`, `customername`, `mobilebumber`, `email`, `product_data`, `billingaddress`, `shippingaddress`, `subtotal`, `totaldiscount`, `grandtotal`, `status`, `created_at`, `updated_at`) VALUES
-(5, '44', 'Anshul', '5986584857', 'ans@gmail.com', '[{\"product_id\":\"22\",\"product_qty\":\"1\",\"product_disc\":\"2000\",\"product_amt\":\"7000\"},{\"product_id\":\"21\",\"product_qty\":\"1\",\"product_disc\":\"1000\",\"product_amt\":\"19000\"}]', 'BSNL', 'BSNL', '26000', '3000', '23000', 'Processing', '2024-11-27 08:39:46', '2024-11-27 08:39:46');
+(6, '44', 'Anshul', '5986584857', 'ans@gmail.com', '[{\"product_id\":\"21\",\"product_qty\":\"1\",\"product_disc\":\"200\",\"product_amt\":\"19800\",\"rowdata\":\"{\\\"id\\\":21,\\\"userid\\\":\\\"44\\\",\\\"category\\\":\\\"Mobiles\\\",\\\"subcategory\\\":\\\"Samsung\\\",\\\"price\\\":\\\"20000\\\",\\\"productname\\\":\\\"Galaxy A54 5g\\\",\\\"saleprice\\\":\\\"23390\\\",\\\"coverimage\\\":\\\"1732599366_shopping.webp\\\",\\\"created_at\\\":\\\"2024-11-26T05:36:06.000000Z\\\",\\\"updated_at\\\":\\\"2024-11-27T06:44:47.000000Z\\\"}\"},{\"product_id\":\"22\",\"product_qty\":\"1\",\"product_disc\":\"2000\",\"product_amt\":\"7000\",\"rowdata\":\"{\\\"id\\\":22,\\\"userid\\\":\\\"44\\\",\\\"category\\\":\\\"Mobiles\\\",\\\"subcategory\\\":\\\"Samsung\\\",\\\"price\\\":\\\"9000\\\",\\\"productname\\\":\\\"Galaxy Z Flip3 5G\\\",\\\"saleprice\\\":\\\"65999\\\",\\\"coverimage\\\":\\\"1732682963_shopping.webp\\\",\\\"created_at\\\":\\\"2024-11-27T04:49:23.000000Z\\\",\\\"updated_at\\\":\\\"2024-11-27T06:44:52.000000Z\\\"}\"}]', 'BSNL', 'BSNL', '26800', '2200', '24600', 'Processing', '2024-11-27 10:44:38', '2024-11-27 10:44:38');
 
 -- --------------------------------------------------------
 
@@ -268,6 +268,37 @@ INSERT INTO `preeti_zintas` (`id`, `userid`, `category`, `subcategory`, `price`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `register_companies`
+--
+
+CREATE TABLE `register_companies` (
+  `id` int(11) NOT NULL,
+  `userid` varchar(255) DEFAULT NULL,
+  `companyname` varchar(255) DEFAULT NULL,
+  `companylogo` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `pincode` varchar(255) DEFAULT NULL,
+  `contactnumber` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `officeaddress` text DEFAULT NULL,
+  `registrationimage` varchar(255) DEFAULT NULL,
+  `pancardimage` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `register_companies`
+--
+
+INSERT INTO `register_companies` (`id`, `userid`, `companyname`, `companylogo`, `city`, `state`, `country`, `pincode`, `contactnumber`, `email`, `officeaddress`, `registrationimage`, `pancardimage`, `created_at`, `updated_at`) VALUES
+(1, '44', 'AJ KART LOGISTICS PVT LTD', '1732706876_mainlogo.jpg', 'Ajmer', 'Rajasthan', 'India', '305001', '8958658548', 'kart@gmail.com', 'Near Vaishali', '1732706876_1732605240_3-invoice-generator-example.png', '1732706876_1732605404_3-invoice-generator-example.png', '2024-11-27 11:27:56', '2024-11-27 12:03:17');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `register_users`
 --
 
@@ -287,7 +318,7 @@ CREATE TABLE `register_users` (
 --
 
 INSERT INTO `register_users` (`id`, `mobilenumber`, `email`, `verifystatus`, `created_at`, `updated_at`, `otp`, `username`) VALUES
-(44, '1234567894', 'anshul@gmail.com', '1', '2024-11-08 04:34:44', '2024-11-27 04:26:58', '208163', 'Anshul'),
+(44, '1234567894', 'anshul@gmail.com', '1', '2024-11-08 04:34:44', '2024-11-27 10:29:20', '157064', 'Anshul'),
 (45, '1234567890', 'nb@gmail.com', '1', '2024-11-08 12:32:41', '2024-11-25 04:37:23', '804008', 'Nitzz'),
 (46, '1111111111', 'ans@gmail.com', '1', '2024-11-11 06:41:25', '2024-11-11 09:30:46', '342877', 'testing');
 
@@ -311,7 +342,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('IM1MkX17BenOJROrGWRtwpfJipaXaZu4uFqixFPV', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiam1SM2Fhb0VXN2plbjFqdWx0WEZ5OHd6aWRCcnY5dWR5M3I2QzRDNCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9ib29rZGVsaXZlcnlmb3JtIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1NToibG9naW5fY3VzdG9tZXJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTo0NDt9', 1732697075);
+('EGlQBZJPnVnRbq0docxvlqEoTCsS837qT06qjvqI', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiam1SM2Fhb0VXN2plbjFqdWx0WEZ5OHd6aWRCcnY5dWR5M3I2QzRDNCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jb21wYW55cmVnaXN0ZXIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjU1OiJsb2dpbl9jdXN0b21lcl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjQ0O30=', 1732709276);
 
 -- --------------------------------------------------------
 
@@ -446,6 +477,12 @@ ALTER TABLE `preeti_zintas`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `register_companies`
+--
+ALTER TABLE `register_companies`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `register_users`
 --
 ALTER TABLE `register_users`
@@ -480,7 +517,7 @@ ALTER TABLE `user_masters`
 -- AUTO_INCREMENT for table `book_deliveries`
 --
 ALTER TABLE `book_deliveries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -523,6 +560,12 @@ ALTER TABLE `personal_access_tokens`
 --
 ALTER TABLE `preeti_zintas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `register_companies`
+--
+ALTER TABLE `register_companies`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `register_users`
