@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2024 at 05:36 AM
+-- Generation Time: Nov 27, 2024 at 09:58 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,36 @@ SET time_zone = "+00:00";
 --
 -- Database: `ajkart_logisctics`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book_deliveries`
+--
+
+CREATE TABLE `book_deliveries` (
+  `id` int(11) NOT NULL,
+  `userid` varchar(255) DEFAULT NULL,
+  `customername` varchar(255) DEFAULT NULL,
+  `mobilebumber` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `product_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`product_data`)),
+  `billingaddress` text DEFAULT NULL,
+  `shippingaddress` text DEFAULT NULL,
+  `subtotal` varchar(255) DEFAULT NULL,
+  `totaldiscount` varchar(255) DEFAULT NULL,
+  `grandtotal` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `book_deliveries`
+--
+
+INSERT INTO `book_deliveries` (`id`, `userid`, `customername`, `mobilebumber`, `email`, `product_data`, `billingaddress`, `shippingaddress`, `subtotal`, `totaldiscount`, `grandtotal`, `status`, `created_at`, `updated_at`) VALUES
+(5, '44', 'Anshul', '5986584857', 'ans@gmail.com', '[{\"product_id\":\"22\",\"product_qty\":\"1\",\"product_disc\":\"2000\",\"product_amt\":\"7000\"},{\"product_id\":\"21\",\"product_qty\":\"1\",\"product_disc\":\"1000\",\"product_amt\":\"19000\"}]', 'BSNL', 'BSNL', '26000', '3000', '23000', 'Processing', '2024-11-27 08:39:46', '2024-11-27 08:39:46');
 
 -- --------------------------------------------------------
 
@@ -215,6 +245,7 @@ CREATE TABLE `personal_access_tokens` (
 
 CREATE TABLE `preeti_zintas` (
   `id` int(11) NOT NULL,
+  `userid` varchar(255) DEFAULT NULL,
   `category` varchar(255) DEFAULT NULL,
   `subcategory` varchar(255) DEFAULT NULL,
   `price` varchar(255) DEFAULT NULL,
@@ -229,8 +260,10 @@ CREATE TABLE `preeti_zintas` (
 -- Dumping data for table `preeti_zintas`
 --
 
-INSERT INTO `preeti_zintas` (`id`, `category`, `subcategory`, `price`, `productname`, `saleprice`, `coverimage`, `created_at`, `updated_at`) VALUES
-(19, 'Booster', 'Booster Child', '500', 'Bag', '455', '1732531408_music.png', '2024-11-25 10:43:28', '2024-11-25 10:43:28');
+INSERT INTO `preeti_zintas` (`id`, `userid`, `category`, `subcategory`, `price`, `productname`, `saleprice`, `coverimage`, `created_at`, `updated_at`) VALUES
+(20, '44', 'Mobiles', 'Samsung', '10000', 'Galaxy S23 ULTRA', '125000', '1732599229_71lD7eGdW-L.jpg', '2024-11-26 05:33:49', '2024-11-27 06:44:42'),
+(21, '44', 'Mobiles', 'Samsung', '20000', 'Galaxy A54 5g', '23390', '1732599366_shopping.webp', '2024-11-26 05:36:06', '2024-11-27 06:44:47'),
+(22, '44', 'Mobiles', 'Samsung', '9000', 'Galaxy Z Flip3 5G', '65999', '1732682963_shopping.webp', '2024-11-27 04:49:23', '2024-11-27 06:44:52');
 
 -- --------------------------------------------------------
 
@@ -254,7 +287,7 @@ CREATE TABLE `register_users` (
 --
 
 INSERT INTO `register_users` (`id`, `mobilenumber`, `email`, `verifystatus`, `created_at`, `updated_at`, `otp`, `username`) VALUES
-(44, '1234567894', 'anshul@gmail.com', '1', '2024-11-08 04:34:44', '2024-11-26 04:29:42', '368211', 'Anshul'),
+(44, '1234567894', 'anshul@gmail.com', '1', '2024-11-08 04:34:44', '2024-11-27 04:26:58', '208163', 'Anshul'),
 (45, '1234567890', 'nb@gmail.com', '1', '2024-11-08 12:32:41', '2024-11-25 04:37:23', '804008', 'Nitzz'),
 (46, '1111111111', 'ans@gmail.com', '1', '2024-11-11 06:41:25', '2024-11-11 09:30:46', '342877', 'testing');
 
@@ -278,8 +311,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('L3GGLN5rYzVqvwvBQKEjmwObxMY0uejWPPRaKd57', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoicW5PUHpaMlZVTDUxRjQ3RkNuTEJnejlkc3FGbWdMNGlKYzJoNnA5RCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9pbnZlbnRvcnlhZGQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjU1OiJsb2dpbl9jdXN0b21lcl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjQ0O30=', 1732595413),
-('PZCg3Od6Le7ekz4WS5Y7WJA5OEjkhYVeQtyQSpBB', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiTGt1TEJMNFZyOXVHQzJxNnlMZHFUWHkyeUNxM1hvTDFPZDI2eVRNeiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9pbnZlbnRvcnlhZGQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEyJGw2LjAzVWI3ek0vZHdMSlhYaERuMi5TZ3NKTTgwNHc2UWNqMTgvdDFVaVZ4b0FlTXNLRkhpIjtzOjU1OiJsb2dpbl9jdXN0b21lcl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjQ0O30=', 1732536989);
+('IM1MkX17BenOJROrGWRtwpfJipaXaZu4uFqixFPV', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiam1SM2Fhb0VXN2plbjFqdWx0WEZ5OHd6aWRCcnY5dWR5M3I2QzRDNCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9ib29rZGVsaXZlcnlmb3JtIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1NToibG9naW5fY3VzdG9tZXJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTo0NDt9', 1732697075);
 
 -- --------------------------------------------------------
 
@@ -330,13 +362,18 @@ CREATE TABLE `user_masters` (
 --
 
 INSERT INTO `user_masters` (`id`, `userid`, `type`, `label`, `created_at`, `updated_at`) VALUES
-(14, '44', 'Master', 'E-Commerce', '2024-11-25 09:19:32', '2024-11-25 09:19:32'),
-(17, '44', 'Master', 'Booster', '2024-11-25 10:26:03', '2024-11-25 10:26:03'),
-(18, '44', 'Booster', 'Booster Child', '2024-11-25 10:26:16', '2024-11-25 10:26:16');
+(19, '44', 'Master', 'Mobiles', '2024-11-26 05:32:21', '2024-11-26 05:32:21'),
+(20, '44', 'Mobiles', 'Samsung', '2024-11-26 05:32:42', '2024-11-26 05:32:42');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `book_deliveries`
+--
+ALTER TABLE `book_deliveries`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `cache`
@@ -440,6 +477,12 @@ ALTER TABLE `user_masters`
 --
 
 --
+-- AUTO_INCREMENT for table `book_deliveries`
+--
+ALTER TABLE `book_deliveries`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -479,7 +522,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `preeti_zintas`
 --
 ALTER TABLE `preeti_zintas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `register_users`
@@ -497,7 +540,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_masters`
 --
 ALTER TABLE `user_masters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

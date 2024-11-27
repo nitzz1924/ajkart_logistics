@@ -226,6 +226,7 @@
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/dataTables.buttons.js"></script>
     <script src="{{asset('assets/libs/select2/js/select2.min.js')}}"></script>
     <script src="{{ asset('assets/js/pages/form-advanced.init.js') }}"></script>
+    <script src="{{asset('assets/js/pages/form-input-spin.init.js')}}"></script>
 
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.dataTables.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>

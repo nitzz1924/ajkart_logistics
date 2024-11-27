@@ -241,25 +241,20 @@ class UserStores extends Controller
     }
 
     public function bookingdelivery(Request $request){
+        //dd($request->all());
         $loggedinuser = Auth::guard('customer')->user();
         try {
-            if ($request->hasFile('invoiceimage')) {
-                $request->validate([
-                    'invoiceimage' => 'required|image|mimes:jpeg,png,jpg,svg,webp|max:2048',
-                ]);
-                $file = $request->file('invoiceimage');
-                $filename = time() . '_' . $file->getClientOriginalName();
-                $file->move(public_path('assets/images/Booking'), $filename);
-            }
             $data = BookDelivery::create([
                 'userid' => $loggedinuser->id,
                 'customername' => $request->customername,
                 'email' => $request->email,
                 'mobilebumber' => $request->mobilebumber,
-                'product_ids' => json_encode($request->products),
-                'address' => $request->address,
-                'deliverydetails' => $request->deliverydetails,
-                'invoiceimage' => $filename,
+                'product_data' => $request->product_data,    // this is products data in JSON
+                'billingaddress' => $request->billingaddress,
+                'shippingaddress' => $request->shippingaddress,
+                'subtotal' => $request->subtotal,
+                'totaldiscount' => $request->totaldiscount,
+                'grandtotal' => $request->grandtotal,
                 'status' => 'Processing',
             ]);
             //dd($data);

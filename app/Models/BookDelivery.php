@@ -12,10 +12,12 @@ class BookDelivery extends Model
         'customername',
         'mobilebumber',
         'email',
-        'product_ids',
-        'address',
-        'deliverydetails',
-        'invoiceimage',
+        'product_data',
+        'billingaddress',
+        'shippingaddress',
+        'subtotal',
+        'totaldiscount',
+        'grandtotal',
         'status',
     ];
 }
