@@ -126,6 +126,7 @@ class UserStores extends Controller
                 'productname' => 'required',
                 'price' => 'required',
                 'saleprice' => 'required',
+                'skus' => 'required',
             ]);
             if ($rq->hasFile('coverimage')) {
                 $rq->validate([
@@ -143,6 +144,8 @@ class UserStores extends Controller
                 'price' => $rq->price,
                 'saleprice' => $rq->saleprice,
                 'coverimage' => $filename,
+                'skus' =>$rq->skus,
+                'status' => 'inprocess',
             ]);
             //dd($data);
             return back()->with('success', 'Inventory Added..!!!!');
@@ -184,7 +187,9 @@ class UserStores extends Controller
                 'subcategory' => $rq->subcategory,
                 'price' => $rq->price,
                 'saleprice' => $rq->saleprice,
+                'skus' => $rq->skus,
                 'coverimage' => $filename,
+                'status' =>  $rq->status,
             ]);
             return back()->with('success', "Updated..!!!");
         } catch (Exception $e) {

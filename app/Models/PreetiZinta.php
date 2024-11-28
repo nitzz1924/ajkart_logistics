@@ -15,5 +15,7 @@ class PreetiZinta extends Model
         'productname',
         'saleprice',
         'coverimage',
+        'skus',
+        'status',
     ];
 }

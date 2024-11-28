@@ -1,4 +1,4 @@
-{{-----------------------------------------------------🙏अंतः अस्ति प्रारंभः🙏--------------------------- --}}
+{{-- ---------------------------------------------------🙏अंतः अस्ति प्रारंभः🙏--------------------------- --}}
 @extends('layouts.UserPanelLayouts.usermain')
 @section('title', 'Inventory Add | ' . config('app.name'))
 @section('content')
@@ -41,7 +41,7 @@
                                 <select name="category" class="form-select" id="servicetypeid" required>
                                     <option value="" selected>--select--</option>
                                     @foreach ($data as $value)
-                                        <option value="{{ $value->label }}">{{ $value->label }}</option>
+                                    <option value="{{ $value->label }}">{{ $value->label }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -54,8 +54,8 @@
                             </div>
                             <div class="col-lg-2">
                                 <label for="labelid">Product Name</label>
-                                <input class="form-control" placeholder="Enter Product Name" name="productname" type="text"
-                                    id="labelid" required>
+                                <input class="form-control" placeholder="Enter Product Name" name="productname"
+                                    type="text" id="labelid" required>
                             </div>
                             <div class="col-lg-2">
                                 <label for="labelid">Price</label>
@@ -64,10 +64,15 @@
                             </div>
                             <div class="col-lg-2">
                                 <label for="disprice">Sales Price</label>
-                                <input class="form-control" placeholder="Enter Sales Price" name="saleprice"
-                                    type="text" id="labelid" required>
+                                <input class="form-control" placeholder="Enter Sales Price" name="saleprice" type="text"
+                                    id="labelid" required>
                             </div>
                             <div class="col-lg-2">
+                                <label for="skus">SKU</label>
+                                <input class="form-control" placeholder="Enter SKU" name="skus" type="text"
+                                    id="skus" required>
+                            </div>
+                            <div class="col-lg-2 mt-3">
                                 <label for="example-email-input" class="form-label">Upload Product Image</label>
                                 <input class="form-control" placeholder="postal code" name="coverimage" type="file"
                                     value="" id="example-email-input">
@@ -93,11 +98,13 @@
                             <tr>
                                 <th>S.No</th>
                                 <th>Cover Image</th>
+                                <th>Name</th>
                                 <th>Category</th>
                                 <th>Sub-Category</th>
                                 <th>Price</th>
                                 <th>Sales Price</th>
-                                <th>Add SKU's</th>
+                                <th>SKUs</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -107,14 +114,20 @@
                                 <td>{{ $index + 1 }}</td>
                                 <td><img src="{{ asset('assets/images/Services/' . $row->coverimage) }}"
                                         alt="Icon Image" width="60"></td>
+                                <td>{{ substr($row->productname,0,15) }}.....</td>
                                 <td>{{ $row->category }}</td>
                                 <td>{{ $row->subcategory }}</td>
                                 <td>{{ $row->price }}</td>
                                 <td>{{ $row->saleprice }}</td>
+                                <td>{{ $row->skus }}</td>
                                 <td>
-                                    <a href="">
-                                        <button type="button" class="btn btn-outline-primary  rounded-2">Add SKU</button>
-                                    </a>
+                                    @if ($row->status == 'inprocess')
+                                    <span class="badge bg-warning fs-6">Inprocess</span>
+                                    @elseif($row->status == 'activated')
+                                    <span class="badge bg-success fs-6">Activated</span>
+                                    @elseif($row->status == 'deactivated')
+                                    <span class="badge bg-danger fs-6">Deactivated</span>
+                                    @endif
                                 </td>
                                 <td>
                                     <ul class="list-inline mb-0">
@@ -141,7 +154,7 @@
             </div>
         </div>
     </div>
-    <div id="myModal" class="modal fadeInRight" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="myModal" class="modal flip" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content rounded-2">
                 <div class="modal-header">
@@ -149,7 +162,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
-                <form action="{{ route('udpateinventory')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('udpateinventory') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body" id="modalbodyedit">
 
@@ -252,39 +265,40 @@
 </script>
 <script>
     //Edit Functionality
-    var data = @json($data);
-    $('#table-body').on('click', '.editbtnmodal', function() {
-        const pricingdata = $(this).data('pricing');
-        console.log(pricingdata);
-        const imageSrc = pricingdata.coverimage ? 'assets/images/Services/' + pricingdata.coverimage : '';
-        console.log(imageSrc);
-        $('#modalbodyedit').empty();
+        var data = @json($data);
+        console.log(data);
+        $('#table-body').on('click', '.editbtnmodal', function() {
+            const pricingdata = $(this).data('pricing');
+            console.log(pricingdata);
+            const imageSrc = pricingdata.coverimage ? 'assets/images/Services/' + pricingdata.coverimage : '';
+            console.log(imageSrc);
+            $('#modalbodyedit').empty();
 
-        // Create documents options with selected values
-        const category = data.map(value => `
+            // Create documents options with selected values
+            const category = data.map(value => `
                 <option value="${value.label}" ${value.label == pricingdata.category ? 'selected' : ''}>${value.label}</option>
             `).join('');
 
-        // Create documents options with selected values
-        const subcategoryopt = subcategory.map(value => `
-                <option value="${value.label}" ${value.label == pricingdata.subcategory ? 'selected' : ''}>${value.label}</option>
-            `).join('');
 
-        const modalbody = `
+            const modalbody = `
                 <div class="mb-3 row">
                 <div class="col-lg-6">
                     <div class="">
-                                <label for="labelid">Select Category</label>
-                                <select name="category" class="form-select" id="servicetypeidnew">
-                                     <option value="">--select Category--</option>
-                                    ${category}
-                                </select>
+                         <label for="labelid">Product Name</label>
+                        <input class="form-control" placeholder="Enter Product Name" name="productname"
+                            type="text" id="labelid" required value="${pricingdata.productname}">
+
+
+                        <label for="labelid">Select Category</label>
+                        <select name="category" class="form-select" id="servicetypeidnew">
+                                <option value="">--select Category--</option>
+                            ${category}
+                        </select>
                             </div>
                         <div class="mt-3">
                              <label for="labelid">Select Sub Category</label>
                                 <select name="subcategory" class="form-select" id="servicemainidnew">
-                                    <option value="">--select product--</option>
-                                   ${subcategoryopt}
+
                                 </select>
                         </div>
                 <div class="mt-2 mb-2">
@@ -296,9 +310,22 @@
                     <label for="disprice">Sales Price</label>
                     <input class="form-control" placeholder="Enter Sales Price" value="${pricingdata.saleprice}" name="saleprice" type="text" id="labelid">
                 </div>
+                 <div class="mt-2 mb-2">
+                    <label for="skus">SKU</label>
+                    <input class="form-control" placeholder="Enter SKU" value="${pricingdata.skus}" name="skus" type="text"
+                        id="skus" required>
+                </div>
                 <div class="mt-2 mb-2">
                     <label for="iconimage">Upload Cover Image</label>
                     <input class="form-control" onchange="readURL(this);" placeholder="enter value" name="coverimage" type="file" value="">
+                </div>
+                <div class="">
+                    <label for="labelid">Change Status</label>
+                    <select name="status" class="form-select" id="servicetypeidnew">
+                      <option value="inprocess" ${pricingdata.status == 'inprocess' ? 'selected' : ''}>Inprocess</option>
+                      <option value="activated" ${pricingdata.status == 'activated' ? 'selected' : ''}>Activated</option>
+                      <option value="deactivated" ${pricingdata.status == 'deactivated' ? 'selected' : ''}>Deactivated</option>
+                    </select>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -308,10 +335,10 @@
                 </div>
         </div>
     `;
-        $('#modalbodyedit').append(modalbody);
-        setTimeout(function() {
-            $('#documentselect').select2();
-        }, 500);
-    });
+            $('#modalbodyedit').append(modalbody);
+            setTimeout(function() {
+                $('#documentselect').select2();
+            }, 500);
+        });
 </script>
 @endsection
