@@ -32,24 +32,13 @@ class UserViews extends Controller
     }
     public function userdashboard()
     {
-        return view('UserPanel.userdashboard');
+        return view('UserPanel.dashboard');
     }
     public function logoutuserpanel()
     {
         Session::flush();
         Auth::guard('customer')->logout();
         return redirect()->route('userloginpage');
-    }
-    public function home()
-    {
-        if (Auth::guard('customer')->check()) {
-            $services = Master::where('type', '=', 'Services')->get();
-            // $consulting = Master::join('pricing_details', 'pricing_details.serviceid', '=', 'masters.id')
-            //     ->select('pricing_details.price as price', 'masters.*')->where('type', '=', 'Consulting')->get();
-            return view('UserPanel.home', compact('services'));
-        } else {
-            return view('auth.UserPanel.login');
-        }
     }
 
     public function inventoryadd()

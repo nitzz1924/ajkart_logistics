@@ -58,6 +58,12 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('deliverylist')}}">
+                        <i class="bx bxs-truck"></i>
+                        <span data-key="t-widgets">Registered Deliveries</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

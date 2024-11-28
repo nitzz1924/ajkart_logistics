@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2024 at 01:10 PM
+-- Generation Time: Nov 28, 2024 at 12:29 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -74,6 +74,34 @@ CREATE TABLE `cache_locks` (
   `owner` varchar(255) NOT NULL,
   `expiration` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `delivery_boys`
+--
+
+CREATE TABLE `delivery_boys` (
+  `id` int(11) NOT NULL,
+  `fullname` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `mobilenumber` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `zipcode` varchar(255) DEFAULT NULL,
+  `address` text DEFAULT NULL,
+  `otp` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `delivery_boys`
+--
+
+INSERT INTO `delivery_boys` (`id`, `fullname`, `email`, `mobilenumber`, `city`, `state`, `zipcode`, `address`, `otp`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Puneet', 'puneet@gmail.com', '9565485258', 'Ajmer', 'Rajasthan', '305001', 'Gali No.4 Vaishali Nagar, Ajmer', '664003', 'approved', '2024-11-28 09:41:49', '2024-11-28 11:28:25');
 
 -- --------------------------------------------------------
 
@@ -318,7 +346,7 @@ CREATE TABLE `register_users` (
 --
 
 INSERT INTO `register_users` (`id`, `mobilenumber`, `email`, `verifystatus`, `created_at`, `updated_at`, `otp`, `username`) VALUES
-(44, '1234567894', 'anshul@gmail.com', '1', '2024-11-08 04:34:44', '2024-11-27 10:29:20', '157064', 'Anshul'),
+(44, '1234567894', 'anshul@gmail.com', '1', '2024-11-08 04:34:44', '2024-11-28 11:22:31', '461440', 'Anshul'),
 (45, '1234567890', 'nb@gmail.com', '1', '2024-11-08 12:32:41', '2024-11-25 04:37:23', '804008', 'Nitzz'),
 (46, '1111111111', 'ans@gmail.com', '1', '2024-11-11 06:41:25', '2024-11-11 09:30:46', '342877', 'testing');
 
@@ -342,7 +370,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('EGlQBZJPnVnRbq0docxvlqEoTCsS837qT06qjvqI', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiam1SM2Fhb0VXN2plbjFqdWx0WEZ5OHd6aWRCcnY5dWR5M3I2QzRDNCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jb21wYW55cmVnaXN0ZXIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjU1OiJsb2dpbl9jdXN0b21lcl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjQ0O30=', 1732709276);
+('N6x2A7zmbgXwob7ij1HKHpxnZMTULzvPdj0iDwsj', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTozOntzOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czo0MDoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2RlbGl2ZXJ5L2Rhc2hib2FyZCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NjoiX3Rva2VuIjtzOjQwOiJtUFlZdlJ4ZTExMDdESGI1M1JFbG5mQWY4RTVTWGwxbXpBWVdUd01lIjt9', 1732793322);
 
 -- --------------------------------------------------------
 
@@ -371,7 +399,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'Amit', 'ajkart@gmail.com', NULL, '$2y$12$l6.03Ub7zM/dwLJXXhDn2.SgsJM804w6Qcj18/t1UiVxoAeMsKFHi', NULL, NULL, NULL, '5lUxGuMkosWLJfpwprjTG708S168r73uS7KuFsTo9owJs2REhpq4QKWcJx3u', NULL, NULL, '2024-09-04 04:20:07', '2024-09-04 04:20:07');
+(1, 'Amit', 'ajkart@gmail.com', NULL, '$2y$12$l6.03Ub7zM/dwLJXXhDn2.SgsJM804w6Qcj18/t1UiVxoAeMsKFHi', NULL, NULL, NULL, 'VD6CY8VDlQuN0u9N8tqS4vtT2QFZnMowgv3EWcxX7CCKHzvpUuoTLu6UjELW', NULL, NULL, '2024-09-04 04:20:07', '2024-09-04 04:20:07');
 
 -- --------------------------------------------------------
 
@@ -417,6 +445,12 @@ ALTER TABLE `cache`
 --
 ALTER TABLE `cache_locks`
   ADD PRIMARY KEY (`key`);
+
+--
+-- Indexes for table `delivery_boys`
+--
+ALTER TABLE `delivery_boys`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -518,6 +552,12 @@ ALTER TABLE `user_masters`
 --
 ALTER TABLE `book_deliveries`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `delivery_boys`
+--
+ALTER TABLE `delivery_boys`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`

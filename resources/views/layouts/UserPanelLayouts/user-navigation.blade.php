@@ -2,7 +2,7 @@
     <!-- LOGO -->
     <div class="navbar-brand-box">
         <!-- Dark Logo-->
-        <a href="{{ route('home') }}" class="logo logo-dark">
+        <a href="{{ route('deliverydashboard') }}" class="logo logo-dark">
             <span class="logo-sm p-2">
                 <img class="rounded-pill" src="{{ asset('assets/images/ajfavicon.jpg') }}" alt="dfavicon" height="35" />
             </span>
@@ -11,7 +11,7 @@
             </span>
         </a>
         <!-- Light Logo-->
-        <a href="{{ route('home') }}" class="logo logo-light py-2">
+        <a href="{{ route('deliverydashboard') }}" class="logo logo-light py-2">
             <span class="logo-sm p-2">
                 <img class="rounded-pill" src="{{ asset('assets/images/ajfavicon.jpg') }}" alt=""
                     height="35" />
@@ -31,10 +31,10 @@
             <div id="two-column-menu"></div>
             <ul class="navbar-nav" id="navbar-nav">
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
-                <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
-                    <a class="nav-link menu-link" href="{{ route('home') }}" role="button" aria-expanded="false"
+                <li class="nav-item {{ request()->routeIs('userdashboard') ? 'active' : '' }}">
+                    <a class="nav-link menu-link" href="{{ route('userdashboard') }}" role="button" aria-expanded="false"
                         aria-controls="sidebarDashboards">
-                       <i class="bx bx-home-alt"></i>Home
+                       <i class="bx bx-home-alt"></i>Dashboard
                     </a>
                 </li>
                 <li class="nav-item {{ request()->routeIs('usermaster') ? 'active' : '' }}">

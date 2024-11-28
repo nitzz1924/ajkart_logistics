@@ -2,6 +2,8 @@
 #---------------------------------------------------🙏अंतः अस्ति प्रारंभः🙏---------------------------”
 use App\Http\Controllers\AdminStores;
 use App\Http\Controllers\AdminViews;
+use App\Http\Controllers\DeliveryStores;
+use App\Http\Controllers\DeliveryViews;
 use App\Http\Controllers\UserStores;
 use App\Http\Controllers\UserViews;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +36,8 @@ Route::middleware([
 Route::controller(AdminViews::class)->group(function () {
     Route::get('master', 'master')->name('master');
     Route::get('submaster', 'submaster')->name('submaster');
+    Route::get('registerdeliveryboy', 'registerdeliveryboy')->name('registerdeliveryboy');
+    Route::get('deliverylist', 'deliverylist')->name('deliverylist');
 
 });
 
@@ -52,6 +56,11 @@ Route::controller(AdminStores::class)->group(function () {
     Route::post('updateattributes', 'updateattributes')->name('updateattributes');
     Route::post('insertpricingform', 'insertpricingform')->name('insertpricingform');
     Route::get('/deleteuser/{id}', 'deleteuser')->name('deleteuser');
+    Route::post('registerboy', 'registerboy')->name('registerboy');
+    Route::get('/deletedelivery/{id}', 'deletedelivery')->name('deletedelivery');
+    Route::post('updatedelivery', 'updatedelivery')->name('updatedelivery');
+
+
 
 
 
@@ -63,11 +72,10 @@ Route::controller(AdminStores::class)->group(function () {
 
 //User Panel Routes
 Route::controller(UserViews::class)->group(function () {
-    Route::get('/', 'userloginpage')->name('userloginpage');
+    Route::get('user/login', 'userloginpage')->name('userloginpage');
     Route::get('user/registration', 'registration')->name('registration');
     Route::get('userdashboard', 'userdashboard')->name('userdashboard');
     Route::get('logoutuserpanel', 'logoutuserpanel')->name('logoutuserpanel');
-    Route::get('home', 'home')->name('home');
     Route::get('inventoryadd', 'inventoryadd')->name('inventoryadd');
     Route::get('usermaster', 'usermaster')->name('usermaster');
     Route::get('bookdeliverypro', 'bookdeliverypro')->name('bookdeliverypro');
@@ -94,13 +102,28 @@ Route::controller(UserStores::class)->group(function () {
     Route::post('bookingdelivery', 'bookingdelivery')->name('bookingdelivery');
     Route::post('registercompany', 'registercompany')->name('registercompany');
     Route::post('updateregistercompany', 'updateregistercompany')->name('updateregistercompany');
+});
 
 
 
-
+//Delivery Panel Routes
+Route::controller(DeliveryViews::class)->group(function () {
+    Route::get('delivery/dashboard', 'deliverydashboard')->name('deliverydashboard');
+    Route::get('delivery/login', 'deliverylogin')->name('deliverylogin');
+    Route::get('logoutdeliverypanel', 'logoutdeliverypanel')->name('logoutdeliverypanel');
 
 
 });
+Route::controller(DeliveryStores::class)->group(function () {
+    Route::post('/signup_delivery_otp', 'signup_delivery_otp')->name('signup_delivery_otp');
+    Route::post('LoginDeliveryotp', 'LoginDeliveryotp')->name('LoginDeliveryotp');
+
+});
+
+
+
+
+
 
 
 // //Excel Routes

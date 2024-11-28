@@ -12662,6 +12662,14 @@ span.flatpickr-weekday {
     opacity: 0.5;
     background-color: transparent;
 }
+.auth-bg-cover> .bg-overlay {
+    background-image: url("/assets/images/deliveryback.webp");
+    background-position: center;
+    background-color: black;
+    background-size: cover;
+    opacity: 0.5;
+    background-color: transparent;
+}
 .auth-bg-cover .footer {
     color: rgba(255, 255, 255, 0.5);
 }

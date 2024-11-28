@@ -44,6 +44,10 @@ return [
             'driver' => 'session',
             'provider' => 'customers',
         ],
+        'delivery' => [
+            'driver' => 'session',
+            'provider' => 'deliverys',
+        ],
     ],
 
     /*
@@ -71,6 +75,10 @@ return [
         'customers' => [
             'driver' => 'eloquent',
             'model' => App\Models\RegisterUser::class,
+        ],
+        'deliverys' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\DeliveryBoy::class,
         ],
     ],
 

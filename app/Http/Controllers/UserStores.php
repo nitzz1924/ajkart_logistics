@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BookDelivery;
 use App\Models\Campaign;
 use App\Models\Contact;
+use App\Models\DeliveryBoy;
 use App\Models\GroupType;
 use App\Models\Message;
 use App\Models\RegisterCompany;
@@ -104,7 +105,7 @@ class UserStores extends Controller
                 // if (Auth::guard('customer')->check()) {
                 //     dd("I am logged in");
                 // }
-                return redirect()->route('home');
+                return redirect()->route('userdashboard');
             } else {
                 // OTP does not match
                 return redirect()->route('userloginpage')->with('error', 'OTP Not Verified');
@@ -369,5 +370,6 @@ class UserStores extends Controller
             //return back()->with('error', 'Not Updated..Try Again.....');
         }
     }
+
 }
 

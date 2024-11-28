@@ -2,6 +2,7 @@
 #{{-----------------------------------------------------🙏अंतः अस्ति प्रारंभः🙏-----------------------------}}
 namespace App\Http\Controllers;
 
+use App\Models\DeliveryBoy;
 use App\Models\FormAttribute;
 use App\Models\Master;
 use App\Models\PricingDetail;
@@ -20,6 +21,15 @@ class AdminViews extends Controller
     {
         $submasterdata = Master::where('type', '=', 'Master')->get();
         return view('AdminPanel.submaster', compact('submasterdata'));
+    }
+
+    public function registerdeliveryboy(){
+        return view('AdminPanel.deliveryboyregister');
+    }
+
+    public function deliverylist(){
+        $deliverys = DeliveryBoy::orderBy('created_at','DESC')->get();
+        return view('AdminPanel.alldeliveris',compact('deliverys'));
     }
 
 }

@@ -1,6 +1,7 @@
 <?php
 #{{-----------------------------------------------------🙏अंतः अस्ति प्रारंभः🙏-----------------------------}}
 namespace App\Http\Controllers;
+use App\Models\DeliveryBoy;
 use App\Models\GroupType;
 use App\Models\PricingDetail;
 use App\Models\RegisterUser;
@@ -181,6 +182,62 @@ class AdminStores extends Controller
         $data = RegisterUser::find($id);
         $data->delete();
         return back()->with('success', "Deleted....!!!");
+    }
+
+    public function registerboy(Request $rq){
+        // dd($submasterdata);
+        try {
+            $rq->validate([
+                'mobilenumber' => 'required',
+            ]);
+            $data = DeliveryBoy::create([
+                'fullname' => $rq->fullname,
+                'email' => $rq->email,
+                'mobilenumber' => $rq->mobilenumber,
+                'city' => $rq->city,
+                'state' => $rq->state,
+                'zipcode' => $rq->zipcode,
+                'address' => $rq->address,
+                'status' => 'unapproved',
+            ]);
+
+            return back()->with('success', 'Registered..!!!!');
+        } catch (Exception $e) {
+            return redirect()->route('registerdeliveryboy')->with('error', $e->getMessage());
+            //return redirect()->route('registerdeliveryboy')->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
+
+    public function deletedelivery($id)
+    {
+        // dd($id);
+        $data = DeliveryBoy::find($id);
+        if (!$data) {
+            return redirect()->back()->with('error', "Data not found.");
+        }
+        $data->delete();
+        return redirect()->back()->with('success', "Deleted.!!!");
+    }
+
+    public function updatedelivery(Request $rq)
+    {
+        try {
+            $data = DeliveryBoy::where('id',$rq->deliveryid)->update([
+                'fullname' => $rq->fullname,
+                'email' => $rq->email,
+                'mobilenumber' => $rq->mobilenumber,
+                'city' => $rq->city,
+                'state' => $rq->state,
+                'zipcode' => $rq->zipcode,
+                'address' => $rq->address,
+                'status' => $rq->status,
+            ]);
+
+            return back()->with('success', 'Details Updated..!!!!');
+        } catch (Exception $e) {
+            return redirect()->route('deliverylist')->with('error', $e->getMessage());
+            //return redirect()->route('deliverylist')->with('error', 'Not Added Try Again...!!!!');
+        }
     }
 
 }
