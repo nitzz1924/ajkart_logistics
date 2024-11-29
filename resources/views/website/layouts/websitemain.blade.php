@@ -57,7 +57,9 @@
                             alt="header_logo">
                     </a>
                 </div>
-                <div class="header_top_location">
+
+                
+                {{-- <div class="header_top_location">
                     <div class="top_location">
                         <i class="icon_pin_alt"></i>
                         <p>England </p>
@@ -69,7 +71,7 @@
                                 data-cfemail="325f534a72555f535b5e1c515d5f">[email&#160;protected]</a></p>
                         <span>Office Hour : 8AM - 4PM</span>
                     </div>
-                </div>
+                </div> --}}
                 <div class="header-right">
                     <ul>
                         <li>
@@ -110,16 +112,16 @@
                                 class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
                         </li>
                         <li><a href="{{ route('about') }}"
-                                  class="{{ request()->routeIs('about') ? 'active' : '' }}">About</a>
+                                class="{{ request()->routeIs('about') ? 'active' : '' }}">About</a>
                         </li>
                         <li><a href="{{ route('services') }}"
-                                  class=" {{ request()->routeIs('services') ? 'active' : '' }}">Services</a>
+                                class=" {{ request()->routeIs('services') ? 'active' : '' }}">Services</a>
                         </li>
                         <li><a href="{{ route('b2bservice') }}"
-                                  class=" {{ request()->routeIs('b2bservice') ? 'active' : '' }}">B2B Service</a>
+                                class=" {{ request()->routeIs('b2bservice') ? 'active' : '' }}">B2B Service</a>
                         </li>
                         <li><a href="{{ route('contactus') }}"
-                                  class=" {{ request()->routeIs('contactus') ? 'active' : '' }}"
+                                class=" {{ request()->routeIs('contactus') ? 'active' : '' }}"
                                 title="Contact">Contact</a>
                         </li>
                     </ul>
@@ -140,115 +142,120 @@
 ==================================================-->
     <footer class="footer-section">
         <div class="container">
+            <!-- Top Footer -->
             <div class="row footer_top">
                 <div class="footer_contact col-md-3 col-xs-12 col-sm-12">
-                    <a href="#" class="footer-logo"><img src="{{ asset('assets/images/mainlogo.png') }}"
-                            alt="Footer Logo"></a>
+                    <a href="{{ route('home') }}" class="footer-logo">
+                        <img src="{{ asset('assets/images/mainlogo.png') }}" alt="Footer Logo">
+                    </a>
                 </div>
-                <div class="footer_contact col-md-3 col-xs-12 col-sm-12"><i class="icon_pin_alt"></i>
-                    <p>Address : company name </p>
-                    <h4>California, USA</h4>
+                <div class="footer_contact col-md-3 col-xs-12 col-sm-12">
+                    <i class="icon_pin_alt"></i>
+                    <p>Corporate Office:</p>
+                    <h4>Uattar Pradesh, INDIA</h4>
                 </div>
-                <div class="footer_contact col-md-3 col-xs-12 col-sm-12"><i class="icon_phone"></i>
-                    <p>Toll Free Number</p>
-                    <h4>0 (245) 378-6748</h4>
+                <div class="footer_contact col-md-3 col-xs-12 col-sm-12">
+                    <i class="icon_phone"></i>
+                    <p>Contact Us:</p>
+                    <h4>+91 (1234) 567-890</h4>
                 </div>
-                <div class="footer_contact col-md-3 col-xs-12 col-sm-12"><i class="icon_clock_alt"></i>
-                    <p>Opening Hours</p>
-                    <h4>Mon - Fri 9am - 6 pm</h4>
+                <div class="footer_contact col-md-3 col-xs-12 col-sm-12">
+                    <i class="icon_clock_alt"></i>
+                    <p>Working Hours:</p>
+                    <h4>Mon - Fri: 9 AM - 6 PM</h4>
                 </div>
             </div>
-
+            <!-- Middle Footer -->
             <div class="row footer_middle">
-                <!-- Start: About -->
+                <!-- About Us -->
                 <div class="col-sm-3 col-xs-12">
                     <div class="widget">
-                        <h5>About us </h5>
-                        <p class="footer_para">Loren ipsum dolor cons ectetur adipi as scing elit sed do eiusmod tema
-                            atp aor incididunt know you labore et dolo rate always ready to welcome you</p>
+                        <h5>About Us</h5>
+                        <p class="footer_para">
+                            AJ Kart Logistic specializes in reliable, fast, and flexible logistics solutions. With a
+                            focus on customer satisfaction, we ensure seamless cargo handling and delivery.
+                        </p>
                     </div>
                 </div>
-                <!-- End: About -->
-                <!-- Start: Helpful Link -->
+                <!-- Helpful Links -->
                 <div class="col-sm-3 col-xs-12">
                     <div class="widget">
-                        <h5>Helpful Link </h5>
+                        <h5>Helpful Links</h5>
                         <ul class="recent-post helpful_post">
                             <li>
-                                <h6><a href="#">Why choose us</a></h6>
+                                <h6><a href="#">Why Choose Us</a></h6>
                             </li>
                             <li>
-                                <h6><a href="#">Our service</a></h6>
+                                <h6><a href="#">Our Services</a></h6>
                             </li>
                             <li>
-                                <h6><a href="#">About us</a></h6>
+                                <h6><a href="#">Track Your Shipment</a></h6>
+                            </li>
+                            <li>
+                                <h6><a href="#">Contact Us</a></h6>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <!-- End: Helpful Link -->
-
-                <!-- Start: Latest post -->
+                <!-- Latest News -->
                 <div class="col-sm-3 col-xs-12">
                     <div class="widget">
-                        <h5>Latest post</h5>
+                        <h5>Latest Updates</h5>
                         <ul class="recent-post">
                             <li>
-                                <h6><a href="#">Loren ipsum dolor consectetur elitdo </a></h6>
+                                <h6><a href="#">5 Tips for Optimizing Your Supply Chain</a></h6>
                             </li>
                             <li>
-                                <h6><a href="#">Loren ipsum dolor consectetur elitdo </a></h6>
+                                <h6><a href="#">Our New Fleet Expansions</a></h6>
                             </li>
                             <li>
-                                <h6><a href="#">Loren ipsum dolor consectetur elitdo </a></h6>
+                                <h6><a href="#">How We Ensure On-Time Deliveries</a></h6>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <!-- End: Latest post -->
-                <!-- Start: CONTACT INFO -->
+                <!-- Subscribe -->
                 <div class="col-sm-3 col-xs-12">
                     <div class="widget">
-                        <h5>Subcribe now</h5>
-                        <!-- Start Subscribe -->
-                        <p class="footer_sub_para">Loren ipsum dolor cons ectetur adipi as scing elit sed do eiusmod
-                            tema atp aor </p>
+                        <h5>Subscribe to Updates</h5>
+                        <p class="footer_sub_para">
+                            Stay updated on the latest in logistics and exclusive offers by subscribing to our
+                            newsletter.
+                        </p>
                         <form class="footer_subs">
-                            <input class="form-input" placeholder="Enter Your Email Address" type="text">
-                            <button type="submit" class="form-button"></button>
+                            <input class="form-input" placeholder="Enter Your Email Address" type="email" required>
+                            <button type="submit" class="form-button">Subscribe</button>
                         </form>
                     </div>
                 </div>
-                <!-- End: CONTACT INFO -->
-                <!-- Start:Subfooter -->
-                <div class="subfooter">
-                    <div class="row">
-                        <div class="col-md-6 col-xs-12">
-                            <div class="copyright_text">@2017 Convertar - Transport HTML Template From <a
-                                    href="#">Zcompany</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-xs-12">
-                            <ul class="footer_social_icons">
-                                <li class="facebook"><a href="#"><i class="fa fa-facebook-f"></i></a>
-                                </li>
-                                <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a>
-                                </li>
-                                <li class="flickr"><a href="#"><i class="fa fa-flickr"></i></a>
-                                </li>
-                                <li class="google"><a href="#"><i class="fa fa-google"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-2 col-xs-12">
-                            <a class="scrollup" href="#"></a>
+            </div>
+            <!-- Bottom Footer -->
+            <div class="subfooter">
+                <div class="row">
+                    <!-- Copyright -->
+                    <div class="col-md-6 col-xs-12">
+                        <div class="copyright_text">
+                            ©2024 AJ Kart Logistic. All Rights Reserved. Designed by <a href="https://yuvmedia.in" target="_blank">Yuvmedia</a>.
                         </div>
                     </div>
+                    <!-- Social Icons -->
+                    <div class="col-md-4 col-xs-12">
+                        <ul class="footer_social_icons">
+                            <li class="facebook"><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                            <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li class="instagram"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- Scroll to Top -->
+                    <div class="col-md-2 col-xs-12">
+                        <a class="scrollup" href="#top"><i class="fa fa-angle-up"></i></a>
+                    </div>
                 </div>
-                <!-- End:Subfooter -->
             </div>
         </div>
     </footer>
+
     <!-- End:Footer Section
 ========================================-->
 
