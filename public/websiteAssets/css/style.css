@@ -551,6 +551,7 @@ section {
 
 #navigation.small-screen {
   width: 100%;
+  margin-top: 20px;
 }
 
 #navigation.small-screen ul {

@@ -116,6 +116,8 @@ Route::controller(websiteViews::class)->group(function () {
     Route::get('contactus', 'contactus')->name('contactus');
     Route::get('services', 'services')->name('services');
     Route::get('b2bservice', 'b2bservice')->name('b2bservice');
+    Route::get('privacypolicy', 'privacypolicy')->name('privacypolicy');
+    Route::get('termsandconditions', 'termsandconditions')->name('termsandconditions');
 });
 
 

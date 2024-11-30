@@ -43,12 +43,12 @@
 <body>
 
     <!-- ::::::::::::::::::::::::::: Start: Preloader section ::::::::::::::::::::::::::: -->
-    <div id="preloader"></div>
+    {{-- <div id="preloader"></div> --}}
     <!-- ::::::::::::::::::::::::::: End: Preloader section ::::::::::::::::::::::::::: -->
 
     <!-- Start: Header Section
 ==================================================-->
-    <div class="header_top">
+    {{-- <div class="header_top">
         <!-- Logo -->
         <div class="container">
             <div class="row">
@@ -59,7 +59,7 @@
                 </div>
 
                 
-                {{-- <div class="header_top_location">
+                <div class="header_top_location">
                     <div class="top_location">
                         <i class="icon_pin_alt"></i>
                         <p>England </p>
@@ -71,7 +71,7 @@
                                 data-cfemail="325f534a72555f535b5e1c515d5f">[email&#160;protected]</a></p>
                         <span>Office Hour : 8AM - 4PM</span>
                     </div>
-                </div> --}}
+                </div>
                 <div class="header-right">
                     <ul>
                         <li>
@@ -99,13 +99,18 @@
                 <!-- End: social-nav -->
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- End: Header Info -->
 
     <!-- Start: header navigation -->
     <div class="navigation">
         <div class="container">
             <div class="row">
+                <div class="header_logo">
+                    <a href="{{ route('home') }}"><img width="200px" src="{{ asset('assets/images/mainlogo.png') }}"
+                            alt="header_logo">
+                    </a>
+                </div>
                 <div id="navigation">
                     <ul>
                         <li><a href="{{ route('home') }}"
@@ -142,33 +147,16 @@
 ==================================================-->
     <footer class="footer-section">
         <div class="container">
-            <!-- Top Footer -->
-            <div class="row footer_top">
-                <div class="footer_contact col-md-3 col-xs-12 col-sm-12">
-                    <a href="{{ route('home') }}" class="footer-logo">
-                        <img src="{{ asset('assets/images/mainlogo.png') }}" alt="Footer Logo">
-                    </a>
-                </div>
-                <div class="footer_contact col-md-3 col-xs-12 col-sm-12">
-                    <i class="icon_pin_alt"></i>
-                    <p>Corporate Office:</p>
-                    <h4>Uattar Pradesh, INDIA</h4>
-                </div>
-                <div class="footer_contact col-md-3 col-xs-12 col-sm-12">
-                    <i class="icon_phone"></i>
-                    <p>Contact Us:</p>
-                    <h4>+91 (1234) 567-890</h4>
-                </div>
-                <div class="footer_contact col-md-3 col-xs-12 col-sm-12">
-                    <i class="icon_clock_alt"></i>
-                    <p>Working Hours:</p>
-                    <h4>Mon - Fri: 9 AM - 6 PM</h4>
-                </div>
-            </div>
+
             <!-- Middle Footer -->
             <div class="row footer_middle">
                 <!-- About Us -->
                 <div class="col-sm-3 col-xs-12">
+                    <div class="footer_contact col-md-3 col-xs-12 col-sm-12">
+                        <a href="{{ route('home') }}" class="footer-logo">
+                            <img src="{{ asset('assets/images/mainlogo.png') }}" width="250px" alt="Footer Logo">
+                        </a>
+                    </div>
                     <div class="widget">
                         <h5>About Us</h5>
                         <p class="footer_para">
@@ -183,35 +171,41 @@
                         <h5>Helpful Links</h5>
                         <ul class="recent-post helpful_post">
                             <li>
-                                <h6><a href="#">Why Choose Us</a></h6>
+                                <h6><a href="{{ route('privacypolicy')}}">Privacy Policy</a></h6>
                             </li>
                             <li>
-                                <h6><a href="#">Our Services</a></h6>
+                                <h6><a href="{{route('termsandconditions')}}">Terms & Conditions</a></h6>
                             </li>
                             <li>
-                                <h6><a href="#">Track Your Shipment</a></h6>
+                                <h6><a href="{{route('b2bservice')}}">B2B Service</a></h6>
                             </li>
                             <li>
-                                <h6><a href="#">Contact Us</a></h6>
+                                <h6><a href="{{route('contactus')}}">Contact Us</a></h6>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <!-- Latest News -->
                 <div class="col-sm-3 col-xs-12">
+                    
                     <div class="widget">
                         <h5>Latest Updates</h5>
-                        <ul class="recent-post">
-                            <li>
-                                <h6><a href="#">5 Tips for Optimizing Your Supply Chain</a></h6>
-                            </li>
-                            <li>
-                                <h6><a href="#">Our New Fleet Expansions</a></h6>
-                            </li>
-                            <li>
-                                <h6><a href="#">How We Ensure On-Time Deliveries</a></h6>
-                            </li>
-                        </ul>
+                        <div class="footer_contact ">
+                            <i class="icon_pin_alt"></i>
+                            <p>Corporate Office:</p>
+                            <h4>Uattar Pradesh, INDIA</h4>
+                        </div>
+                        <div class="footer_contact ">
+                            <i class="icon_phone"></i>
+                            <p>Contact Us:</p>
+                            <h4>+91 (1234) 567-890</h4>
+                        </div>
+                        <div class="footer_contact ">
+                            <i class="icon_clock_alt"></i>
+                            <p>Working Hours:</p>
+                            <h4>Mon - Fri: 9 AM - 6 PM</h4>
+                        </div>
+                        
                     </div>
                 </div>
                 <!-- Subscribe -->
