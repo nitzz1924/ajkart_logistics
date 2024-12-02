@@ -23,10 +23,6 @@ class websiteViews extends Controller
     {
         return view('website.pages.services');
     }
-    public function b2bservice()
-    {
-        return view('website.pages.b2bservice');
-    }
     public function privacypolicy()
     {
         return view('website.pages.privacypolicy');

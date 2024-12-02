@@ -219,7 +219,7 @@
                             <div class="service_img">
                                 <img alt="Express Delivery" class="img-responsive"
                                     src="{{ asset('websiteAssets/images/service1.jpg') }}">
-                                <a class="icon_ser" href="services.html">
+                                <a class="icon_ser" href="{{route('services')}}">
                                     <img alt="Express Delivery Icon"
                                         src="{{ asset('websiteAssets/images/service_icon_1.png') }}">
                                 </a>
@@ -236,14 +236,15 @@
                             <div class="service_img">
                                 <img alt="Air Freight" class="img-responsive"
                                     src="{{ asset('websiteAssets/images/service2.jpg') }}">
-                                <a class="icon_ser" href="services.html">
+                                <a class="icon_ser" href="{{route('services')}}">
                                     <img alt="Air Freight Icon"
                                         src="{{ asset('websiteAssets/images/service_icon_2.png') }}">
                                 </a>
                             </div>
                             <div class="service_para">
-                                <h5>Air Freight</h5>
-                                <p>Fast and secure air freight services for international and domestic shipping needs, with real-time tracking.</p>
+                                <h5>Inventory Management</h5>
+                                <p>Modern storage solutions with real-time tracking and automated restocking alerts to manage
+                                    your stock efficiently.</p>
                             </div>
                         </div>
                     </div>
@@ -253,9 +254,9 @@
                             <div class="service_img">
                                 <img alt="Expedited Transport" class="img-responsive"
                                     src="{{ asset('websiteAssets/images/service3.jpg') }}">
-                                <a class="icon_ser" href="services.html">
+                                <a class="icon_ser" href="{{route('services')}}">
                                     <img alt="Expedited Transport Icon"
-                                        src="{{ asset('websiteAssets/images/service_icon_3.png') }}">
+                                        src="{{ asset('websiteAssets/images/service_icon_2.png') }}">
                                 </a>
                             </div>
                             <div class="service_para">
@@ -270,14 +271,15 @@
                             <div class="service_img">
                                 <img alt="Groupage Cargo" class="img-responsive"
                                     src="{{ asset('websiteAssets/images/service4.jpg') }}">
-                                <a class="icon_ser" href="services.html">
+                                <a class="icon_ser" href="{{route('services')}}">
                                     <img alt="Groupage Cargo Icon"
-                                        src="{{ asset('websiteAssets/images/service_icon_2.png') }}">
+                                        src="{{ asset('websiteAssets/images/service_icon_3.png') }}">
                                 </a>
                             </div>
                             <div class="service_para">
-                                <h5>Groupage Cargo</h5>
-                                <p>Cost-effective cargo consolidation service that allows you to share transport space while ensuring safety and timely delivery.</p>
+                                <h5>Warehousing Solutions</h5>
+                                <p>Secure, temperature-controlled storage facilities with inventory management systems
+                                    that simplify your supply chain operations.</p>
                             </div>
                         </div>
                     </div>

@@ -2285,6 +2285,12 @@ transition: all 0.3s ease-out;
   margin-top: 5px;
 }
 
+.contactus .footer_contact p {
+  margin-bottom: 0;
+  padding-left: 50px;
+  margin-top: 0px;
+  color: black;
+}
 .footer_contact p {
   margin-bottom: 0;
   padding-left: 50px;
@@ -2306,6 +2312,13 @@ transition: all 0.3s ease-out;
 
 .footer-section .widget h5 {
   color: #fff;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  font-size: 20px;
+  margin-bottom: 26px;
+}
+.contactus h4 {
+  color: black;
   text-transform: capitalize;
   letter-spacing: 1px;
   font-size: 20px;
@@ -4095,3 +4108,7 @@ form.search-box {
   background: #333;
 }
  
+a.footer-logo {
+  width: 200px;
+  display: block;
+}

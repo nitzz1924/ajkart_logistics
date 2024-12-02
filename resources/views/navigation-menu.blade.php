@@ -52,7 +52,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('submaster') }}" class="nav-link" data-key="t-one-page">
-                                  Sub-Master
+                                    Sub-Master
                                 </a>
                             </li>
                         </ul>

@@ -122,9 +122,7 @@
                         <li><a href="{{ route('services') }}"
                                 class=" {{ request()->routeIs('services') ? 'active' : '' }}">Services</a>
                         </li>
-                        <li><a href="{{ route('b2bservice') }}"
-                                class=" {{ request()->routeIs('b2bservice') ? 'active' : '' }}">B2B Service</a>
-                        </li>
+
                         <li><a href="{{ route('contactus') }}"
                                 class=" {{ request()->routeIs('contactus') ? 'active' : '' }}"
                                 title="Contact">Contact</a>
@@ -154,7 +152,7 @@
                 <div class="col-sm-3 col-xs-12">
                     <div class="footer_contact col-md-3 col-xs-12 col-sm-12">
                         <a href="{{ route('home') }}" class="footer-logo">
-                            <img src="{{ asset('assets/images/mainlogo.png') }}" width="250px" alt="Footer Logo">
+                            <img src="{{ asset('assets/images/mainlogo.png') }}" width="250" alt="Footer Logo">
                         </a>
                     </div>
                     <div class="widget">
@@ -175,9 +173,6 @@
                             </li>
                             <li>
                                 <h6><a href="{{route('termsandconditions')}}">Terms & Conditions</a></h6>
-                            </li>
-                            <li>
-                                <h6><a href="{{route('b2bservice')}}">B2B Service</a></h6>
                             </li>
                             <li>
                                 <h6><a href="{{route('contactus')}}">Contact Us</a></h6>
