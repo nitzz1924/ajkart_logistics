@@ -11,7 +11,7 @@ use App\Http\Controllers\ExcelContactSheet;
 use App\Http\Middleware\VerifyCsrfToken;
 
 
-Route::get('admin/login', function () {
+Route::get('/', function () {
     return view('auth.login');
 });
 
@@ -59,12 +59,6 @@ Route::controller(AdminStores::class)->group(function () {
     Route::post('registerboy', 'registerboy')->name('registerboy');
     Route::get('/deletedelivery/{id}', 'deletedelivery')->name('deletedelivery');
     Route::post('updatedelivery', 'updatedelivery')->name('updatedelivery');
-
-
-
-
-
-
 });
 
 
@@ -82,7 +76,6 @@ Route::controller(UserViews::class)->group(function () {
     Route::get('bookdeliveryform', 'bookdeliveryform')->name('bookdeliveryform');
     Route::get('getproducts/{id}', 'getproducts')->name('getproducts');
     Route::get('companyregister', 'companyregister')->name('companyregister');
-
 });
 
 
