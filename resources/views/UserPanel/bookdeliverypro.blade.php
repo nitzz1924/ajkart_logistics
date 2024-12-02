@@ -36,12 +36,16 @@
                             <tr>
                                 <th>Order Details</th>
                                 <th>Customer Details</th>
+                                <th>Company Details</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody id="table-body">
                             @foreach ($bookeddata as $index => $row)
+                            @php
+                                $companydetails = json_decode($row->company_details);
+                            @endphp
                             <tr>
                                 <td>
                                     <div>
@@ -67,6 +71,19 @@
                                     </div>
                                 </td>
                                 <td>
+                                    <div>
+                                        <div>
+                                            {{ $companydetails->companyname }}
+                                        </div>
+                                        <div>
+                                            {{ $companydetails->email }}
+                                        </div>
+                                        <div>
+                                            {{ $companydetails->officeaddress }}
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
                                     @if($row->status == 'Processing')
                                     <span class="badge badge-label bg-info  fs-6"><i
                                             class="mdi mdi-circle-medium"></i>Processing</span>
@@ -78,16 +95,16 @@
                                 <td>
                                     <ul class="list-inline mb-0">
                                         <li class="list-inline-item">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#myModal"
-                                                data-pricing="{{ json_encode($row) }}"
-                                                class="px-2 btn btn-primary fs-6 editbtnmodal"><i class="ri-edit-2-fill"
+                                            <a href="{{ route('editorderdetails',['id' => $row->id])}}"
+                                                class="px-2 text-primary fs-5"><i class="ri-edit-2-fill"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
-                                                    data-bs-title="Edit"></i>Edit</a>
+                                                    data-bs-title="Edit Order"></i></a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <button type="button" class="btn btn-danger fs-6"
+                                            <button type="button" class="btn text-danger fs-5"
                                                 onclick="confirmDelete('{{ $row->id }}')">
-                                                <i class="ri-delete-bin-5-fill"></i> Delete
+                                                <i class="ri-delete-bin-5-fill" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="Edit Order"></i>
                                             </button>
                                         </li>
                                     </ul>

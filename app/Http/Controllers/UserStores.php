@@ -144,7 +144,7 @@ class UserStores extends Controller
                 'price' => $rq->price,
                 'saleprice' => $rq->saleprice,
                 'coverimage' => $filename,
-                'skus' =>$rq->skus,
+                'skus' => $rq->skus,
                 'status' => 'inprocess',
             ]);
             //dd($data);
@@ -189,7 +189,7 @@ class UserStores extends Controller
                 'saleprice' => $rq->saleprice,
                 'skus' => $rq->skus,
                 'coverimage' => $filename,
-                'status' =>  $rq->status,
+                'status' => $rq->status,
             ]);
             return back()->with('success', "Updated..!!!");
         } catch (Exception $e) {
@@ -253,13 +253,19 @@ class UserStores extends Controller
     {
         //dd($request->all());
         $loggedinuser = Auth::guard('customer')->user();
+        $companydetails = RegisterCompany::where('userid',$loggedinuser->id)->first();
         try {
             $data = BookDelivery::create([
                 'userid' => $loggedinuser->id,
                 'customername' => $request->customername,
                 'email' => $request->email,
+                'country' => $request->country,
+                'state' => $request->state,
+                'city' => $request->city,
+                'pincode' => $request->pincode,
                 'mobilebumber' => $request->mobilebumber,
                 'product_data' => $request->product_data,    // this is products data in JSON
+                'company_details' => json_encode( $companydetails),    // this is company data in JSON
                 'billingaddress' => $request->billingaddress,
                 'shippingaddress' => $request->shippingaddress,
                 'subtotal' => $request->subtotal,
@@ -267,8 +273,6 @@ class UserStores extends Controller
                 'grandtotal' => $request->grandtotal,
                 'status' => 'Processing',
             ]);
-            //dd($data);
-
             return back()->with('success', "Product Booked..!!!");
         } catch (Exception $e) {
             return back()->with('error', $e->getMessage());
@@ -327,7 +331,8 @@ class UserStores extends Controller
         }
     }
 
-    public function updateregistercompany(Request $request){
+    public function updateregistercompany(Request $request)
+    {
         try {
             if ($request->hasFile('companylogo')) {
                 $request->validate([
@@ -376,5 +381,33 @@ class UserStores extends Controller
         }
     }
 
+    public function updateorderdetails(Request $request)
+    {
+        //dd($request->all());
+        $loggedinuser = Auth::guard('customer')->user();
+        $companydetails = RegisterCompany::where('userid',$loggedinuser->id)->first();
+        try {
+            $data = BookDelivery::where('id',$request->orderid)->update([
+                'customername' => $request->customername,
+                'email' => $request->email,
+                'country' => $request->country,
+                'state' => $request->state,
+                'city' => $request->city,
+                'pincode' => $request->pincode,
+                'mobilebumber' => $request->mobilebumber,
+                'product_data' => $request->product_data,    // this is products data in JSON
+                'company_details' => json_encode( $companydetails),    // this is company data in JSON
+                'billingaddress' => $request->billingaddress,
+                'shippingaddress' => $request->shippingaddress,
+                'subtotal' => $request->subtotal,
+                'totaldiscount' => $request->totaldiscount,
+                'grandtotal' => $request->grandtotal,
+            ]);
+            return back()->with('success', "Details Udpated..!!!");
+        } catch (Exception $e) {
+            return back()->with('error', $e->getMessage());
+            //return back()->with('error', 'Not Updated..Try Again.....');
+        }
+    }
 }
 

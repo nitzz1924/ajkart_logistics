@@ -104,7 +104,7 @@
                                 <th>Price</th>
                                 <th>Sales Price</th>
                                 <th>SKUs</th>
-                                <th>Status</th>
+                                {{-- <th>Status</th> --}}
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -120,7 +120,7 @@
                                 <td>{{ $row->price }}</td>
                                 <td>{{ $row->saleprice }}</td>
                                 <td>{{ $row->skus }}</td>
-                                <td>
+                                {{-- <td>
                                     @if ($row->status == 'inprocess')
                                     <span class="badge bg-warning fs-6">Inprocess</span>
                                     @elseif($row->status == 'activated')
@@ -128,7 +128,7 @@
                                     @elseif($row->status == 'deactivated')
                                     <span class="badge bg-danger fs-6">Deactivated</span>
                                     @endif
-                                </td>
+                                </td> --}}
                                 <td>
                                     <ul class="list-inline mb-0">
                                         <li class="list-inline-item">
@@ -167,6 +167,14 @@
                     <div class="modal-body" id="modalbodyedit">
 
                     </div>
+                    {{-- <div class="">
+                        <label for="labelid">Change Status</label>
+                        <select name="status" class="form-select" id="servicetypeidnew">
+                          <option value="inprocess" ${pricingdata.status == 'inprocess' ? 'selected' : ''}>Inprocess</option>
+                          <option value="activated" ${pricingdata.status == 'activated' ? 'selected' : ''}>Activated</option>
+                          <option value="deactivated" ${pricingdata.status == 'deactivated' ? 'selected' : ''}>Deactivated</option>
+                        </select>
+                    </div> --}}
                     <div class="modal-footer">
                         <button type="submit" class="btn  text-white rounded-2 waves-effect waves-light"
                             style="background-color: #222222">Update</button>
@@ -318,14 +326,6 @@
                 <div class="mt-2 mb-2">
                     <label for="iconimage">Upload Cover Image</label>
                     <input class="form-control" onchange="readURL(this);" placeholder="enter value" name="coverimage" type="file" value="">
-                </div>
-                <div class="">
-                    <label for="labelid">Change Status</label>
-                    <select name="status" class="form-select" id="servicetypeidnew">
-                      <option value="inprocess" ${pricingdata.status == 'inprocess' ? 'selected' : ''}>Inprocess</option>
-                      <option value="activated" ${pricingdata.status == 'activated' ? 'selected' : ''}>Activated</option>
-                      <option value="deactivated" ${pricingdata.status == 'deactivated' ? 'selected' : ''}>Deactivated</option>
-                    </select>
                 </div>
             </div>
             <div class="col-lg-6">

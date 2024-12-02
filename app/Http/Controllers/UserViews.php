@@ -68,9 +68,8 @@ class UserViews extends Controller
     {
         $loggedinuser = Auth::guard('customer')->user();
         if (Auth::guard('customer')->check()) {
-            $bookeddata = BookDelivery::orderby('created_at','DESC')->where('userid',$loggedinuser->id)->get();
-            //dd(  $productdata);
-            return view('UserPanel.bookdeliverypro',compact('bookeddata'));
+            $bookeddata = BookDelivery::orderby('created_at', 'DESC')->where('userid', $loggedinuser->id)->get();
+            return view('UserPanel.bookdeliverypro', compact('bookeddata'));
         } else {
             return view('auth.UserPanel.login');
         }
@@ -79,8 +78,8 @@ class UserViews extends Controller
     {
         $loggedinuser = Auth::guard('customer')->user();
         if (Auth::guard('customer')->check()) {
-            $productdata = PreetiZinta::where('userid',$loggedinuser->id)->get();
-            return view('UserPanel.bookdelivery',compact('productdata'));
+            $productdata = PreetiZinta::where('userid', $loggedinuser->id)->get();
+            return view('UserPanel.bookdelivery', compact('productdata'));
         } else {
             return view('auth.UserPanel.login');
         }
@@ -89,19 +88,33 @@ class UserViews extends Controller
     {
         $loggedinuser = Auth::guard('customer')->user();
         if (Auth::guard('customer')->check()) {
-            $productdata = PreetiZinta::where('id',$id)->where('userid',$loggedinuser->id)->get();
+            $productdata = PreetiZinta::where('id', $id)->where('userid', $loggedinuser->id)->get();
             return response()->json($productdata);
         } else {
             return view('auth.UserPanel.login');
         }
     }
 
-    public function companyregister(){
+    public function companyregister()
+    {
         $loggedinuser = Auth::guard('customer')->user();
         if (Auth::guard('customer')->check()) {
-            $companydata = RegisterCompany::where('userid',$loggedinuser->id)->get();
+            $companydata = RegisterCompany::where('userid', $loggedinuser->id)->get();
             // dd(  $companydata);
-            return view('UserPanel.companyregister',compact('companydata'));
+            return view('UserPanel.companyregister', compact('companydata'));
+        } else {
+            return view('auth.UserPanel.login');
+        }
+    }
+
+    public function editorderdetails($id)
+    {
+        $loggedinuser = Auth::guard('customer')->user();
+        if (Auth::guard('customer')->check()) {
+            $data = BookDelivery::where('id', $id)->first();
+            $allproducts = PreetiZinta::where('userid', $loggedinuser->id)->get();
+            // dd($data);
+            return view('UserPanel.editorder', compact('data','allproducts'));
         } else {
             return view('auth.UserPanel.login');
         }
