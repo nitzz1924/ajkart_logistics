@@ -77,6 +77,7 @@ Route::controller(UserViews::class)->group(function () {
     Route::get('getproducts/{id}', 'getproducts')->name('getproducts');
     Route::get('companyregister', 'companyregister')->name('companyregister');
     Route::get('editorderdetails/{id}', 'editorderdetails')->name('editorderdetails');
+    Route::get('vieworderinvoice/{orderid}', 'vieworderinvoice')->name('vieworderinvoice');
 });
 
 

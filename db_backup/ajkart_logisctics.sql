@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2024 at 01:35 PM
+-- Generation Time: Dec 03, 2024 at 06:31 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -33,7 +33,12 @@ CREATE TABLE `book_deliveries` (
   `customername` varchar(255) DEFAULT NULL,
   `mobilebumber` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
+  `pincode` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
   `product_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`product_data`)),
+  `company_details` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`company_details`)),
   `billingaddress` text DEFAULT NULL,
   `shippingaddress` text DEFAULT NULL,
   `subtotal` varchar(255) DEFAULT NULL,
@@ -48,8 +53,8 @@ CREATE TABLE `book_deliveries` (
 -- Dumping data for table `book_deliveries`
 --
 
-INSERT INTO `book_deliveries` (`id`, `userid`, `customername`, `mobilebumber`, `email`, `product_data`, `billingaddress`, `shippingaddress`, `subtotal`, `totaldiscount`, `grandtotal`, `status`, `created_at`, `updated_at`) VALUES
-(6, '44', 'Anshul', '5986584857', 'ans@gmail.com', '[{\"product_id\":\"21\",\"product_qty\":\"1\",\"product_disc\":\"200\",\"product_amt\":\"19800\",\"rowdata\":\"{\\\"id\\\":21,\\\"userid\\\":\\\"44\\\",\\\"category\\\":\\\"Mobiles\\\",\\\"subcategory\\\":\\\"Samsung\\\",\\\"price\\\":\\\"20000\\\",\\\"productname\\\":\\\"Galaxy A54 5g\\\",\\\"saleprice\\\":\\\"23390\\\",\\\"coverimage\\\":\\\"1732599366_shopping.webp\\\",\\\"created_at\\\":\\\"2024-11-26T05:36:06.000000Z\\\",\\\"updated_at\\\":\\\"2024-11-27T06:44:47.000000Z\\\"}\"},{\"product_id\":\"22\",\"product_qty\":\"1\",\"product_disc\":\"2000\",\"product_amt\":\"7000\",\"rowdata\":\"{\\\"id\\\":22,\\\"userid\\\":\\\"44\\\",\\\"category\\\":\\\"Mobiles\\\",\\\"subcategory\\\":\\\"Samsung\\\",\\\"price\\\":\\\"9000\\\",\\\"productname\\\":\\\"Galaxy Z Flip3 5G\\\",\\\"saleprice\\\":\\\"65999\\\",\\\"coverimage\\\":\\\"1732682963_shopping.webp\\\",\\\"created_at\\\":\\\"2024-11-27T04:49:23.000000Z\\\",\\\"updated_at\\\":\\\"2024-11-27T06:44:52.000000Z\\\"}\"}]', 'BSNL', 'BSNL', '26800', '2200', '24600', 'Processing', '2024-11-27 10:44:38', '2024-11-27 10:44:38');
+INSERT INTO `book_deliveries` (`id`, `userid`, `customername`, `mobilebumber`, `email`, `pincode`, `state`, `city`, `country`, `product_data`, `company_details`, `billingaddress`, `shippingaddress`, `subtotal`, `totaldiscount`, `grandtotal`, `status`, `created_at`, `updated_at`) VALUES
+(8, '44', 'Dinesh Sharma', '5986584857', 'dinesh@gmail.com', '305001', 'Rajasthan', 'Ajmer', 'India', '[{\"product_id\":\"20\",\"product_qty\":\"1\",\"product_disc\":\"500\",\"product_amt\":\"8000\",\"rowdata\":\"{\\\"id\\\":20,\\\"userid\\\":\\\"44\\\",\\\"category\\\":\\\"Mobiles\\\",\\\"subcategory\\\":\\\"Choose...\\\",\\\"price\\\":\\\"10000\\\",\\\"productname\\\":\\\"Galaxy S23 ULTRA\\\",\\\"saleprice\\\":\\\"8500\\\",\\\"coverimage\\\":\\\"1732599229_71lD7eGdW-L.jpg\\\",\\\"skus\\\":\\\"100\\\",\\\"status\\\":\\\"activated\\\",\\\"created_at\\\":\\\"2024-11-26T05:33:49.000000Z\\\",\\\"updated_at\\\":\\\"2024-12-02T04:38:50.000000Z\\\"}\"}]', '{\"id\":1,\"userid\":\"44\",\"companyname\":\"AJ KART LOGISTICS PVT LTD\",\"companylogo\":\"1732706876_mainlogo.jpg\",\"city\":\"Ajmer\",\"state\":\"Rajasthan\",\"country\":\"India\",\"pincode\":\"305001\",\"contactnumber\":\"8958658548\",\"email\":\"kart@gmail.com\",\"officeaddress\":\"Near Vaishali\",\"registrationimage\":\"1732706876_1732605240_3-invoice-generator-example.png\",\"pancardimage\":\"1732706876_1732605404_3-invoice-generator-example.png\",\"created_at\":\"2024-11-27T11:27:56.000000Z\",\"updated_at\":\"2024-11-27T12:03:17.000000Z\"}', 'BSNL Office Opp. Savitri Girls School 305001 Ajmer, Rajasthan', 'BSNL Office Opp. Savitri Girls School 305001 Ajmer, Rajasthan', '8000', '500', '7500', 'Processing', '2024-12-02 05:50:03', '2024-12-03 05:24:33');
 
 -- --------------------------------------------------------
 
@@ -101,7 +106,7 @@ CREATE TABLE `delivery_boys` (
 --
 
 INSERT INTO `delivery_boys` (`id`, `fullname`, `email`, `mobilenumber`, `city`, `state`, `zipcode`, `address`, `otp`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Puneet', 'puneet@gmail.com', '9565485258', 'Ajmer', 'Rajasthan', '305001', 'Gali No.4 Vaishali Nagar, Ajmer', '664003', 'approved', '2024-11-28 09:41:49', '2024-11-28 11:28:25');
+(1, 'Puneet', 'puneet@gmail.com', '9565485258', 'Ajmer', 'Rajasthan', '305001', 'Gali No.4 Vaishali Nagar, Ajmer', '878594', 'unapproved', '2024-11-28 09:41:49', '2024-12-02 04:53:10');
 
 -- --------------------------------------------------------
 
@@ -291,9 +296,9 @@ CREATE TABLE `preeti_zintas` (
 --
 
 INSERT INTO `preeti_zintas` (`id`, `userid`, `category`, `subcategory`, `price`, `productname`, `saleprice`, `coverimage`, `skus`, `status`, `created_at`, `updated_at`) VALUES
-(20, '44', 'Mobiles', 'Choose...', '10000', 'Galaxy S23 ULTRA', '125000', '1732599229_71lD7eGdW-L.jpg', '100', 'inprocess', '2024-11-26 05:33:49', '2024-11-28 12:31:38'),
+(20, '44', 'Mobiles', 'Samsung', '10000', 'Galaxy S23 ULTRA', '8500', '1732599229_71lD7eGdW-L.jpg', '100', 'activated', '2024-11-26 05:33:49', '2024-12-02 10:39:59'),
 (21, '44', 'Mobiles', 'Samsung', '20000', 'Galaxy A54 5g', '23390', '1732599366_shopping.webp', '5', 'inprocess', '2024-11-26 05:36:06', '2024-11-28 12:23:01'),
-(22, '44', 'Mobiles', 'Samsung', '9000', 'Galaxy Z Flip3 5G', '65999', '1732682963_shopping.webp', '5', 'inprocess', '2024-11-27 04:49:23', '2024-11-28 12:23:02');
+(22, '44', 'Mobiles', 'Samsung', '54000', 'Galaxy Z Flip3 5G', '51000', '1732682963_shopping.webp', '5', 'inprocess', '2024-11-27 04:49:23', '2024-12-02 10:48:04');
 
 -- --------------------------------------------------------
 
@@ -348,7 +353,7 @@ CREATE TABLE `register_users` (
 --
 
 INSERT INTO `register_users` (`id`, `mobilenumber`, `email`, `verifystatus`, `created_at`, `updated_at`, `otp`, `username`) VALUES
-(44, '1234567894', 'anshul@gmail.com', '1', '2024-11-08 04:34:44', '2024-11-28 11:34:16', '780841', 'Anshul'),
+(44, '1234567894', 'anshul@gmail.com', '1', '2024-11-08 04:34:44', '2024-12-03 04:40:08', '782121', 'Anshul'),
 (45, '1234567890', 'nb@gmail.com', '1', '2024-11-08 12:32:41', '2024-11-25 04:37:23', '804008', 'Nitzz'),
 (46, '1111111111', 'ans@gmail.com', '1', '2024-11-11 06:41:25', '2024-11-11 09:30:46', '342877', 'testing');
 
@@ -372,7 +377,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('5H1ZmqqrBporhZAAcQAGB44ZHubQlj9bJxzq0Ikl', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo0OntzOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czozNDoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2ludmVudG9yeWFkZCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NjoiX3Rva2VuIjtzOjQwOiJtUFlZdlJ4ZTExMDdESGI1M1JFbG5mQWY4RTVTWGwxbXpBWVdUd01lIjtzOjU1OiJsb2dpbl9jdXN0b21lcl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjQ0O30=', 1732797098);
+('Dc7KyXxoOlCoXLrifcNLdrXS0XjbepKpeKCgfcQY', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiWWd3cnQzRDJnTjgxVUh0VWo2dzNCUEdiWHIyeWdOTjlKV3JPRXdUOSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDA6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC92aWV3b3JkZXJpbnZvaWNlLzgiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjU1OiJsb2dpbl9kZWxpdmVyeV81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czo1NToibG9naW5fY3VzdG9tZXJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTo0NDtzOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEyJGw2LjAzVWI3ek0vZHdMSlhYaERuMi5TZ3NKTTgwNHc2UWNqMTgvdDFVaVZ4b0FlTXNLRkhpIjt9', 1733144872),
+('GJiYtGjrLAngKT0JRm0xrmJorPNlElarDiJT300t', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoic2RvQmY4c2tERVhDZlpqdXl1bVJvZFVqMjdrYzRtWkFoUTFKYlFvUCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC91c2VyZGFzaGJvYXJkIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1NToibG9naW5fY3VzdG9tZXJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTo0NDt9', 1733203832);
 
 -- --------------------------------------------------------
 
@@ -553,7 +559,7 @@ ALTER TABLE `user_masters`
 -- AUTO_INCREMENT for table `book_deliveries`
 --
 ALTER TABLE `book_deliveries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `delivery_boys`

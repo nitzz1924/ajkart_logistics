@@ -9,10 +9,10 @@
                 <div class="page-title-box d-flex align-items-center justify-content-between">
                     <h4 class="mb-0">@yield('title')</h4>
                     <div class="page-title-right">
-                        <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">dashboard</a></li>&nbsp;/
-                            <li class="breadcrumb-item active">@yield('title')</li>
-                        </ol>
+                        <a href="{{ route('vieworderinvoice', ['orderid' => $data->id]) }}">
+                            <button type="button" class="btn btn-outline-dark waves-effect waves-light"><i
+                                    class="ri-bill-fill align-middle me-2"></i>Make Invoice</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -157,7 +157,7 @@
         </form>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-        {{--This is onload function--}}
+        {{-- This is onload function --}}
         <script>
             $(document).ready(function() {
                 var data = @json($productdata);
@@ -309,7 +309,7 @@
         </script>
 
 
-        {{--This is Append function--}}
+        {{-- This is Append function --}}
         <script>
             $(document).ready(function() {
                 $("#SelExample").select2();
@@ -331,7 +331,7 @@
 
                         // Loop through the products and append each row
                         data.forEach(element => {
-                            const imageSrc = element?.coverimage ? '/assets/images/Services/' + element
+                            const imageSrc = element ? .coverimage ? '/assets/images/Services/' + element
                                 .coverimage : '';
                             var tr = `
                             <tr id="product-row-${element.id}">

@@ -119,4 +119,11 @@ class UserViews extends Controller
             return view('auth.UserPanel.login');
         }
     }
+
+    public function vieworderinvoice($orderid){
+        $loggedinuser = Auth::guard('customer')->user();
+        $allproductdata = BookDelivery::where('id',$orderid)->where('userid',$loggedinuser->id)->first();
+        //dd( $allproductdata);
+        return view('UserPanel.orderinvoice',compact('allproductdata'));
+    }
 }
