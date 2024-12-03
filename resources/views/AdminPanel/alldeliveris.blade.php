@@ -63,14 +63,10 @@
                                         </td>
                                         <td>
                                             <div class="hstack gap-3 flex-wrap">
-                                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                                    data-record="{{ json_encode($data) }}"
-                                                    class="link-success editbtnmodal fs-15"><i class="ri-edit-2-line"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Edit"></i></a>
-                                                <a href="#"
-                                                    onclick="confirmDelete('{{ $data->id }}','{{ addslashes($data->fullname) }}')"
-                                                    class="link-danger fs-15"><i class="ri-delete-bin-line"></i></a>
+                                                <button class="btn btn-outline-primary btn-border editbtnmodal" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                data-record="{{ json_encode($data) }}"><i class="ri-edit-2-line"></i></button>
+                                                <button onclick="confirmDelete('{{ $data->id }}','{{ addslashes($data->fullname) }}')" class="btn btn-soft-danger btn-border"><i class="ri-delete-bin-line"></i></button>
+
                                             </div>
                                         </td>
                                     </tr>

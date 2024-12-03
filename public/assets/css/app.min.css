@@ -47,7 +47,7 @@
     right: 0;
     left: 0;
     z-index: 1002;
-    background-color: #000000;
+    background-color: #22005a;
     -webkit-transition: all 0.1s ease-out;
     transition: all 0.1s ease-out;
     border-bottom: 0px solid var(--vz-header-border);
@@ -202,7 +202,7 @@
 }
 @media (min-width: 768px) {
     .topbar-user {
-        background-color: #000000;
+        background-color: #22005a;
     }
 }
 .topbar-user .dropdown-menu {
@@ -496,7 +496,7 @@
 .navbar-menu {
     width: var(--vz-vertical-menu-width);
     z-index: 1002;
-    background: #000000;
+    background: #22005a;
     border-right: 1px solid var(--vz-vertical-menu-border);
     bottom: 0;
     margin-top: 0;
@@ -522,7 +522,7 @@
 }
 .navbar-menu .navbar-nav .nav-item.active a {
     color: var(--vz-vertical-menu-item-active-color);
-    background-color: #262626;
+    background-color: #3f0c92;
 }
 .navbar-menu .navbar-nav .nav-link:hover {
     color: var(--vz-vertical-menu-item-hover-color);
@@ -1147,7 +1147,7 @@
     width: var(--vz-vertical-menu-width-sm);
     z-index: 1;
     top: 0;
-    background-color: #000000;
+    background-color: #22005a;
 }
 :is([data-layout="vertical"], [data-layout="semibox"])[data-sidebar-size="sm"]
     .logo
@@ -1267,7 +1267,7 @@
     width: calc(200px + var(--vz-vertical-menu-width-sm));
     -webkit-transition: none;
     transition: none;
-    background: #000000;
+    background: #22005a;
 }
 :is([data-layout="vertical"], [data-layout="semibox"])[data-sidebar-size="sm"]
     .navbar-menu
@@ -1313,7 +1313,7 @@
     left: var(--vz-vertical-menu-width-sm);
     position: absolute;
     width: 200px;
-    background: #000000;
+    background: #22005a;
     height: auto !important;
     padding: 0.5rem 0;
     border-radius: 0 0 3px 3px;
@@ -16276,7 +16276,7 @@ span.flatpickr-weekday {
     text-align: right;
 }
 div.dt-buttons .dt-button{
-    background-color: #222222 !important;
+    background-color: #22005a !important;
 }
 :is(button, div, a, input):is(.dt-button:hover:not(.disabled)) {
     color: #ffffff !important;

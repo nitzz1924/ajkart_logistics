@@ -11,9 +11,9 @@ use App\Http\Controllers\ExcelContactSheet;
 use App\Http\Middleware\VerifyCsrfToken;
 
 
-Route::get('/', function () {
+Route::get('/admin/login', function () {
     return view('auth.login');
-});
+})->name('adminlogin');;
 
 Route::post('/logoutuser', function () {
     Auth::logout();
@@ -34,31 +34,35 @@ Route::middleware([
 
 //Admin Panel Routes
 Route::controller(AdminViews::class)->group(function () {
-    Route::get('master', 'master')->name('master');
-    Route::get('submaster', 'submaster')->name('submaster');
-    Route::get('registerdeliveryboy', 'registerdeliveryboy')->name('registerdeliveryboy');
-    Route::get('deliverylist', 'deliverylist')->name('deliverylist');
+    Route::get('/admin/master', 'master')->name('master');
+    Route::get('/admin/submaster', 'submaster')->name('submaster');
+    Route::get('/admin/registerdeliveryboy', 'registerdeliveryboy')->name('registerdeliveryboy');
+    Route::get('/admin/deliverylist', 'deliverylist')->name('deliverylist');
+    Route::get('/admin/userslist', 'userslist')->name('userslist');
+    Route::get('/admin/myorders/{id}', 'myorders')->name('myorders');
 
 });
 
 Route::controller(AdminStores::class)->group(function () {
-    Route::post('storemaster', 'storemaster')->name('storemaster');
-    Route::post('storesubmaster', 'storesubmaster')->name('storesubmaster');
-    Route::get('getsubmasterajax/{selectedCat}', 'getsubmasterajax')->name('getsubmasterajax');
-    Route::post('updatesubmaster', 'updatesubmaster')->name('updatesubmaster');
-    Route::get('deletemaster/{id}', 'deletemaster')->name('deletemaster');
-    Route::post('updatemaster', 'updatemaster')->name('updatemaster');
-    Route::post('updatesubmaster', 'updatesubmaster')->name('updatesubmaster');
-    Route::get('/filterservice/{selectedtype}', 'filterservice')->name('filterservice');
-    Route::post('insertform', 'insertform')->name('insertform');
-    Route::get('/getattributes/{servicetype}/{servicename}', 'getattributes')->name('getattributes');
-    Route::get('/deleteattribute/{id}', 'deleteattribute')->name('deleteattribute');
-    Route::post('updateattributes', 'updateattributes')->name('updateattributes');
-    Route::post('insertpricingform', 'insertpricingform')->name('insertpricingform');
-    Route::get('/deleteuser/{id}', 'deleteuser')->name('deleteuser');
-    Route::post('registerboy', 'registerboy')->name('registerboy');
-    Route::get('/deletedelivery/{id}', 'deletedelivery')->name('deletedelivery');
-    Route::post('updatedelivery', 'updatedelivery')->name('updatedelivery');
+    Route::post('/admin/storemaster', 'storemaster')->name('storemaster');
+    Route::post('/admin/storesubmaster', 'storesubmaster')->name('storesubmaster');
+    Route::get('/admin/getsubmasterajax/{selectedCat}', 'getsubmasterajax')->name('getsubmasterajax');
+    Route::post('/admin/updatesubmaster', 'updatesubmaster')->name('updatesubmaster');
+    Route::get('/admin/deletemaster/{id}', 'deletemaster')->name('deletemaster');
+    Route::post('/admin/updatemaster', 'updatemaster')->name('updatemaster');
+    Route::post('/admin/updatesubmaster', 'updatesubmaster')->name('updatesubmaster');
+    Route::get('/admin/filterservice/{selectedtype}', 'filterservice')->name('filterservice');
+    Route::post('/admin/insertform', 'insertform')->name('insertform');
+    Route::get('/admin/getattributes/{servicetype}/{servicename}', 'getattributes')->name('getattributes');
+    Route::get('/admin/deleteattribute/{id}', 'deleteattribute')->name('deleteattribute');
+    Route::post('/admin/updateattributes', 'updateattributes')->name('updateattributes');
+    Route::post('/admin/insertpricingform', 'insertpricingform')->name('insertpricingform');
+    Route::get('/admin/deleteuser/{id}', 'deleteuser')->name('deleteuser');
+    Route::post('/admin/registerboy', 'registerboy')->name('registerboy');
+    Route::get('/admin/deletedelivery/{id}', 'deletedelivery')->name('deletedelivery');
+    Route::post('/admin/updatedelivery', 'updatedelivery')->name('updatedelivery');
+    Route::post('/admin/updateactivationstatus', 'updateactivationstatus')->name('updateactivationstatus');
+
 });
 
 

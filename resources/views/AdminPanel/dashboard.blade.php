@@ -27,189 +27,136 @@
                     <!--end row-->
 
                     <div class="row">
-                        <div class="col-xl-3 col-md-6">
-                            <!-- card -->
-                            <div class="card card-animate">
+                        <div class="col-xl-2 col-md-6">
+                            <div class="card card-animate rounded-0 py-0" style="border-bottom: 4px solid #22005a;">
                                 <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-grow-1 overflow-hidden">
+                                    <div class="d-flex align-items-center justify-content-around">
+                                        {{-- <div class="overflow-hidden">
+                                           <img src="{{asset('assets/images/send.png')}}" alt="" height="30" width="30">
+                                        </div> --}}
+                                        <div class="overflow-hidden">
                                             <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
-                                                Total Earnings
+                                                Products
                                             </p>
                                         </div>
-                                        <div class="flex-shrink-0">
-                                            <h5 class="text-success fs-14 mb-0">
-                                                <i class="ri-arrow-right-up-line fs-13 align-middle"></i>
-                                                +16.24 %
-                                            </h5>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-end justify-content-between mt-4">
-                                        <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4">
-                                                $<span class="counter-value" data-target="559.25">0</span>k
+                                        <div class="float-end">
+                                            <h4 class="mt-1">
+                                                <span class="counter-value" data-target="10">10</span>
                                             </h4>
-                                            <a href="#" class="text-decoration-underline text-muted">View net
-                                                earnings</a>
-                                        </div>
-                                        <div class="avatar-sm flex-shrink-0">
-                                            <span class="avatar-title bg-success-subtle rounded fs-3">
-                                                <i class="bx bx-dollar-circle text-success"></i>
-                                            </span>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- end card body -->
                             </div>
-                            <!-- end card -->
                         </div>
-                        <!-- end col -->
-
-                        <div class="col-xl-3 col-md-6">
-                            <!-- card -->
-                            <div class="card card-animate">
+                        <div class="col-xl-2 col-md-6">
+                            <div class="card card-animate rounded-0 py-0" style="border-bottom: 4px solid #22005a;">
                                 <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-grow-1 overflow-hidden">
+                                    <div class="d-flex align-items-center justify-content-around">
+                                        {{-- <div class="overflow-hidden">
+                                           <img src="{{asset('assets/images/send.png')}}" alt="" height="30" width="30">
+                                        </div> --}}
+                                        <div class="overflow-hidden">
                                             <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
-                                                Orders
+                                                Products
                                             </p>
                                         </div>
-                                        <div class="flex-shrink-0">
-                                            <h5 class="text-danger fs-14 mb-0">
-                                                <i class="ri-arrow-right-down-line fs-13 align-middle"></i>
-                                                -3.57 %
-                                            </h5>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-end justify-content-between mt-4">
-                                        <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4">
-                                                <span class="counter-value" data-target="36894">0</span>
+                                        <div class="float-end">
+                                            <h4 class="mt-1">
+                                                <span class="counter-value" data-target="10">10</span>
                                             </h4>
-                                            <a href="#" class="text-decoration-underline text-muted">View all orders</a>
-                                        </div>
-                                        <div class="avatar-sm flex-shrink-0">
-                                            <span class="avatar-title bg-info-subtle rounded fs-3">
-                                                <i class="bx bx-shopping-bag text-info"></i>
-                                            </span>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- end card body -->
                             </div>
-                            <!-- end card -->
                         </div>
-                        <!-- end col -->
-
-                        <div class="col-xl-3 col-md-6">
-                            <!-- card -->
-                            <div class="card card-animate">
+                        <div class="col-xl-2 col-md-6">
+                            <div class="card card-animate rounded-0 py-0" style="border-bottom: 4px solid #22005a;">
                                 <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-grow-1 overflow-hidden">
+                                    <div class="d-flex align-items-center justify-content-around">
+                                        {{-- <div class="overflow-hidden">
+                                           <img src="{{asset('assets/images/send.png')}}" alt="" height="30" width="30">
+                                        </div> --}}
+                                        <div class="overflow-hidden">
                                             <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
-                                                Customers
+                                                Products
                                             </p>
                                         </div>
-                                        <div class="flex-shrink-0">
-                                            <h5 class="text-success fs-14 mb-0">
-                                                <i class="ri-arrow-right-up-line fs-13 align-middle"></i>
-                                                +29.08 %
-                                            </h5>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-end justify-content-between mt-4">
-                                        <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4">
-                                                <span class="counter-value" data-target="183.35">0</span>M
+                                        <div class="float-end">
+                                            <h4 class="mt-1">
+                                                <span class="counter-value" data-target="10">10</span>
                                             </h4>
-                                            <a href="#" class="text-decoration-underline text-muted">See details</a>
-                                        </div>
-                                        <div class="avatar-sm flex-shrink-0">
-                                            <span class="avatar-title bg-warning-subtle rounded fs-3">
-                                                <i class="bx bx-user-circle text-warning"></i>
-                                            </span>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- end card body -->
                             </div>
-                            <!-- end card -->
                         </div>
-                        <!-- end col -->
-
-                        <div class="col-xl-3 col-md-6">
-                            <!-- card -->
-                            <div class="card card-animate">
+                        <div class="col-xl-2 col-md-6">
+                            <div class="card card-animate rounded-0 py-0" style="border-bottom: 4px solid #22005a;">
                                 <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-grow-1 overflow-hidden">
+                                    <div class="d-flex align-items-center justify-content-around">
+                                        {{-- <div class="overflow-hidden">
+                                           <img src="{{asset('assets/images/send.png')}}" alt="" height="30" width="30">
+                                        </div> --}}
+                                        <div class="overflow-hidden">
                                             <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
-                                                My Balance
+                                                Products
                                             </p>
                                         </div>
-                                        <div class="flex-shrink-0">
-                                            <h5 class="text-muted fs-14 mb-0">+0.00 %</h5>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-end justify-content-between mt-4">
-                                        <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4">
-                                                $<span class="counter-value" data-target="165.89">0</span>k
+                                        <div class="float-end">
+                                            <h4 class="mt-1">
+                                                <span class="counter-value" data-target="10">10</span>
                                             </h4>
-                                            <a href="#" class="text-decoration-underline text-muted">Withdraw money</a>
-                                        </div>
-                                        <div class="avatar-sm flex-shrink-0">
-                                            <span class="avatar-title bg-primary-subtle rounded fs-3">
-                                                <i class="bx bx-wallet text-primary"></i>
-                                            </span>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- end card body -->
                             </div>
-                            <!-- end card -->
                         </div>
-                        <!-- end col -->
+                        <div class="col-xl-2 col-md-6">
+                            <div class="card card-animate rounded-0 py-0" style="border-bottom: 4px solid #22005a;">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-around">
+                                        {{-- <div class="overflow-hidden">
+                                           <img src="{{asset('assets/images/send.png')}}" alt="" height="30" width="30">
+                                        </div> --}}
+                                        <div class="overflow-hidden">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                                Products
+                                            </p>
+                                        </div>
+                                        <div class="float-end">
+                                            <h4 class="mt-1">
+                                                <span class="counter-value" data-target="10">10</span>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-md-6">
+                            <div class="card card-animate rounded-0 py-0" style="border-bottom: 4px solid #22005a;">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-around">
+                                        {{-- <div class="overflow-hidden">
+                                           <img src="{{asset('assets/images/send.png')}}" alt="" height="30" width="30">
+                                        </div> --}}
+                                        <div class="overflow-hidden">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                                Products
+                                            </p>
+                                        </div>
+                                        <div class="float-end">
+                                            <h4 class="mt-1">
+                                                <span class="counter-value" data-target="10">10</span>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- end row-->
 
                     <div class="row">
-                        <div class="col-xl-4">
-                            <div class="card card-height-100">
-                                <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title mb-0 flex-grow-1">
-                                        Store Visits by Source
-                                    </h4>
-                                    <div class="flex-shrink-0">
-                                        <div class="dropdown card-header-dropdown">
-                                            <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false">
-                                                <span class="text-muted">Report<i
-                                                        class="mdi mdi-chevron-down ms-1"></i></span>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">Download Report</a>
-                                                <a class="dropdown-item" href="#">Export</a>
-                                                <a class="dropdown-item" href="#">Import</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end card header -->
-
-                                <div class="card-body">
-                                    <div id="store-visits-source"
-                                        data-colors='["--vz-primary", "--vz-success", "--vz-warning", "--vz-danger", "--vz-info"]'
-                                        class="apex-charts" dir="ltr"></div>
-                                </div>
-                            </div>
-                            <!-- .card-->
-                        </div>
-                        <!-- .col-->
-
-                        <div class="col-xl-8">
+                        <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
                                     <h4 class="card-title mb-0 flex-grow-1">
@@ -226,8 +173,7 @@
 
                                 <div class="card-body">
                                     <div class="table-responsive table-card">
-                                        <table
-                                            class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                        <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                             <thead class="text-muted table-light">
                                                 <tr>
                                                     <th scope="col">Order ID</th>
@@ -289,8 +235,7 @@
                                                     </td>
                                                     <td>Micro Design</td>
                                                     <td>
-                                                        <span
-                                                            class="badge bg-warning-subtle text-warning">Pending</span>
+                                                        <span class="badge bg-warning-subtle text-warning">Pending</span>
                                                     </td>
                                                     <td>
                                                         <h5 class="fs-14 fw-medium mb-0">

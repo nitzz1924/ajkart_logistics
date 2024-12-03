@@ -240,4 +240,15 @@ class AdminStores extends Controller
         }
     }
 
+    public function updateactivationstatus(Request $request)
+    {
+        $login = RegisterUser::find($request->id);
+        if ($login) {
+            $login->activationstatus = $request->status;
+            $login->save();
+            return response()->json(['success' => true]);
+        }
+        return response()->json(['success' => false], 404);
+    }
+
 }

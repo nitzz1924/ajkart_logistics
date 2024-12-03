@@ -14,6 +14,7 @@ class RegisterUser extends Authenticatable
         'mobilenumber',
         'email',
         'otp',
+        'activationstatus',
         'username',
     ];
 }

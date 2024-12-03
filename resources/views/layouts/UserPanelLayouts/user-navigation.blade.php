@@ -17,7 +17,7 @@
                     height="35" />
             </span>
             <span class="logo-lg">
-                <img src="{{ asset('assets/images/mainlogo.png') }}" alt="dbalogo" height="80" />
+                <span class="fw-bolder text-white fs-3">USER PANEL</span>
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"

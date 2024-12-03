@@ -331,48 +331,47 @@
 
                         // Loop through the products and append each row
                         data.forEach(element => {
-                            const imageSrc = element ? .coverimage ? '/assets/images/Services/' + element
-                                .coverimage : '';
+                            const imageSrc = element?.coverimage ? '/assets/images/Services/' + element.coverimage : '';
                             var tr = `
-                            <tr id="product-row-${element.id}">
-                                <td>${element.id}</td>
-                                <td>
-                                    <img src="${imageSrc}" alt="Icon Image" width="60">
-                                </td>
-                                <td>${element.productname.substr(0, 10)}...</td>
-                                <td id="product-price${element.id}" class="product-price" data-price="${element.saleprice}"><s class="text-muted fs-6">₹${element.price}/-</s><br>₹${element.saleprice}/-</td>
-                                <td>
-                                    <div class="input-step">
-                                        <button type="button" class="minus" data-id="${element.id}">–</button>
-                                        <input type="number" id="product-quantity-${element.id}" class="product-quantity" value="1" min="1" max="100">
-                                        <button type="button" class="plus" data-id="${element.id}">+</button>
-                                    </div>
-                                </td>
-                                <td>
-                                    <input type="hidden" id="rowdata-${element.id}" class="rowdataclasss" name="rowdata" value='${JSON.stringify(element)}'>
-                                    <input id="discount-${element.id}" class="form-control discount-input" placeholder="Discount" type="text">
-                                </td>
-                                <td>
-                                    <input id="total-amount-${element.id}" class="form-control total-amount" placeholder="Amount" type="text" readonly>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger deleteRow fs-6">
-                                        <i class="ri-delete-bin-5-fill"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        `;
+                                <tr id="product-row-${element.id}">
+                                    <td>${element.id}</td>
+                                    <td>
+                                        <img src="${imageSrc}" alt="Icon Image" width="60">
+                                    </td>
+                                    <td>${element.productname.substr(0, 10)}...</td>
+                                    <td id="product-price${element.id}" class="product-price" data-price="${element.saleprice}">
+                                        <s class="text-muted fs-6">₹${element.price}/-</s><br>₹${element.saleprice}/-
+                                    </td>
+                                    <td>
+                                        <div class="input-step">
+                                            <button type="button" class="minus" data-id="${element.id}">–</button>
+                                            <input type="number" id="product-quantity-${element.id}" class="product-quantity" value="1" min="1" max="100">
+                                            <button type="button" class="plus" data-id="${element.id}">+</button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <input type="hidden" id="rowdata-${element.id}" class="rowdataclasss" name="rowdata" value='${JSON.stringify(element)}'>
+                                        <input id="discount-${element.id}" class="form-control discount-input" placeholder="Discount" type="text">
+                                    </td>
+                                    <td>
+                                        <input id="total-amount-${element.id}" class="form-control total-amount" placeholder="Amount" type="text" readonly>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger deleteRow fs-6">
+                                            <i class="ri-delete-bin-5-fill"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            `;
                             $("#tablebody").append(tr);
 
                             // Initialize calculation for the current product
                             ProductCalc(element.id);
 
                             // Attach event listeners for quantity and discount changes
-                            $(`#product-quantity-${element.id}, #discount-${element.id}`).off('input').on(
-                                'input',
-                                function() {
-                                    ProductCalc(element.id);
-                                });
+                            $(`#product-quantity-${element.id}, #discount-${element.id}`).off('input').on('input', function() {
+                                ProductCalc(element.id);
+                            });
 
                             // Plus button event
                             $(`.plus[data-id="${element.id}"]`).off('click').on('click', function() {
@@ -458,6 +457,7 @@
 
                             return products;
                         }
+
                         // Attach the generateProductJSON function to the form submit
                         $("#mainform").on("submit", function(event) {
                             var productsJson = generateProductJSON();
@@ -474,4 +474,4 @@
                 });
             }
         </script>
-    @endsection
+@endsection
