@@ -3,163 +3,166 @@
 @section('title', 'Edit Order | ' . config('app.name'))
 @section('content')
 
-    <div class="container-fluid">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-flex align-items-center justify-content-between">
+                <h4 class="mb-0">@yield('title')</h4>
+                <div class="page-title-right">
+                    <a href="{{ route('vieworderinvoice', ['orderid' => $data->id]) }}">
+                        <button type="button" class="btn btn-outline-secondary waves-effect waves-light"><i
+                                class="ri-bill-fill align-middle me-2"></i>Make Invoice</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form action="{{ route('updateorderdetails') }}" method="POST" enctype="multipart/form-data" id="mainform">
+        @csrf
+        @php
+        $productdata = json_decode($data->product_data, true);
+        // foreach ($productdata as $value) {
+        // dd($value);
+        // }
+        @endphp
         <div class="row">
-            <div class="col-12">
-                <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-0">@yield('title')</h4>
-                    <div class="page-title-right">
-                        <a href="{{ route('vieworderinvoice', ['orderid' => $data->id]) }}">
-                            <button type="button" class="btn btn-outline-dark waves-effect waves-light"><i
-                                    class="ri-bill-fill align-middle me-2"></i>Make Invoice</button>
-                        </a>
+            <div class="col-lg-5">
+                <div class="card">
+                    <div class="card-header align-items-center d-flex">
+                        <h4 class="card-title mb-0 flex-grow-1">Edit Customer Details</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3 row">
+                            <div class="col-lg-4 mt-3">
+                                <label for="example-email-input" class="form-label">Customer Name</label>
+                                <input class="form-control" placeholder="Enter Customer Name" name="customername"
+                                    type="text" value="{{ $data->customername }}" id="example-email-input">
+                                <input type="hidden" name="product_data" id="product_data">
+                                <input type="hidden" name="orderid" id="orderid" value="{{ $data->id }}">
+                            </div>
+                            <div class="col-lg-4 mt-3">
+                                <label for="example-email-input" class="form-label">Mobile Number</label>
+                                <input class="form-control" placeholder="Enter Mobile Number" name="mobilebumber"
+                                    type="text" value="{{ $data->mobilebumber }}" id="example-email-input">
+                            </div>
+                            <div class="col-lg-4 mt-3">
+                                <label for="example-email-input" class="form-label">Email</label>
+                                <input class="form-control" placeholder="Enter Email" name="email" type="email"
+                                    value="{{ $data->email }}" id="example-email-input">
+                            </div>
+                            <div class="col-lg-4 mt-3">
+                                <label for="example-email-input" class="form-label">Pincode</label>
+                                <input class="form-control" placeholder="Enter Pincode" name="pincode" type="text"
+                                    value="{{ $data->pincode }}" id="example-email-input">
+                            </div>
+                            <div class="col-lg-4 mt-3">
+                                <label for="example-email-input" class="form-label">City</label>
+                                <input class="form-control" placeholder="Enter City" name="city" type="text"
+                                    value="{{ $data->city }}" id="example-email-input">
+                            </div>
+                            <div class="col-lg-4 mt-3">
+                                <label for="example-email-input" class="form-label">State</label>
+                                <input class="form-control" placeholder="Enter State" name="state" type="text"
+                                    value="{{ $data->state }}" id="example-email-input">
+                            </div>
+                            <div class="col-lg-4 mt-3">
+                                <label for="example-email-input" class="form-label">Country</label>
+                                <input class="form-control" placeholder="Enter Country" name="country" type="text"
+                                    value="{{ $data->country }}" id="example-email-input">
+                            </div>
+                            <div class="col-lg-12 mt-3">
+                                <label for="example-email-input" class="form-label">Billing Address</label>
+                                <textarea rows="4" name="billingaddress" class="form-control resize-none"
+                                    placeholder="Billing Address...">{{ $data->billingaddress }}</textarea>
+                            </div>
+                            <div class="col-lg-12 mt-3">
+                                <label for="example-email-input" class="form-label">Shipping Address</label>
+                                <textarea rows="4" name="shippingaddress" class="form-control resize-none"
+                                    placeholder="Shipping Address...">{{ $data->shippingaddress }}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="card">
+                    <div class="card-header align-items-center d-flex">
+                        <h4 class="card-title mb-0 flex-grow-1">Edit Order Details</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row row-cols-lg-auto g-3 align-items-center">
+                            <div class="col-lg-8">
+                                <select id="SelExample" class="form-select">
+                                    <option value="" selected>--select product</option>
+                                    @foreach ($allproducts as $row)
+                                    <option value="{{ $row->id }}">
+                                        {{ $row->productname }}-{{ $row->id }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <a href="#" onclick="getProduct()" style="background-color: #22005a"
+                                    class="btn text-white border-0">Add</a>
+                            </div>
+                        </div>
+                        <div class="table-responsive mt-3">
+                            <!-- Bordered Tables -->
+                            <table class="table table-bordered table-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Sale Price</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Discount</th>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablebody">
+
+                                </tbody>
+                                <tfoot class="table-light">
+                                    <tr>
+                                        <td colspan="7" class="text-muted fs-6">Sub-Total</td>
+                                        <td class="fs-6"> <input class="form-control"
+                                                style="border: 0px;background-color: #f3f6f9;" type="text" id="subtotal"
+                                                value="" name="subtotal"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="7" class="text-muted fs-6">Discount Amount</td>
+                                        <td class="fs-6"><input class="form-control"
+                                                style="border: 0px;background-color: #f3f6f9;" type="text"
+                                                id="totaldiscount" value="" name="totaldiscount"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="7" class="text-muted fs-6">Total</td>
+                                        <td class="fs-6"><input class="form-control"
+                                                style="border: 0px;background-color: #f3f6f9;" type="text"
+                                                id="grandtotal" value="" name="grandtotal"></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="col-12 d-flex justify-content-end">
+                            <button type="submit" style="background-color: #22005a"
+                                class="btn text-white border-0">Update</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-        <form action="{{ route('updateorderdetails') }}" method="POST" enctype="multipart/form-data" id="mainform">
-            @csrf
-            @php
-                $productdata = json_decode($data->product_data, true);
-                // foreach ($productdata as $value) {
-                // dd($value);
-                // }
-            @endphp
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="card">
-                        <div class="card-header align-items-center d-flex">
-                            <h4 class="card-title mb-0 flex-grow-1">Edit Customer Details</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="mb-3 row">
-                                <div class="col-lg-4 mt-3">
-                                    <label for="example-email-input" class="form-label">Customer Name</label>
-                                    <input class="form-control" placeholder="Enter Customer Name" name="customername"
-                                        type="text" value="{{ $data->customername }}" id="example-email-input">
-                                    <input type="hidden" name="product_data" id="product_data">
-                                    <input type="hidden" name="orderid" id="orderid" value="{{ $data->id }}">
-                                </div>
-                                <div class="col-lg-4 mt-3">
-                                    <label for="example-email-input" class="form-label">Mobile Number</label>
-                                    <input class="form-control" placeholder="Enter Mobile Number" name="mobilebumber"
-                                        type="text" value="{{ $data->mobilebumber }}" id="example-email-input">
-                                </div>
-                                <div class="col-lg-4 mt-3">
-                                    <label for="example-email-input" class="form-label">Email</label>
-                                    <input class="form-control" placeholder="Enter Email" name="email" type="email"
-                                        value="{{ $data->email }}" id="example-email-input">
-                                </div>
-                                <div class="col-lg-4 mt-3">
-                                    <label for="example-email-input" class="form-label">Pincode</label>
-                                    <input class="form-control" placeholder="Enter Pincode" name="pincode" type="text"
-                                        value="{{ $data->pincode }}" id="example-email-input">
-                                </div>
-                                <div class="col-lg-4 mt-3">
-                                    <label for="example-email-input" class="form-label">City</label>
-                                    <input class="form-control" placeholder="Enter City" name="city" type="text"
-                                        value="{{ $data->city }}" id="example-email-input">
-                                </div>
-                                <div class="col-lg-4 mt-3">
-                                    <label for="example-email-input" class="form-label">State</label>
-                                    <input class="form-control" placeholder="Enter State" name="state" type="text"
-                                        value="{{ $data->state }}" id="example-email-input">
-                                </div>
-                                <div class="col-lg-4 mt-3">
-                                    <label for="example-email-input" class="form-label">Country</label>
-                                    <input class="form-control" placeholder="Enter Country" name="country" type="text"
-                                        value="{{ $data->country }}" id="example-email-input">
-                                </div>
-                                <div class="col-lg-12 mt-3">
-                                    <label for="example-email-input" class="form-label">Billing Address</label>
-                                    <textarea rows="4" name="billingaddress" class="form-control resize-none" placeholder="Billing Address...">{{ $data->billingaddress }}</textarea>
-                                </div>
-                                <div class="col-lg-12 mt-3">
-                                    <label for="example-email-input" class="form-label">Shipping Address</label>
-                                    <textarea rows="4" name="shippingaddress" class="form-control resize-none" placeholder="Shipping Address...">{{ $data->shippingaddress }}</textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="card">
-                        <div class="card-header align-items-center d-flex">
-                            <h4 class="card-title mb-0 flex-grow-1">Edit Order Details</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="row row-cols-lg-auto g-3 align-items-center">
-                                <div class="col-lg-8">
-                                    <select id="SelExample" class="form-select">
-                                        <option value="" selected>--select product</option>
-                                        @foreach ($allproducts as $row)
-                                            <option value="{{ $row->id }}">
-                                                {{ $row->productname }}-{{ $row->id }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <a href="#" onclick="getProduct()"
-                                        class="btn btn-success waves-effect waves-light">Add</a>
-                                </div>
-                            </div>
-                            <div class="table-responsive mt-3">
-                                <!-- Bordered Tables -->
-                                <table class="table table-bordered table-nowrap">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Image</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Sale Price</th>
-                                            <th scope="col">Quantity</th>
-                                            <th scope="col">Discount</th>
-                                            <th scope="col">Amount</th>
-                                            <th scope="col"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="tablebody">
-
-                                    </tbody>
-                                    <tfoot class="table-light">
-                                        <tr>
-                                            <td colspan="7" class="text-muted fs-6">Sub-Total</td>
-                                            <td class="fs-6"> <input class="form-control"
-                                                    style="border: 0px;background-color: #f3f6f9;" type="text"
-                                                    id="subtotal" value="" name="subtotal"></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="7" class="text-muted fs-6">Discount Amount</td>
-                                            <td class="fs-6"><input class="form-control"
-                                                    style="border: 0px;background-color: #f3f6f9;" type="text"
-                                                    id="totaldiscount" value="" name="totaldiscount"></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="7" class="text-muted fs-6">Total</td>
-                                            <td class="fs-6"><input class="form-control"
-                                                    style="border: 0px;background-color: #f3f6f9;" type="text"
-                                                    id="grandtotal" value="" name="grandtotal"></td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="col-12 d-flex justify-content-end">
-                                <button type="submit" class="btn btn-success waves-effect waves-light">Update</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-        {{-- This is onload function --}}
-        <script>
-            $(document).ready(function() {
+    {{-- This is onload function --}}
+    <script>
+        $(document).ready(function() {
                 var data = @json($productdata);
                 console.log(data);
                 // Loop through the products and append each row
@@ -306,12 +309,12 @@
                     updateFooterTotals(); // Recalculate totals after a row is deleted
                 });
             });
-        </script>
+    </script>
 
 
-        {{-- This is Append function --}}
-        <script>
-            $(document).ready(function() {
+    {{-- This is Append function --}}
+    <script>
+        $(document).ready(function() {
                 $("#SelExample").select2();
             });
 
@@ -473,5 +476,5 @@
                     }
                 });
             }
-        </script>
-@endsection
+    </script>
+    @endsection

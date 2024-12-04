@@ -11083,8 +11083,8 @@ div.dtr-modal div.dtr-modal-close:hover {
     background-color: var(--vz-light);
 }
 .dt-buttons :is(button.dt-button, div.dt-button, a.dt-button, input.dt-button) {
-    border-color: #054c44;
-    background: #054c44;
+    border-color: #22005a;
+    background: #22005a;
     color: #ffffff;
     border-radius: 9px;
 }

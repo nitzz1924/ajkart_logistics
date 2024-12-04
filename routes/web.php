@@ -72,16 +72,16 @@ Route::controller(AdminStores::class)->group(function () {
 Route::controller(UserViews::class)->group(function () {
     Route::get('user/login', 'userloginpage')->name('userloginpage');
     Route::get('user/registration', 'registration')->name('registration');
-    Route::get('userdashboard', 'userdashboard')->name('userdashboard');
-    Route::get('logoutuserpanel', 'logoutuserpanel')->name('logoutuserpanel');
-    Route::get('inventoryadd', 'inventoryadd')->name('inventoryadd');
-    Route::get('usermaster', 'usermaster')->name('usermaster');
-    Route::get('bookdeliverypro', 'bookdeliverypro')->name('bookdeliverypro');
-    Route::get('bookdeliveryform', 'bookdeliveryform')->name('bookdeliveryform');
-    Route::get('getproducts/{id}', 'getproducts')->name('getproducts');
-    Route::get('companyregister', 'companyregister')->name('companyregister');
-    Route::get('editorderdetails/{id}', 'editorderdetails')->name('editorderdetails');
-    Route::get('vieworderinvoice/{orderid}', 'vieworderinvoice')->name('vieworderinvoice');
+    Route::get('user/userdashboard', 'userdashboard')->name('userdashboard');
+    Route::get('user/logoutuserpanel', 'logoutuserpanel')->name('logoutuserpanel');
+    Route::get('user/inventoryadd', 'inventoryadd')->name('inventoryadd');
+    Route::get('user/usermaster', 'usermaster')->name('usermaster');
+    Route::get('user/bookdeliverypro', 'bookdeliverypro')->name('bookdeliverypro');
+    Route::get('user/bookdeliveryform', 'bookdeliveryform')->name('bookdeliveryform');
+    Route::get('user/getproducts/{id}', 'getproducts')->name('getproducts');
+    Route::get('user/companyregister', 'companyregister')->name('companyregister');
+    Route::get('user/editorderdetails/{id}', 'editorderdetails')->name('editorderdetails');
+    Route::get('user/vieworderinvoice/{orderid}', 'vieworderinvoice')->name('vieworderinvoice');
 });
 
 

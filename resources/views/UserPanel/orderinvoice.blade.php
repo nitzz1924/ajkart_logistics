@@ -9,11 +9,11 @@
                 <h4 class="mb-0">@yield('title')</h4>
                 <div class="page-title-right">
                     <a href="{{ url()->previous() }}">
-                        <button type="button" class="btn btn-outline-dark waves-effect waves-light"><i
+                        <button type="button" class="btn btn-outline-secondary waves-effect waves-light"><i
                                 class="ri-arrow-go-back-fill align-middle me-2"></i>Go Back</button>
                     </a>
                     <a href="#">
-                        <button type="button" class="btn btn-outline-dark waves-effect waves-light" onclick="window.print()"><i
+                        <button type="button" class="btn btn-outline-secondary waves-effect waves-light" onclick="window.print()"><i
                                 class="ri-printer-fill align-middle me-2"></i>Print Invoice</button>
                     </a>
                 </div>

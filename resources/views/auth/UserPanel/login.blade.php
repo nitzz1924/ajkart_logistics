@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6">
-                <div class="card overflow-hidden rounded-5">
+                <div class="card overflow-hidden rounded-5" style="border: 1px solid #22005a;">
                     <div class="row g-0">
                         {{-- <div class="col-lg-6">
                             <div class="p-4  h-100">
@@ -43,7 +43,7 @@
                                 <div class="mt-4">
                                     <form action="#" method="POST" id="loginformid">
                                         <div>
-                                            <h2 class="text-center fw-bold fs-2" style="color: #000000">Welcome Back to Seamless Logistics!</h2>
+                                            <h2 class="text-center fw-bold fs-2" style="color: #22005a; font-weight: 500;">Welcome Back to Seamless Logistics!</h2>
                                             <p class="text-muted text-center fs-5 fw-bold">Demo Phone : 1234567894</p>
                                             <p class="text-muted text-center">Sign in to continue</p>
                                         </div>
@@ -54,7 +54,7 @@
                                                 id="username" placeholder="Enter Phone Number" required>
                                         </div>
                                         <div class="mt-4">
-                                            <button style="background-color: #000000"
+                                            <button style="background-color: #22005a"
                                                 class="btn p-3 w-100 fs-5 rounded-5 text-white" type="submit">Sign
                                                 In</button>
                                         </div>
@@ -62,7 +62,7 @@
                                             <p class="mb-0">Don't have an account ?
                                                 <a href={{ route('registration') }}
                                                     class="fw-semibold text-decoration-underline"
-                                                    style="color: #000000">Signup</a>
+                                                    style="color: #222222">Signup</a>
                                             </p>
                                         </div>
                                     </form>
@@ -87,7 +87,7 @@
                                     <input type="hidden" name="registerid" value="" id="registerid">
                             </div>
                             <div class="mt-3">
-                                <button style="background-color: #000000"
+                                <button style="background-color: #22005a"
                                     class="btn p-3 w-100 fs-5 rounded-5 text-white" type="submit">Confirm</button>
                             </div>
                             </form>

@@ -20,7 +20,7 @@
             <div class="page-title-box d-flex align-items-center justify-content-between">
                 <h4 class="mb-0">@yield('title')</h4>
                 <div class="page-title-right">
-                 <a href="{{ route('bookdeliveryform') }}"><button class="btn btn-success">Create Order</button></a>
+                 <a href="{{ route('bookdeliveryform') }}"><button style="background-color: #22005a" class="btn text-white border-0">Create Order</button></a>
                 </div>
             </div>
         </div>
@@ -95,17 +95,15 @@
                                 <td>
                                     <ul class="list-inline mb-0">
                                         <li class="list-inline-item">
-                                            <a href="{{ route('editorderdetails',['id' => $row->id])}}"
-                                                class="px-2 text-primary fs-5"><i class="ri-edit-2-fill"
-                                                    data-bs-toggle="tooltip" data-bs-placement="top"
-                                                    data-bs-title="Edit Order"></i></a>
+                                            <a href="{{ route('editorderdetails',['id' => $row->id])}}" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="Edit Order">
+                                                <button class="btn btn-outline-secondary btn-border editbtnmodal"><i class="ri-edit-2-line"></i></button>
+                                            </a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <button type="button" class="btn text-danger fs-5"
-                                                onclick="confirmDelete('{{ $row->id }}')">
-                                                <i class="ri-delete-bin-5-fill" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                data-bs-title="Edit Order"></i>
-                                            </button>
+                                            <button onclick="confirmDelete('{{ $row->id }}')"
+                                                class="btn btn-soft-danger btn-border"><i
+                                                    class="ri-delete-bin-line"></i></button>
                                         </li>
                                     </ul>
                                 </td>

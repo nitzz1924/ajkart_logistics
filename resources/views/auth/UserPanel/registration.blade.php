@@ -1,4 +1,3 @@
-
 {{-----------------------------------------------------🙏अंतः अस्ति प्रारंभः🙏--------------------------- --}}
 @extends('auth.UserPanel.Layouts.main')
 @push('title')
@@ -9,7 +8,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6">
-                <div class="card overflow-hidden rounded-5">
+                <div class="card overflow-hidden rounded-5" style="border: 1px solid #22005a;">
                     <div class="row g-0">
                         {{-- <div class="col-lg-6">
                             <div class="p-4  h-100">
@@ -34,7 +33,8 @@
                                 <div class="mt-4">
                                     <form action="{{ route('registeruser') }}" method="POST" id="registerform">
                                         <div>
-                                            <h1 class="text-center fw-bold fs-2" style="color: #000000">Register Today, Move Faster Tomorrow!</h1>
+                                            <h1 class="text-center fw-bold fs-2" style="color: #22005a; font-weight: 500;">Register Today,
+                                                Move Faster Tomorrow!</h1>
                                             @if ($mymess = Session::get('success'))
                                             <div class="alert border-0 alert-success text-center" role="alert"
                                                 id="successAlert">
@@ -72,7 +72,7 @@
                                                 me</label>
                                         </div> --}}
                                         <div class="mt-4">
-                                            <button style="background-color: #000000"
+                                            <button style="background-color: #22005a"
                                                 class="btn p-3 w-100 fs-5 rounded-5 text-white"
                                                 type="submit">Register</button>
                                         </div>
@@ -91,7 +91,7 @@
                                         method="POST" style="display: none;">
                                         @csrf
                                         <div class="text-muted text-center mb-4 mx-lg-3">
-                                            <h2 class="text-center fw-bold" style="color: #000000">Verify Yourself</h2>
+                                            <h2 class="text-center fw-bold" style="color: #22005a">Verify Yourself</h2>
                                             <p>Please enter the 6 digit code sent to <span
                                                     class="fw-semibold">example@abc.com</span></p>
                                         </div>
@@ -106,7 +106,7 @@
                                         <input type="hidden" name="registerid" value="" id="registerid">
                                 </div>
                                 <div class="mt-3">
-                                    <button style="background-color: #000000"
+                                    <button style="background-color: #22005a"
                                         class="btn p-3 w-100 fs-5 rounded-5 text-white" type="submit">Confirm</button>
                                 </div>
                                 </form>

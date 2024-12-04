@@ -109,7 +109,7 @@
                     </div>
                     <div class="card-footer">
                         <div class="col-12 d-flex justify-content-end">
-                            <button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
+                            <button type="submit" style="background-color: #22005a" class="btn text-white border-0">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -230,7 +230,7 @@
                     </div>
                     <div class="card-footer">
                         <div class="col-12 d-flex justify-content-end">
-                            <button type="submit" class="btn btn-success waves-effect waves-light">Update</button>
+                            <button type="submit" style="background-color: #22005a" class="btn text-white border-0">Update</button>
                         </div>
                     </div>
                 </div>

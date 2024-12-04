@@ -69,8 +69,8 @@
                             </div>
                             <div class="col-lg-2">
                                 <label for="skus">SKU</label>
-                                <input class="form-control" placeholder="Enter SKU" name="skus" type="text"
-                                    id="skus" required>
+                                <input class="form-control" placeholder="Enter SKU" name="skus" type="text" id="skus"
+                                    required>
                             </div>
                             <div class="col-lg-2 mt-3">
                                 <label for="example-email-input" class="form-label">Upload Product Image</label>
@@ -79,7 +79,8 @@
                             </div>
                         </div>
                         <div class="d-flex align-items-center justify-content-end mt-0">
-                            <button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
+                            <button type="submit" style="background-color: #22005a"
+                                class="btn text-white border-0">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -112,7 +113,7 @@
                             @foreach ($inventory as $index => $row)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
-                                <td><img src="{{ asset('assets/images/Services/' . $row->coverimage) }}"
+                                <td><img src="{{ asset('/assets/images/Services/' . $row->coverimage) }}"
                                         alt="Icon Image" width="60"></td>
                                 <td>{{ substr($row->productname,0,15) }}.....</td>
                                 <td>{{ $row->category }}</td>
@@ -132,17 +133,15 @@
                                 <td>
                                     <ul class="list-inline mb-0">
                                         <li class="list-inline-item">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#myModal"
-                                                data-pricing="{{ json_encode($row) }}"
-                                                class="px-2 text-primary fs-5 editbtnmodal"><i class="ri-edit-2-fill"
-                                                    data-bs-toggle="tooltip" data-bs-placement="top"
-                                                    data-bs-title="Edit"></i></a>
+                                            <button class="btn btn-outline-secondary btn-border editbtnmodal"
+                                                data-bs-toggle="modal" data-bs-target="#myModal"
+                                                data-pricing="{{ json_encode($row) }}"><i
+                                                    class="ri-edit-2-line"></i></button>
                                         </li>
                                         <li class="list-inline-item">
-                                            <button type="button" class="btn text-danger fs-5"
-                                                onclick="confirmDelete('{{ $row->id }}')">
-                                                <i class="ri-delete-bin-5-fill"></i>
-                                            </button>
+                                            <button onclick="confirmDelete('{{ $row->id }}')"
+                                                class="btn btn-soft-danger btn-border"><i
+                                                    class="ri-delete-bin-line"></i></button>
                                         </li>
                                     </ul>
                                 </td>
@@ -170,14 +169,17 @@
                     {{-- <div class="">
                         <label for="labelid">Change Status</label>
                         <select name="status" class="form-select" id="servicetypeidnew">
-                          <option value="inprocess" ${pricingdata.status == 'inprocess' ? 'selected' : ''}>Inprocess</option>
-                          <option value="activated" ${pricingdata.status == 'activated' ? 'selected' : ''}>Activated</option>
-                          <option value="deactivated" ${pricingdata.status == 'deactivated' ? 'selected' : ''}>Deactivated</option>
+                            <option value="inprocess" ${pricingdata.status=='inprocess' ? 'selected' : '' }>Inprocess
+                            </option>
+                            <option value="activated" ${pricingdata.status=='activated' ? 'selected' : '' }>Activated
+                            </option>
+                            <option value="deactivated" ${pricingdata.status=='deactivated' ? 'selected' : '' }>
+                                Deactivated</option>
                         </select>
                     </div> --}}
                     <div class="modal-footer">
                         <button type="submit" class="btn  text-white rounded-2 waves-effect waves-light"
-                            style="background-color: #222222">Update</button>
+                            style="background-color: #22005a">Update</button>
                     </div>
                 </form>
             </div>
@@ -278,7 +280,7 @@
         $('#table-body').on('click', '.editbtnmodal', function() {
             const pricingdata = $(this).data('pricing');
             console.log(pricingdata);
-            const imageSrc = pricingdata.coverimage ? 'assets/images/Services/' + pricingdata.coverimage : '';
+            const imageSrc = pricingdata.coverimage ? '/assets/images/Services/' + pricingdata.coverimage : '';
             console.log(imageSrc);
             $('#modalbodyedit').empty();
 

@@ -51,7 +51,8 @@
                                     id="valueid" required>
                             </div>
                             <div class="col-lg-4 mt-3 d-flex align-items-center">
-                                <button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
+                                <button type="submit" style="background-color: #22005a"
+                                    class="btn text-white border-0">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -83,17 +84,15 @@
                                 <td>
                                     <ul class="list-inline mb-0">
                                         <li class="list-inline-item">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#myModal"
-                                                data-car-list="{{ json_encode($row) }}"
-                                                class="px-2 text-primary fs-5 editbtnmodal"><i class="ri-edit-2-fill"
-                                                    data-bs-toggle="tooltip" data-bs-placement="top"
-                                                    data-bs-title="Edit"></i></a>
+                                            <button class="btn btn-outline-secondary btn-border editbtnmodal"
+                                                data-bs-toggle="modal" data-bs-target="#myModal"
+                                                data-car-list="{{ json_encode($row) }}"><i
+                                                    class="ri-edit-2-line"></i></button>
                                         </li>
                                         <li class="list-inline-item">
-                                            <button type="button" class="btn text-danger fs-5"
-                                                onclick="confirmDelete('{{ $row->id }}')">
-                                                <i class="ri-delete-bin-5-fill"></i>
-                                            </button>
+                                            <button onclick="confirmDelete('{{ $row->id }}')"
+                                                class="btn btn-soft-danger btn-border"><i
+                                                    class="ri-delete-bin-line"></i></button>
                                         </li>
                                     </ul>
                                 </td>
@@ -120,7 +119,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn  text-white rounded-2 waves-effect waves-light"
-                            style="background-color: #222222">Update</button>
+                            style="background-color: #22005a">Update</button>
                     </div>
                 </form>
             </div>
