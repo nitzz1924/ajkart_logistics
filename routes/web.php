@@ -8,6 +8,7 @@ use App\Http\Controllers\UserStores;
 use App\Http\Controllers\UserViews;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExcelContactSheet;
+use App\Http\Controllers\websiteViews;
 use App\Http\Middleware\VerifyCsrfToken;
 
 
@@ -111,13 +112,19 @@ Route::controller(DeliveryViews::class)->group(function () {
     Route::get('delivery/dashboard', 'deliverydashboard')->name('deliverydashboard');
     Route::get('delivery/login', 'deliverylogin')->name('deliverylogin');
     Route::get('logoutdeliverypanel', 'logoutdeliverypanel')->name('logoutdeliverypanel');
-
-
 });
 Route::controller(DeliveryStores::class)->group(function () {
     Route::post('/signup_delivery_otp', 'signup_delivery_otp')->name('signup_delivery_otp');
     Route::post('LoginDeliveryotp', 'LoginDeliveryotp')->name('LoginDeliveryotp');
+});
 
+Route::controller(websiteViews::class)->group(function () {
+    Route::get('/', 'home')->name('home');
+    Route::get('about', 'about')->name('about');
+    Route::get('contactus', 'contactus')->name('contactus');
+    Route::get('services', 'services')->name('services');
+    Route::get('privacypolicy', 'privacypolicy')->name('privacypolicy');
+    Route::get('termsandconditions', 'termsandconditions')->name('termsandconditions');
 });
 
 
@@ -129,4 +136,3 @@ Route::controller(DeliveryStores::class)->group(function () {
 // //Excel Routes
 // Route::get('/import-excel', [ExcelContactSheet::class, 'index'])->name('import.excel');
 // Route::post('/import-excel', [ExcelContactSheet::class, 'import']);
-
