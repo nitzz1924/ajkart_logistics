@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2024 at 12:22 PM
+-- Generation Time: Dec 05, 2024 at 09:25 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,6 +44,7 @@ CREATE TABLE `book_deliveries` (
   `subtotal` varchar(255) DEFAULT NULL,
   `totaldiscount` varchar(255) DEFAULT NULL,
   `grandtotal` varchar(255) DEFAULT NULL,
+  `statusreason` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -53,8 +54,11 @@ CREATE TABLE `book_deliveries` (
 -- Dumping data for table `book_deliveries`
 --
 
-INSERT INTO `book_deliveries` (`id`, `userid`, `customername`, `mobilebumber`, `email`, `pincode`, `state`, `city`, `country`, `product_data`, `company_details`, `billingaddress`, `shippingaddress`, `subtotal`, `totaldiscount`, `grandtotal`, `status`, `created_at`, `updated_at`) VALUES
-(8, '44', 'Dinesh Sharma', '5986584857', 'dinesh@gmail.com', '305001', 'Rajasthan', 'Ajmer', 'India', '[{\"product_id\":\"20\",\"product_qty\":\"1\",\"product_disc\":\"500\",\"product_amt\":\"8000\",\"rowdata\":\"{\\\"id\\\":20,\\\"userid\\\":\\\"44\\\",\\\"category\\\":\\\"Mobiles\\\",\\\"subcategory\\\":\\\"Choose...\\\",\\\"price\\\":\\\"10000\\\",\\\"productname\\\":\\\"Galaxy S23 ULTRA\\\",\\\"saleprice\\\":\\\"8500\\\",\\\"coverimage\\\":\\\"1732599229_71lD7eGdW-L.jpg\\\",\\\"skus\\\":\\\"100\\\",\\\"status\\\":\\\"activated\\\",\\\"created_at\\\":\\\"2024-11-26T05:33:49.000000Z\\\",\\\"updated_at\\\":\\\"2024-12-02T04:38:50.000000Z\\\"}\"},{\"product_id\":\"21\",\"product_qty\":\"1\",\"product_disc\":\"2000\",\"product_amt\":\"18000\",\"rowdata\":\"{\\\"id\\\":21,\\\"userid\\\":\\\"44\\\",\\\"category\\\":\\\"Mobiles\\\",\\\"subcategory\\\":\\\"Samsung\\\",\\\"price\\\":\\\"25000\\\",\\\"productname\\\":\\\"Galaxy A54 5g\\\",\\\"saleprice\\\":\\\"20000\\\",\\\"coverimage\\\":\\\"1732599366_shopping.webp\\\",\\\"skus\\\":\\\"5\\\",\\\"status\\\":\\\"inprocess\\\",\\\"created_at\\\":\\\"2024-11-26T05:36:06.000000Z\\\",\\\"updated_at\\\":\\\"2024-12-03T05:40:35.000000Z\\\"}\"}]', '{\"id\":1,\"userid\":\"44\",\"companyname\":\"AJ KART LOGISTICS PVT LTD\",\"companylogo\":\"1732706876_mainlogo.jpg\",\"city\":\"Ajmer\",\"state\":\"Rajasthan\",\"country\":\"India\",\"pincode\":\"305001\",\"contactnumber\":\"8958658548\",\"email\":\"kart@gmail.com\",\"officeaddress\":\"Near Vaishali\",\"registrationimage\":\"1732706876_1732605240_3-invoice-generator-example.png\",\"pancardimage\":\"1732706876_1732605404_3-invoice-generator-example.png\",\"created_at\":\"2024-11-27T11:27:56.000000Z\",\"updated_at\":\"2024-11-27T12:03:17.000000Z\"}', 'BSNL Office Opp. Savitri Girls School 305001 Ajmer, Rajasthan', 'BSNL Office Opp. Savitri Girls School 305001 Ajmer, Rajasthan', '26000', '2500', '23500', 'Processing', '2024-12-02 05:50:03', '2024-12-03 06:04:25');
+INSERT INTO `book_deliveries` (`id`, `userid`, `customername`, `mobilebumber`, `email`, `pincode`, `state`, `city`, `country`, `product_data`, `company_details`, `billingaddress`, `shippingaddress`, `subtotal`, `totaldiscount`, `grandtotal`, `statusreason`, `status`, `created_at`, `updated_at`) VALUES
+(8, '44', 'Dinesh Sharma', '5986584857', 'dinesh@gmail.com', '305001', 'Rajasthan', 'Ajmer', 'India', '[{\"product_id\":\"20\",\"product_qty\":\"1\",\"product_disc\":\"500\",\"product_amt\":\"8000\",\"rowdata\":\"{\\\"id\\\":20,\\\"userid\\\":\\\"44\\\",\\\"category\\\":\\\"Mobiles\\\",\\\"subcategory\\\":\\\"Choose...\\\",\\\"price\\\":\\\"10000\\\",\\\"productname\\\":\\\"Galaxy S23 ULTRA\\\",\\\"saleprice\\\":\\\"8500\\\",\\\"coverimage\\\":\\\"1732599229_71lD7eGdW-L.jpg\\\",\\\"skus\\\":\\\"100\\\",\\\"status\\\":\\\"activated\\\",\\\"created_at\\\":\\\"2024-11-26T05:33:49.000000Z\\\",\\\"updated_at\\\":\\\"2024-12-02T04:38:50.000000Z\\\"}\"},{\"product_id\":\"21\",\"product_qty\":\"1\",\"product_disc\":\"2000\",\"product_amt\":\"18000\",\"rowdata\":\"{\\\"id\\\":21,\\\"userid\\\":\\\"44\\\",\\\"category\\\":\\\"Mobiles\\\",\\\"subcategory\\\":\\\"Samsung\\\",\\\"price\\\":\\\"25000\\\",\\\"productname\\\":\\\"Galaxy A54 5g\\\",\\\"saleprice\\\":\\\"20000\\\",\\\"coverimage\\\":\\\"1732599366_shopping.webp\\\",\\\"skus\\\":\\\"5\\\",\\\"status\\\":\\\"inprocess\\\",\\\"created_at\\\":\\\"2024-11-26T05:36:06.000000Z\\\",\\\"updated_at\\\":\\\"2024-12-03T05:40:35.000000Z\\\"}\"}]', '{\"id\":1,\"userid\":\"44\",\"companyname\":\"AJ KART LOGISTICS PVT LTD\",\"companylogo\":\"1732706876_mainlogo.jpg\",\"city\":\"Ajmer\",\"state\":\"Rajasthan\",\"country\":\"India\",\"pincode\":\"305001\",\"contactnumber\":\"8958658548\",\"email\":\"kart@gmail.com\",\"officeaddress\":\"Near Vaishali\",\"registrationimage\":\"1732706876_1732605240_3-invoice-generator-example.png\",\"pancardimage\":\"1732706876_1732605404_3-invoice-generator-example.png\",\"created_at\":\"2024-11-27T11:27:56.000000Z\",\"updated_at\":\"2024-11-27T12:03:17.000000Z\"}', 'BSNL Office Opp. Savitri Girls School 305001 Ajmer, Rajasthan', 'BSNL Office Opp. Savitri Girls School 305001 Ajmer, Rajasthan', '26000', '2500', '23500', 'all okay', 'delivered', '2024-12-02 05:50:03', '2024-12-05 08:22:08'),
+(9, '44', 'Dinesh Sharma', '5986584857', 'dinesh@gmail.com', '305001', 'Rajasthan', 'Ajmer', 'India', '[{\"product_id\":\"20\",\"product_qty\":\"1\",\"product_disc\":\"500\",\"product_amt\":\"8000\",\"rowdata\":\"{\\\"id\\\":20,\\\"userid\\\":\\\"44\\\",\\\"category\\\":\\\"Mobiles\\\",\\\"subcategory\\\":\\\"Choose...\\\",\\\"price\\\":\\\"10000\\\",\\\"productname\\\":\\\"Galaxy S23 ULTRA\\\",\\\"saleprice\\\":\\\"8500\\\",\\\"coverimage\\\":\\\"1732599229_71lD7eGdW-L.jpg\\\",\\\"skus\\\":\\\"100\\\",\\\"status\\\":\\\"activated\\\",\\\"created_at\\\":\\\"2024-11-26T05:33:49.000000Z\\\",\\\"updated_at\\\":\\\"2024-12-02T04:38:50.000000Z\\\"}\"},{\"product_id\":\"21\",\"product_qty\":\"1\",\"product_disc\":\"2000\",\"product_amt\":\"18000\",\"rowdata\":\"{\\\"id\\\":21,\\\"userid\\\":\\\"44\\\",\\\"category\\\":\\\"Mobiles\\\",\\\"subcategory\\\":\\\"Samsung\\\",\\\"price\\\":\\\"25000\\\",\\\"productname\\\":\\\"Galaxy A54 5g\\\",\\\"saleprice\\\":\\\"20000\\\",\\\"coverimage\\\":\\\"1732599366_shopping.webp\\\",\\\"skus\\\":\\\"5\\\",\\\"status\\\":\\\"inprocess\\\",\\\"created_at\\\":\\\"2024-11-26T05:36:06.000000Z\\\",\\\"updated_at\\\":\\\"2024-12-03T05:40:35.000000Z\\\"}\"}]', '{\"id\":1,\"userid\":\"44\",\"companyname\":\"AJ KART LOGISTICS PVT LTD\",\"companylogo\":\"1732706876_mainlogo.jpg\",\"city\":\"Ajmer\",\"state\":\"Rajasthan\",\"country\":\"India\",\"pincode\":\"305001\",\"contactnumber\":\"8958658548\",\"email\":\"kart@gmail.com\",\"officeaddress\":\"Near Vaishali\",\"registrationimage\":\"1732706876_1732605240_3-invoice-generator-example.png\",\"pancardimage\":\"1732706876_1732605404_3-invoice-generator-example.png\",\"created_at\":\"2024-11-27T11:27:56.000000Z\",\"updated_at\":\"2024-11-27T12:03:17.000000Z\"}', 'BSNL Office Opp. Savitri Girls School 305001 Ajmer, Rajasthan', 'BSNL Office Opp. Savitri Girls School 305001 Ajmer, Rajasthan', '26000', '2500', '23500', 'all okay', 'delivered', '2024-11-01 05:50:03', '2024-12-05 07:55:48'),
+(10, '44', 'Dinesh Sharma', '5986584857', 'dinesh@gmail.com', '305001', 'Rajasthan', 'Ajmer', 'India', '[{\"product_id\":\"20\",\"product_qty\":\"1\",\"product_disc\":\"500\",\"product_amt\":\"8000\",\"rowdata\":\"{\\\"id\\\":20,\\\"userid\\\":\\\"44\\\",\\\"category\\\":\\\"Mobiles\\\",\\\"subcategory\\\":\\\"Choose...\\\",\\\"price\\\":\\\"10000\\\",\\\"productname\\\":\\\"Galaxy S23 ULTRA\\\",\\\"saleprice\\\":\\\"8500\\\",\\\"coverimage\\\":\\\"1732599229_71lD7eGdW-L.jpg\\\",\\\"skus\\\":\\\"100\\\",\\\"status\\\":\\\"activated\\\",\\\"created_at\\\":\\\"2024-11-26T05:33:49.000000Z\\\",\\\"updated_at\\\":\\\"2024-12-02T04:38:50.000000Z\\\"}\"},{\"product_id\":\"21\",\"product_qty\":\"1\",\"product_disc\":\"2000\",\"product_amt\":\"18000\",\"rowdata\":\"{\\\"id\\\":21,\\\"userid\\\":\\\"44\\\",\\\"category\\\":\\\"Mobiles\\\",\\\"subcategory\\\":\\\"Samsung\\\",\\\"price\\\":\\\"25000\\\",\\\"productname\\\":\\\"Galaxy A54 5g\\\",\\\"saleprice\\\":\\\"20000\\\",\\\"coverimage\\\":\\\"1732599366_shopping.webp\\\",\\\"skus\\\":\\\"5\\\",\\\"status\\\":\\\"inprocess\\\",\\\"created_at\\\":\\\"2024-11-26T05:36:06.000000Z\\\",\\\"updated_at\\\":\\\"2024-12-03T05:40:35.000000Z\\\"}\"}]', '{\"id\":1,\"userid\":\"44\",\"companyname\":\"AJ KART LOGISTICS PVT LTD\",\"companylogo\":\"1732706876_mainlogo.jpg\",\"city\":\"Ajmer\",\"state\":\"Rajasthan\",\"country\":\"India\",\"pincode\":\"305001\",\"contactnumber\":\"8958658548\",\"email\":\"kart@gmail.com\",\"officeaddress\":\"Near Vaishali\",\"registrationimage\":\"1732706876_1732605240_3-invoice-generator-example.png\",\"pancardimage\":\"1732706876_1732605404_3-invoice-generator-example.png\",\"created_at\":\"2024-11-27T11:27:56.000000Z\",\"updated_at\":\"2024-11-27T12:03:17.000000Z\"}', 'BSNL Office Opp. Savitri Girls School 305001 Ajmer, Rajasthan', 'BSNL Office Opp. Savitri Girls School 305001 Ajmer, Rajasthan', '26000', '2500', '23500', 'documents are not proper', 'processing', '2024-11-15 05:50:03', '2024-12-05 07:43:50'),
+(11, '44', 'Dinesh Sharma', '5986584857', 'dinesh@gmail.com', '305001', 'Rajasthan', 'Ajmer', 'India', '[{\"product_id\":\"20\",\"product_qty\":\"1\",\"product_disc\":\"500\",\"product_amt\":\"8000\",\"rowdata\":\"{\\\"id\\\":20,\\\"userid\\\":\\\"44\\\",\\\"category\\\":\\\"Mobiles\\\",\\\"subcategory\\\":\\\"Choose...\\\",\\\"price\\\":\\\"10000\\\",\\\"productname\\\":\\\"Galaxy S23 ULTRA\\\",\\\"saleprice\\\":\\\"8500\\\",\\\"coverimage\\\":\\\"1732599229_71lD7eGdW-L.jpg\\\",\\\"skus\\\":\\\"100\\\",\\\"status\\\":\\\"activated\\\",\\\"created_at\\\":\\\"2024-11-26T05:33:49.000000Z\\\",\\\"updated_at\\\":\\\"2024-12-02T04:38:50.000000Z\\\"}\"},{\"product_id\":\"21\",\"product_qty\":\"1\",\"product_disc\":\"2000\",\"product_amt\":\"18000\",\"rowdata\":\"{\\\"id\\\":21,\\\"userid\\\":\\\"44\\\",\\\"category\\\":\\\"Mobiles\\\",\\\"subcategory\\\":\\\"Samsung\\\",\\\"price\\\":\\\"25000\\\",\\\"productname\\\":\\\"Galaxy A54 5g\\\",\\\"saleprice\\\":\\\"20000\\\",\\\"coverimage\\\":\\\"1732599366_shopping.webp\\\",\\\"skus\\\":\\\"5\\\",\\\"status\\\":\\\"inprocess\\\",\\\"created_at\\\":\\\"2024-11-26T05:36:06.000000Z\\\",\\\"updated_at\\\":\\\"2024-12-03T05:40:35.000000Z\\\"}\"}]', '{\"id\":1,\"userid\":\"44\",\"companyname\":\"AJ KART LOGISTICS PVT LTD\",\"companylogo\":\"1732706876_mainlogo.jpg\",\"city\":\"Ajmer\",\"state\":\"Rajasthan\",\"country\":\"India\",\"pincode\":\"305001\",\"contactnumber\":\"8958658548\",\"email\":\"kart@gmail.com\",\"officeaddress\":\"Near Vaishali\",\"registrationimage\":\"1732706876_1732605240_3-invoice-generator-example.png\",\"pancardimage\":\"1732706876_1732605404_3-invoice-generator-example.png\",\"created_at\":\"2024-11-27T11:27:56.000000Z\",\"updated_at\":\"2024-11-27T12:03:17.000000Z\"}', 'BSNL Office Opp. Savitri Girls School 305001 Ajmer, Rajasthan', 'BSNL Office Opp. Savitri Girls School 305001 Ajmer, Rajasthan', '26000', '2500', '23500', 'documents are not proper', 'postponed', '2023-12-10 05:50:03', '2024-12-05 08:23:52');
 
 -- --------------------------------------------------------
 
@@ -73,8 +77,8 @@ CREATE TABLE `cache` (
 --
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('845d7fe29f4eb7caf751b2dac1a742ed', 'i:1;', 1733224403),
-('845d7fe29f4eb7caf751b2dac1a742ed:timer', 'i:1733224403;', 1733224403);
+('845d7fe29f4eb7caf751b2dac1a742ed', 'i:1;', 1733383130),
+('845d7fe29f4eb7caf751b2dac1a742ed:timer', 'i:1733383130;', 1733383130);
 
 -- --------------------------------------------------------
 
@@ -362,7 +366,7 @@ CREATE TABLE `register_users` (
 --
 
 INSERT INTO `register_users` (`id`, `mobilenumber`, `email`, `verifystatus`, `activationstatus`, `created_at`, `updated_at`, `otp`, `username`) VALUES
-(44, '1234567894', 'anshul@gmail.com', '1', 'deactivate', '2024-11-08 04:34:44', '2024-12-03 10:22:15', '444464', 'Anshul'),
+(44, '1234567894', 'anshul@gmail.com', '1', 'deactivate', '2024-11-08 04:34:44', '2024-12-04 05:02:54', '197038', 'Anshul'),
 (45, '1234567890', 'nb@gmail.com', '1', 'deactivate', '2024-11-08 12:32:41', '2024-12-03 09:52:04', '804008', 'Nitzz'),
 (46, '1111111111', 'ans@gmail.com', '1', 'deactivate', '2024-11-11 06:41:25', '2024-12-03 10:43:25', '342877', 'testing');
 
@@ -386,7 +390,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('3iGxUVnQiPHlKADqiS4gTPqUgnHu7XGZndbdXFVT', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo2OntzOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czozNzoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2FkbWluL3VzZXJzbGlzdCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NjoiX3Rva2VuIjtzOjQwOiJyMVlRSmZWZGxucmJsVm9vMTFQTXNYbFRkNHhmMFpJYUg3Qjc2OUpBIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMiRsNi4wM1ViN3pNL2R3TEpYWGhEbjIuU2dzSk04MDR3NlFjajE4L3QxVWlWeG9BZU1zS0ZIaSI7czo1NToibG9naW5fY3VzdG9tZXJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTo0NDtzOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1733224667);
+('xlsiM2KWZqmflIe0ahWBiGRGPf6BfG1UGMTP6B7S', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiUlN2VDVYMjA2ZlVVSjNzMFNOQ0tUZVRMZ2xCYlNzeTdvaHhMcHY3biI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9hbGxvcmRlcnMiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEyJGw2LjAzVWI3ek0vZHdMSlhYaERuMi5TZ3NKTTgwNHc2UWNqMTgvdDFVaVZ4b0FlTXNLRkhpIjt9', 1733387047);
 
 -- --------------------------------------------------------
 
@@ -415,7 +419,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'Amit', 'ajkart@gmail.com', NULL, '$2y$12$l6.03Ub7zM/dwLJXXhDn2.SgsJM804w6Qcj18/t1UiVxoAeMsKFHi', NULL, NULL, NULL, 'a3MaFhMbH253P5i3dzANuExDIOQ5GZjhqEtUQ9Yf2cfPP9GWAZKpQBQ79sUk', NULL, NULL, '2024-09-04 04:20:07', '2024-09-04 04:20:07');
+(1, 'Amit', 'ajkart@gmail.com', NULL, '$2y$12$l6.03Ub7zM/dwLJXXhDn2.SgsJM804w6Qcj18/t1UiVxoAeMsKFHi', NULL, NULL, NULL, 'oK3V3rKHkKQ9DJbusvisZhZ6TxCADvXFmaw4uUroN679anKGySkaNDw9L7qn', NULL, NULL, '2024-09-04 04:20:07', '2024-09-04 04:20:07');
 
 -- --------------------------------------------------------
 
@@ -438,7 +442,7 @@ CREATE TABLE `user_masters` (
 
 INSERT INTO `user_masters` (`id`, `userid`, `type`, `label`, `created_at`, `updated_at`) VALUES
 (19, '44', 'Master', 'Mobiles', '2024-11-26 05:32:21', '2024-11-26 05:32:21'),
-(20, '44', 'Mobiles', 'Samsung', '2024-11-26 05:32:42', '2024-11-26 05:32:42');
+(25, '44', 'Mobiles', 'Samsung', '2024-12-03 12:29:05', '2024-12-03 12:29:05');
 
 --
 -- Indexes for dumped tables
@@ -567,7 +571,7 @@ ALTER TABLE `user_masters`
 -- AUTO_INCREMENT for table `book_deliveries`
 --
 ALTER TABLE `book_deliveries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `delivery_boys`
@@ -639,7 +643,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_masters`
 --
 ALTER TABLE `user_masters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

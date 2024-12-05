@@ -1,6 +1,7 @@
 <?php
 #{{-----------------------------------------------------🙏अंतः अस्ति प्रारंभः🙏-----------------------------}}
 namespace App\Http\Controllers;
+use App\Models\BookDelivery;
 use App\Models\DeliveryBoy;
 use App\Models\GroupType;
 use App\Models\PricingDetail;
@@ -246,6 +247,19 @@ class AdminStores extends Controller
         if ($login) {
             $login->activationstatus = $request->status;
             $login->save();
+            return response()->json(['success' => true]);
+        }
+        return response()->json(['success' => false], 404);
+    }
+
+    public function updateorderstatus(Request $request)
+    {
+        $data = BookDelivery::find($request->record_id);
+        //dd($data);
+        if ($data) {
+            $data->status = $request->status;
+            $data->statusreason = $request->reason;
+            $data->save();
             return response()->json(['success' => true]);
         }
         return response()->json(['success' => false], 404);

@@ -55,5 +55,25 @@ class AdminViews extends Controller
             return redirect()->route('adminlogin');
         }
     }
+    public function allorders(){
+        if(Auth::check()){
+            $allorders = BookDelivery::orderBy('created_at','DESC')->get();
+            //dd($allorders);
+            return view('AdminPanel.allorders',compact('allorders'));
+        }else {
+            return redirect()->route('adminlogin');
+        }
+    }
+
+    public function adminorderinvoice($orderid,$userid){
+        $allproductdata = BookDelivery::where('id',$orderid)->where('userid',$userid)->first();
+        //dd( $allproductdata);
+        return view('AdminPanel.orderinvoice',compact('allproductdata'));
+    }
+
+    public function getordersbystatus($selectedStatus){
+        $allorders = BookDelivery::where('status',$selectedStatus)->get();
+        return response()->json( $allorders);
+    }
 
 }

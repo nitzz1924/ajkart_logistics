@@ -23,6 +23,7 @@ class BookDelivery extends Model
         'subtotal',
         'totaldiscount',
         'grandtotal',
+        'statusreason',
         'status',
     ];
 }

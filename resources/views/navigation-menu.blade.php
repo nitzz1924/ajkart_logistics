@@ -74,6 +74,12 @@
                         <span data-key="t-widgets">Delivery Agents</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('allorders') }}">
+                        <i class="ri-shopping-bag-3-fill"></i>
+                        <span data-key="t-widgets">Orders</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

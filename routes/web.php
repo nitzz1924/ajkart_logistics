@@ -41,6 +41,10 @@ Route::controller(AdminViews::class)->group(function () {
     Route::get('/admin/deliverylist', 'deliverylist')->name('deliverylist');
     Route::get('/admin/userslist', 'userslist')->name('userslist');
     Route::get('/admin/myorders/{id}', 'myorders')->name('myorders');
+    Route::get('/admin/allorders', 'allorders')->name('allorders');
+    Route::get('/admin/vieworderinvoice/{orderid}/{userid}', 'adminorderinvoice')->name('adminorderinvoice');
+    Route::get('/admin/getordersbystatus/{selectedStatus}', 'getordersbystatus')->name('getordersbystatus');
+
 
 });
 
@@ -63,6 +67,7 @@ Route::controller(AdminStores::class)->group(function () {
     Route::get('/admin/deletedelivery/{id}', 'deletedelivery')->name('deletedelivery');
     Route::post('/admin/updatedelivery', 'updatedelivery')->name('updatedelivery');
     Route::post('/admin/updateactivationstatus', 'updateactivationstatus')->name('updateactivationstatus');
+    Route::post('/admin/updateorderstatus', 'updateorderstatus')->name('updateorderstatus');
 
 });
 
