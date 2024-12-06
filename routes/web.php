@@ -44,8 +44,6 @@ Route::controller(AdminViews::class)->group(function () {
     Route::get('/admin/allorders', 'allorders')->name('allorders');
     Route::get('/admin/vieworderinvoice/{orderid}/{userid}', 'adminorderinvoice')->name('adminorderinvoice');
     Route::get('/admin/getordersbystatus/{selectedStatus}', 'getordersbystatus')->name('getordersbystatus');
-
-
 });
 
 Route::controller(AdminStores::class)->group(function () {
@@ -68,7 +66,7 @@ Route::controller(AdminStores::class)->group(function () {
     Route::post('/admin/updatedelivery', 'updatedelivery')->name('updatedelivery');
     Route::post('/admin/updateactivationstatus', 'updateactivationstatus')->name('updateactivationstatus');
     Route::post('/admin/updateorderstatus', 'updateorderstatus')->name('updateorderstatus');
-
+    Route::post('/admin/filterordersbydates', 'filterordersbydates')->name('filterordersbydates');
 });
 
 

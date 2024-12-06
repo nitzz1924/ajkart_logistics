@@ -265,4 +265,12 @@ class AdminStores extends Controller
         return response()->json(['success' => false], 404);
     }
 
+    public function filterordersbydates(Request $request){
+        $datefrom = $request->input('datefrom');
+        $dateto = $request->input('dateto');
+        $data = BookDelivery::whereDate('created_at', '>=', $datefrom)->whereDate('created_at', '<=', $dateto)->orderby('created_at', 'desc')->get();
+        return response()->json($data);
+        // dd($data);
+    }
+
 }
